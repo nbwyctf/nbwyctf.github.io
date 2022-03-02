@@ -8,12 +8,12 @@ document.addEventListener("pjax:success", initScrollReveal);
 </script><link rel="icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#0078E7"><link rel="preload" href="https://cdn.jsdelivr.net/gh/YunYouJun/yunyoujun.github.io@latest/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/YunYouJun/yunyoujun.github.io@latest/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
     window.Yun = {}
     window.CONFIG = {"hostname":"nbwyctf.github.io","root":"/","title":"穿堂风的小窝","version":"1.8.10","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"fireworks":{"colors":null},"vendors":{"darken":"https://cdn.jsdelivr.net/npm/darken@1.5.0"}};
-  </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/YunYouJun/yunyoujun.github.io@latest/css/hexo-theme-yun.css"><script src="https://cdn.jsdelivr.net/gh/YunYouJun/yunyoujun.github.io@latest/js/hexo-theme-yun.js" type="module"></script><script src="//at.alicdn.com/t/font_2580000_1bbml5xtge8.js" async></script><meta name="description" content="#常量 ascii_letters常量string.ascii_letters 参数说明：返回26个大小写英文字母  获取26个大小写英文字母  1234import stringchars &#x3D; string.ascii_lettersprint(chars)#abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ   随机生存5组大小些字母组成的">
+  </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/YunYouJun/yunyoujun.github.io@latest/css/hexo-theme-yun.css"><script src="https://cdn.jsdelivr.net/gh/YunYouJun/yunyoujun.github.io@latest/js/hexo-theme-yun.js" type="module"></script><script src="//at.alicdn.com/t/font_2580000_1bbml5xtge8.js" async></script><meta name="description" content="#常量 ascii_letters常量string.ascii_letters 参数说明：返回26个大小写英文字母  获取26个大小写英文字母  import string chars &#x3D; string.ascii_letters print(chars) #abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ   随机生存5组大小些字母组成的字">
 <meta property="og:type" content="article">
 <meta property="og:title" content="string库">
 <meta property="og:url" content="https://nbwyctf.github.io/2021/06/04/String%E5%BA%93/index.html">
 <meta property="og:site_name" content="毛毛和车车的小站">
-<meta property="og:description" content="#常量 ascii_letters常量string.ascii_letters 参数说明：返回26个大小写英文字母  获取26个大小写英文字母  1234import stringchars &#x3D; string.ascii_lettersprint(chars)#abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ   随机生存5组大小些字母组成的">
+<meta property="og:description" content="#常量 ascii_letters常量string.ascii_letters 参数说明：返回26个大小写英文字母  获取26个大小写英文字母  import string chars &#x3D; string.ascii_letters print(chars) #abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ   随机生存5组大小些字母组成的字">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2021/06/14/xwg52SPEAdI7smH.jpg">
 <meta property="article:published_time" content="2021-06-04T01:50:00.000Z">
@@ -33,106 +33,218 @@ document.addEventListener("pjax:success", initScrollReveal);
 <blockquote>
 <p>获取26个大小写英文字母</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string</span><br><span class="line">chars = string.ascii_letters</span><br><span class="line"><span class="built_in">print</span>(chars)</span><br><span class="line"><span class="comment">#abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</span></span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string
+chars <span class="token operator">=</span> string<span class="token punctuation">.</span>ascii_letters
+<span class="token keyword">print</span><span class="token punctuation">(</span>chars<span class="token punctuation">)</span>
+<span class="token comment">#abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</span></code></pre>
 
 <blockquote>
 <p>随机生存5组大小些字母组成的字符串</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string,random</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line">    <span class="comment">#sample()函数从指定序列中随机截取8个字符</span></span><br><span class="line">    myMode=<span class="string">&quot;&quot;</span>.join(random.sample(string.ascii_letters,<span class="number">8</span>))</span><br><span class="line">    <span class="built_in">print</span>(myMode)</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">XnkieIJK</span></span><br><span class="line"><span class="string">klGwpWAr</span></span><br><span class="line"><span class="string">WSiNjfGp</span></span><br><span class="line"><span class="string">ZeDfNGlv</span></span><br><span class="line"><span class="string">xYDSypbB</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string<span class="token punctuation">,</span>random
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment">#sample()函数从指定序列中随机截取8个字符</span>
+    myMode<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>random<span class="token punctuation">.</span>sample<span class="token punctuation">(</span>string<span class="token punctuation">.</span>ascii_letters<span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>myMode<span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+XnkieIJK
+klGwpWAr
+WSiNjfGp
+ZeDfNGlv
+xYDSypbB
+'''</span></code></pre>
 
 <blockquote>
 <p>随机生成100个激活码</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random,string</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">IDstr</span>(<span class="params">num,<span class="built_in">len</span> = <span class="number">8</span></span>):</span><br><span class="line">    f=<span class="built_in">open</span>(<span class="string">&quot;./mycode.txt&quot;</span>,<span class="string">&#x27;w&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(num):</span><br><span class="line">        chars = string.ascii_letters+string.digits</span><br><span class="line">        <span class="comment">#choice()函数从任何序列中随机选取n位字符</span></span><br><span class="line">        s =[random.choice(chars) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>)]</span><br><span class="line">        f.write(<span class="string">&quot;&#123;0&#125;\n&quot;</span>.<span class="built_in">format</span>(<span class="string">&quot;&quot;</span>.join(s)))   </span><br><span class="line">    f.close()</span><br><span class="line"><span class="comment">#生成100个激活码</span></span><br><span class="line">IDstr(<span class="number">100</span>)    </span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> random<span class="token punctuation">,</span>string
+<span class="token keyword">def</span> <span class="token function">IDstr</span><span class="token punctuation">(</span>num<span class="token punctuation">,</span><span class="token builtin">len</span> <span class="token operator">=</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    f<span class="token operator">=</span><span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"./mycode.txt"</span><span class="token punctuation">,</span><span class="token string">'w'</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        chars <span class="token operator">=</span> string<span class="token punctuation">.</span>ascii_letters<span class="token operator">+</span>string<span class="token punctuation">.</span>digits
+        <span class="token comment">#choice()函数从任何序列中随机选取n位字符</span>
+        s <span class="token operator">=</span><span class="token punctuation">[</span>random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>chars<span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+        f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">"&#123;0&#125;\n"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>   
+    f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">#生成100个激活码</span>
+IDstr<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>    </code></pre>
 
 <h2 id="ascii-lowercase常量"><a href="#ascii-lowercase常量" class="headerlink" title="ascii_lowercase常量"></a><code>ascii_lowercase</code>常量</h2><p><strong>string.ascii_lowercase</strong></p>
 <p><strong>参数说明：返回26个小写字母</strong></p>
 <blockquote>
 <p>获取26个小写字母</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string</span><br><span class="line">chars = string.ascii_lowercase</span><br><span class="line"><span class="built_in">print</span>(chars)</span><br><span class="line"><span class="comment">#abcdefghijklmnopqrstuvwxyz</span></span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string
+chars <span class="token operator">=</span> string<span class="token punctuation">.</span>ascii_lowercase
+<span class="token keyword">print</span><span class="token punctuation">(</span>chars<span class="token punctuation">)</span>
+<span class="token comment">#abcdefghijklmnopqrstuvwxyz</span></code></pre>
 
 <blockquote>
 <p>判断输入字母是否全为小写</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">check</span>(<span class="params">value</span>):</span><br><span class="line">    <span class="keyword">for</span> letter <span class="keyword">in</span> value:</span><br><span class="line">        <span class="keyword">if</span> letter <span class="keyword">not</span> <span class="keyword">in</span> string.ascii_lowercase:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">myval = <span class="built_in">input</span>(<span class="string">&quot;请输入小写字母：&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(check(myval))</span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string
+<span class="token keyword">def</span> <span class="token function">check</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> letter <span class="token keyword">in</span> value<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> letter <span class="token keyword">not</span> <span class="token keyword">in</span> string<span class="token punctuation">.</span>ascii_lowercase<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token boolean">False</span>
+    <span class="token keyword">return</span> <span class="token boolean">True</span>
+myval <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入小写字母："</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>check<span class="token punctuation">(</span>myval<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
 <blockquote>
 <p>生成由小写字母和数字随机生成的10位密码</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string, random</span><br><span class="line">passwords = <span class="string">&#x27;&#x27;</span>.join([random.choice(string.ascii_lowercase+string.digits) <span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)])</span><br><span class="line"><span class="built_in">print</span>(passwords)</span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string<span class="token punctuation">,</span> random
+passwords <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">[</span>random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>string<span class="token punctuation">.</span>ascii_lowercase<span class="token operator">+</span>string<span class="token punctuation">.</span>digits<span class="token punctuation">)</span> <span class="token keyword">for</span> n <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>passwords<span class="token punctuation">)</span></code></pre>
 
 <p>##<code>string.ascii_uppercase</code>常量</p>
 <p><strong>参数说明：返回26个大写字母</strong></p>
 <blockquote>
 <p>获取26个大写英文字母</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string</span><br><span class="line">chars = string.ascii_uppercase</span><br><span class="line"><span class="built_in">print</span>(chars)</span><br><span class="line"><span class="comment">#ABCDEFGHIJKLMNOPQRSTUVWXYZ</span></span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string
+chars <span class="token operator">=</span> string<span class="token punctuation">.</span>ascii_uppercase
+<span class="token keyword">print</span><span class="token punctuation">(</span>chars<span class="token punctuation">)</span>
+<span class="token comment">#ABCDEFGHIJKLMNOPQRSTUVWXYZ</span></code></pre>
 
 <blockquote>
 <p> 判断输入字母是否全为小写</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">check</span>(<span class="params">value</span>):</span><br><span class="line">    <span class="keyword">for</span> letter <span class="keyword">in</span> value:</span><br><span class="line">        <span class="keyword">if</span> letter <span class="keyword">not</span> <span class="keyword">in</span> string.ascii_uppercase:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">myval = <span class="built_in">input</span>(<span class="string">&quot;请输入大写字母：&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(check(myval))</span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string
+<span class="token keyword">def</span> <span class="token function">check</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> letter <span class="token keyword">in</span> value<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> letter <span class="token keyword">not</span> <span class="token keyword">in</span> string<span class="token punctuation">.</span>ascii_uppercase<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token boolean">False</span>
+    <span class="token keyword">return</span> <span class="token boolean">True</span>
+myval <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入大写字母："</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>check<span class="token punctuation">(</span>myval<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
 <h2 id="digits常量"><a href="#digits常量" class="headerlink" title="digits常量"></a><code>digits</code>常量</h2><p><strong>参数说明：返回十进制数字字符串</strong></p>
 <blockquote>
 <p>获取所有十进制数字字符串</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string</span><br><span class="line">chars = string.digits</span><br><span class="line"><span class="built_in">print</span>(chars)</span><br><span class="line"><span class="comment">#0123456789</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string
+chars <span class="token operator">=</span> string<span class="token punctuation">.</span>digits
+<span class="token keyword">print</span><span class="token punctuation">(</span>chars<span class="token punctuation">)</span>
+<span class="token comment">#0123456789</span>
+</code></pre>
 
 <blockquote>
 <p>随机抽取八位幸运数字</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string,random</span><br><span class="line"><span class="comment">#生成一组随机数</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>):</span><br><span class="line">    <span class="comment">#此sample()函数从指定序列中随机截取8个字符</span></span><br><span class="line">    myCode = <span class="string">&#x27;&#x27;</span>.join(random.sample(string.digits,<span class="number">8</span>))</span><br><span class="line">    <span class="built_in">print</span>(myCode)</span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string<span class="token punctuation">,</span>random
+<span class="token comment">#生成一组随机数</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment">#此sample()函数从指定序列中随机截取8个字符</span>
+    myCode <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>random<span class="token punctuation">.</span>sample<span class="token punctuation">(</span>string<span class="token punctuation">.</span>digits<span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>myCode<span class="token punctuation">)</span></code></pre>
 
 <blockquote>
 <p>滤除大段文本中的数字</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string</span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&#x27;./test.txt&#x27;</span>,<span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">s = f.read()</span><br><span class="line"><span class="keyword">for</span> c <span class="keyword">in</span> s:</span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> string.digits:</span><br><span class="line">        <span class="keyword">if</span> c == n:</span><br><span class="line">            s = s.replace(c,<span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(s)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string
+f <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'./test.txt'</span><span class="token punctuation">,</span><span class="token string">'r'</span><span class="token punctuation">)</span>
+s <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> c <span class="token keyword">in</span> s<span class="token punctuation">:</span>
+    <span class="token keyword">for</span> n <span class="token keyword">in</span> string<span class="token punctuation">.</span>digits<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> c <span class="token operator">==</span> n<span class="token punctuation">:</span>
+            s <span class="token operator">=</span> s<span class="token punctuation">.</span>replace<span class="token punctuation">(</span>c<span class="token punctuation">,</span><span class="token string">""</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 
 <blockquote>
 <p>判断用户输入的手机号</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">isdigits</span>(<span class="params">s</span>):</span><br><span class="line">    <span class="keyword">for</span> c <span class="keyword">in</span> s:</span><br><span class="line">        <span class="keyword">if</span> c <span class="keyword">not</span> <span class="keyword">in</span> string.digits:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(s) != <span class="number">11</span>:</span><br><span class="line">        <span class="keyword">return</span>  <span class="literal">False</span></span><br><span class="line">    <span class="keyword">if</span> s[<span class="number">0</span>] == <span class="string">&#x27;0&#x27;</span>:</span><br><span class="line">        <span class="keyword">return</span>  <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">myval = <span class="built_in">input</span>(<span class="string">&quot;请输入手机号&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(isdigits(myval))</span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string
+<span class="token keyword">def</span> <span class="token function">isdigits</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> c <span class="token keyword">in</span> s<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> c <span class="token keyword">not</span> <span class="token keyword">in</span> string<span class="token punctuation">.</span>digits<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token boolean">False</span>
+    <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">11</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span>  <span class="token boolean">False</span>
+    <span class="token keyword">if</span> s<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'0'</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span>  <span class="token boolean">False</span>
+
+myval <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入手机号"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>isdigits<span class="token punctuation">(</span>myval<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
 <h2 id="hexdigits常量"><a href="#hexdigits常量" class="headerlink" title="hexdigits常量"></a><code>hexdigits</code>常量</h2><p><strong>参数说明：返回十六进制数字字符串</strong></p>
 <blockquote>
 <p>获取所有十六进制的数字字符串</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string</span><br><span class="line">chars = string.hexdigits</span><br><span class="line"><span class="built_in">print</span>(chars)</span><br><span class="line"><span class="comment">#0123456789abcdefABCDEF</span></span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string
+chars <span class="token operator">=</span> string<span class="token punctuation">.</span>hexdigits
+<span class="token keyword">print</span><span class="token punctuation">(</span>chars<span class="token punctuation">)</span>
+<span class="token comment">#0123456789abcdefABCDEF</span></code></pre>
 
 <blockquote>
 <p>随机生成16进制颜色代码</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string,random</span><br><span class="line">s = string.hexdigits[<span class="number">0</span>:<span class="number">10</span>] + string.hexdigits[<span class="number">16</span>:<span class="number">22</span>]</span><br><span class="line"><span class="comment">#随机生成十六进制颜色代码</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">randomcolor</span>():</span><br><span class="line">    colorArr = [c <span class="keyword">for</span> c <span class="keyword">in</span> s]</span><br><span class="line">    color = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">6</span>):</span><br><span class="line">        color += colorArr[random.randint(<span class="number">0</span>,<span class="number">14</span>)]</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;#&#x27;</span>+color</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    <span class="built_in">print</span>(randomcolor())</span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string<span class="token punctuation">,</span>random
+s <span class="token operator">=</span> string<span class="token punctuation">.</span>hexdigits<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">10</span><span class="token punctuation">]</span> <span class="token operator">+</span> string<span class="token punctuation">.</span>hexdigits<span class="token punctuation">[</span><span class="token number">16</span><span class="token punctuation">:</span><span class="token number">22</span><span class="token punctuation">]</span>
+<span class="token comment">#随机生成十六进制颜色代码</span>
+<span class="token keyword">def</span> <span class="token function">randomcolor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    colorArr <span class="token operator">=</span> <span class="token punctuation">[</span>c <span class="token keyword">for</span> c <span class="token keyword">in</span> s<span class="token punctuation">]</span>
+    color <span class="token operator">=</span> <span class="token string">''</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        color <span class="token operator">+=</span> colorArr<span class="token punctuation">[</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">14</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+    <span class="token keyword">return</span> <span class="token string">'#'</span><span class="token operator">+</span>color
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>randomcolor<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
 <h2 id="octdigits常量"><a href="#octdigits常量" class="headerlink" title="octdigits常量"></a><code>octdigits</code>常量</h2><p><strong>参数说明：返回八进制数字字符串</strong></p>
 <blockquote>
 <p>获取所有八进制的数字字符串</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string</span><br><span class="line">chars = string.octdigits</span><br><span class="line"><span class="built_in">print</span>(chars)</span><br><span class="line"><span class="comment">#01234567</span></span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string
+chars <span class="token operator">=</span> string<span class="token punctuation">.</span>octdigits
+<span class="token keyword">print</span><span class="token punctuation">(</span>chars<span class="token punctuation">)</span>
+<span class="token comment">#01234567</span></code></pre>
 
 <h2 id="punctuation常量"><a href="#punctuation常量" class="headerlink" title="punctuation常量"></a><code>punctuation</code>常量</h2><p><strong>参数说明：返回英文标点符号</strong></p>
 <blockquote>
 <p>获取所有英文标点符号</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string</span><br><span class="line">chars = string.punctuation</span><br><span class="line"><span class="built_in">print</span>(chars)</span><br><span class="line"><span class="comment">#!&quot;#$%&amp;&#x27;()*+,-./:;&lt;=&gt;?@[\]^_`&#123;|&#125;~</span></span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string
+chars <span class="token operator">=</span> string<span class="token punctuation">.</span>punctuation
+<span class="token keyword">print</span><span class="token punctuation">(</span>chars<span class="token punctuation">)</span>
+<span class="token comment">#!"#$%&amp;'()*+,-./:;&lt;=>?@[\]^_`&#123;|&#125;~</span></code></pre>
 
 <blockquote>
 <p>滤除字符串中英文标点</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string</span><br><span class="line">line = <span class="string">&#x27;di/ko.d,.;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> c <span class="keyword">in</span> line:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> string.punctuation:</span><br><span class="line">        <span class="keyword">if</span> c == i:</span><br><span class="line">            line = line.replace(c,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(line)</span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string
+line <span class="token operator">=</span> <span class="token string">'di/ko.d,.;'</span>
+<span class="token keyword">for</span> c <span class="token keyword">in</span> line<span class="token punctuation">:</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> string<span class="token punctuation">.</span>punctuation<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> c <span class="token operator">==</span> i<span class="token punctuation">:</span>
+            line <span class="token operator">=</span> line<span class="token punctuation">.</span>replace<span class="token punctuation">(</span>c<span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>line<span class="token punctuation">)</span></code></pre>
 
 <blockquote>
 <p>统计一篇英文文章中每个单词出现的次数(滤除标点)</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string,collections</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;./test.txt&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    s = f.read()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> s:</span><br><span class="line">    <span class="keyword">if</span> i <span class="keyword">in</span> string.punctuation:</span><br><span class="line">        s = s.replace(i,<span class="string">&quot;&quot;</span>)</span><br><span class="line">str1= s.split()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;\n各单词出现的次数：\n%s&#x27;</span>%collections.Counter(str1))</span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string<span class="token punctuation">,</span>collections
+<span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"./test.txt"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    s <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> s<span class="token punctuation">:</span>
+    <span class="token keyword">if</span> i <span class="token keyword">in</span> string<span class="token punctuation">.</span>punctuation<span class="token punctuation">:</span>
+        s <span class="token operator">=</span> s<span class="token punctuation">.</span>replace<span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token string">""</span><span class="token punctuation">)</span>
+str1<span class="token operator">=</span> s<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'\n各单词出现的次数：\n%s'</span><span class="token operator">%</span>collections<span class="token punctuation">.</span>Counter<span class="token punctuation">(</span>str1<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
 <h2 id="printable常量"><a href="#printable常量" class="headerlink" title="printable常量"></a><code>printable</code>常量</h2><p><strong>参数说明：返回Python可打印字符</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string</span><br><span class="line">chars = string.printable</span><br><span class="line"><span class="built_in">print</span>(chars)</span><br><span class="line"><span class="comment">#0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!&quot;#$%&amp;&#x27;()*+,-./:;&lt;=&gt;?@[\]^_`&#123;|&#125;~ 	</span></span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string
+chars <span class="token operator">=</span> string<span class="token punctuation">.</span>printable
+<span class="token keyword">print</span><span class="token punctuation">(</span>chars<span class="token punctuation">)</span>
+<span class="token comment">#0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&amp;'()*+,-./:;&lt;=>?@[\]^_`&#123;|&#125;~ 	</span></code></pre>
 
 <h2 id="whitespace常量"><a href="#whitespace常量" class="headerlink" title="whitespace常量"></a><code>whitespace</code>常量</h2><p><strong>参数说明：返回空白字符</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string</span><br><span class="line">chars = string.whitespace</span><br><span class="line"><span class="built_in">print</span>(chars)</span><br><span class="line"><span class="comment">#输出所有空白字符</span></span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string
+chars <span class="token operator">=</span> string<span class="token punctuation">.</span>whitespace
+<span class="token keyword">print</span><span class="token punctuation">(</span>chars<span class="token punctuation">)</span>
+<span class="token comment">#输出所有空白字符</span></code></pre>
 
 <p>#方法</p>
 <h2 id="capwords-方法"><a href="#capwords-方法" class="headerlink" title="capwords()方法"></a><code>capwords()</code>方法</h2><blockquote>
@@ -148,12 +260,20 @@ document.addEventListener("pjax:success", initScrollReveal);
 <blockquote>
 <p>将所有单词的首写字母转换为大写</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string</span><br><span class="line">en = <span class="string">&quot;there&#x27;s nothing you can do that can&#x27;t be done&quot;</span></span><br><span class="line">result = string.capwords(en)</span><br><span class="line"><span class="built_in">print</span>(result)</span><br><span class="line"><span class="comment">#There&#x27;s Nothing You Can Do That Can&#x27;t Be Done</span></span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string
+en <span class="token operator">=</span> <span class="token string">"there's nothing you can do that can't be done"</span>
+result <span class="token operator">=</span> string<span class="token punctuation">.</span>capwords<span class="token punctuation">(</span>en<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+<span class="token comment">#There's Nothing You Can Do That Can't Be Done</span></code></pre>
 
 <blockquote>
 <p>用分隔符仅将指定字母转换为大写形式</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string</span><br><span class="line">en = <span class="string">&#x27;do not.for one repulse.give up the purpose that you resolved to effect&#x27;</span></span><br><span class="line">result = string.capwords(en,sep=<span class="string">&#x27;.&#x27;</span>)<span class="comment">#以.为分隔符</span></span><br><span class="line"><span class="built_in">print</span>(result)</span><br><span class="line"><span class="comment">#Do not.For one repulse.Give up the purpose that you resolved to effect</span></span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string
+en <span class="token operator">=</span> <span class="token string">'do not.for one repulse.give up the purpose that you resolved to effect'</span>
+result <span class="token operator">=</span> string<span class="token punctuation">.</span>capwords<span class="token punctuation">(</span>en<span class="token punctuation">,</span>sep<span class="token operator">=</span><span class="token string">'.'</span><span class="token punctuation">)</span><span class="token comment">#以.为分隔符</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+<span class="token comment">#Do not.For one repulse.Give up the purpose that you resolved to effect</span></code></pre>
 
 <h1 id="Formatter-类"><a href="#Formatter-类" class="headerlink" title="Formatter()类"></a><font color='#1392DE'>Formatter()类</font></h1><h2 id="format-方法"><a href="#format-方法" class="headerlink" title="format()方法"></a>format()方法</h2><p><strong>参数说明：</strong></p>
 <blockquote>
@@ -168,38 +288,118 @@ document.addEventListener("pjax:success", initScrollReveal);
 <blockquote>
 <p>生成数据编号</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string</span><br><span class="line">formatter = string.Formatter()</span><br><span class="line">s1 = <span class="string">&#x27;&#123;:0&gt;3&#125;&#x27;</span></span><br><span class="line">s2 = <span class="string">&#x27;&#123;:0&gt;5&#125;&#x27;</span></span><br><span class="line">s3 = <span class="string">&#x27;a&#123;:0&gt;6&#125;&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(formatter.<span class="built_in">format</span>(s1,<span class="number">1</span>))</span><br><span class="line"><span class="built_in">print</span>(formatter.<span class="built_in">format</span>(s2,<span class="string">&#x27;08&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(formatter.<span class="built_in">format</span>(s3,<span class="number">886</span>))</span><br><span class="line"><span class="comment">#001</span></span><br><span class="line"><span class="comment">#00008</span></span><br><span class="line"><span class="comment">#a000886</span></span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string
+formatter <span class="token operator">=</span> string<span class="token punctuation">.</span>Formatter<span class="token punctuation">(</span><span class="token punctuation">)</span>
+s1 <span class="token operator">=</span> <span class="token string">'&#123;:0>3&#125;'</span>
+s2 <span class="token operator">=</span> <span class="token string">'&#123;:0>5&#125;'</span>
+s3 <span class="token operator">=</span> <span class="token string">'a&#123;:0>6&#125;'</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>formatter<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>s1<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>formatter<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>s2<span class="token punctuation">,</span><span class="token string">'08'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>formatter<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>s3<span class="token punctuation">,</span><span class="token number">886</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">#001</span>
+<span class="token comment">#00008</span>
+<span class="token comment">#a000886</span></code></pre>
 
 <blockquote>
 <p>格式化百分比</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string</span><br><span class="line">formatter = string.Formatter()</span><br><span class="line">s1 = <span class="string">&#x27;&#123;:%&#125;&#x27;</span><span class="comment">#将小数格式化成百分比</span></span><br><span class="line">s2 = <span class="string">&#x27;&#123;:.0%&#125;&#x27;</span><span class="comment">#将小数格式化后保留整数百分比</span></span><br><span class="line">s3 = <span class="string">&#x27;&#123;:.2%&#125;&#x27;</span><span class="comment">#将小数格式化后保留两位小数的百分比</span></span><br><span class="line">s4 = <span class="string">&#x27;&#123;:10.3%&#125;&#x27;</span><span class="comment">#将小数格式化后保留三位小数10位百分比</span></span><br><span class="line"><span class="built_in">print</span>(formatter.<span class="built_in">format</span>(s1,<span class="number">0.1314</span>))</span><br><span class="line"><span class="built_in">print</span>(formatter.<span class="built_in">format</span>(s2,<span class="number">0.1314</span>))</span><br><span class="line"><span class="built_in">print</span>(formatter.<span class="built_in">format</span>(s3,<span class="number">0.1314</span>))</span><br><span class="line"><span class="built_in">print</span>(formatter.<span class="built_in">format</span>(s4,<span class="number">0.1314</span>))</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">13.140000%</span></span><br><span class="line"><span class="string">13%</span></span><br><span class="line"><span class="string">13.14%</span></span><br><span class="line"><span class="string">   13.140%</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string
+formatter <span class="token operator">=</span> string<span class="token punctuation">.</span>Formatter<span class="token punctuation">(</span><span class="token punctuation">)</span>
+s1 <span class="token operator">=</span> <span class="token string">'&#123;:%&#125;'</span><span class="token comment">#将小数格式化成百分比</span>
+s2 <span class="token operator">=</span> <span class="token string">'&#123;:.0%&#125;'</span><span class="token comment">#将小数格式化后保留整数百分比</span>
+s3 <span class="token operator">=</span> <span class="token string">'&#123;:.2%&#125;'</span><span class="token comment">#将小数格式化后保留两位小数的百分比</span>
+s4 <span class="token operator">=</span> <span class="token string">'&#123;:10.3%&#125;'</span><span class="token comment">#将小数格式化后保留三位小数10位百分比</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>formatter<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>s1<span class="token punctuation">,</span><span class="token number">0.1314</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>formatter<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>s2<span class="token punctuation">,</span><span class="token number">0.1314</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>formatter<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>s3<span class="token punctuation">,</span><span class="token number">0.1314</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>formatter<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>s4<span class="token punctuation">,</span><span class="token number">0.1314</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+13.140000%
+13%
+13.14%
+   13.140%
+'''</span></code></pre>
 
 <blockquote>
 <p>格式化金额</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string</span><br><span class="line">formatter = string.Formatter()</span><br><span class="line">s1 = <span class="string">&#x27;$&#123;:.2f&#125;&#x27;</span><span class="comment">#添加美元符号，小数保留两位</span></span><br><span class="line">s2 = <span class="string">&#x27;￥&#123;:,.2f&#125;&#x27;</span><span class="comment">#添加人民币符号，用千位分割符进行区分</span></span><br><span class="line">s3 = <span class="string">&#x27;￡&#123;:,.2f&#125;&#x27;</span><span class="comment">#添加人英镑符号，用千位分割符进行区分</span></span><br><span class="line">s4 = <span class="string">&#x27;€&#123;:.2f&#125;&#x27;</span><span class="comment">#添加欧元符号，小数保留两位</span></span><br><span class="line"><span class="built_in">print</span>(formatter.<span class="built_in">format</span>(s1,<span class="number">0.88</span>))</span><br><span class="line"><span class="built_in">print</span>(formatter.<span class="built_in">format</span>(s2,<span class="number">888800</span>))</span><br><span class="line"><span class="built_in">print</span>(formatter.<span class="built_in">format</span>(s3,<span class="number">1234567</span>))</span><br><span class="line"><span class="built_in">print</span>(formatter.<span class="built_in">format</span>(s4,<span class="number">1234567</span>))</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">$0.88</span></span><br><span class="line"><span class="string">￥888,800.00</span></span><br><span class="line"><span class="string">￡1,234,567.00</span></span><br><span class="line"><span class="string">€1234567.00</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string
+formatter <span class="token operator">=</span> string<span class="token punctuation">.</span>Formatter<span class="token punctuation">(</span><span class="token punctuation">)</span>
+s1 <span class="token operator">=</span> <span class="token string">'$&#123;:.2f&#125;'</span><span class="token comment">#添加美元符号，小数保留两位</span>
+s2 <span class="token operator">=</span> <span class="token string">'￥&#123;:,.2f&#125;'</span><span class="token comment">#添加人民币符号，用千位分割符进行区分</span>
+s3 <span class="token operator">=</span> <span class="token string">'￡&#123;:,.2f&#125;'</span><span class="token comment">#添加人英镑符号，用千位分割符进行区分</span>
+s4 <span class="token operator">=</span> <span class="token string">'€&#123;:.2f&#125;'</span><span class="token comment">#添加欧元符号，小数保留两位</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>formatter<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>s1<span class="token punctuation">,</span><span class="token number">0.88</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>formatter<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>s2<span class="token punctuation">,</span><span class="token number">888800</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>formatter<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>s3<span class="token punctuation">,</span><span class="token number">1234567</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>formatter<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>s4<span class="token punctuation">,</span><span class="token number">1234567</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+$0.88
+￥888,800.00
+￡1,234,567.00
+€1234567.00
+'''</span></code></pre>
 
 <blockquote>
 <p>格式化日期和时间</p>
 </blockquote>
 <p><img src="https://i.loli.net/2021/06/14/xwg52SPEAdI7smH.jpg" loading="lazy"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line">formatter = string.Formatter()</span><br><span class="line">d = datetime.datetime.now()</span><br><span class="line">s1 = <span class="string">&#x27;&#123;:%Y-%m-%d %H:%M:%S&#125;&#x27;</span></span><br><span class="line">s2 = <span class="string">&#x27;&#123;:%Y-%m-%d %H:%M:%S %a&#125;&#x27;</span></span><br><span class="line">s3 = <span class="string">f&#x27;:<span class="subst">&#123;d:%Y&#125;</span>年<span class="subst">&#123;d:%m&#125;</span>月<span class="subst">&#123;d:%d&#125;</span>日 <span class="subst">&#123;d:%H&#125;</span>时<span class="subst">&#123;d:%M&#125;</span>分<span class="subst">&#123;d:%S&#125;</span>秒&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(formatter.<span class="built_in">format</span>(s1,d))</span><br><span class="line"><span class="built_in">print</span>(formatter.<span class="built_in">format</span>(s2,d))</span><br><span class="line"><span class="built_in">print</span>(formatter.<span class="built_in">format</span>(s3,d))</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">2021-06-14 10:24:33</span></span><br><span class="line"><span class="string">2021-06-14 10:24:33 Mon</span></span><br><span class="line"><span class="string">:2021年06月14日 10时24分33秒</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string
+<span class="token keyword">import</span> datetime
+formatter <span class="token operator">=</span> string<span class="token punctuation">.</span>Formatter<span class="token punctuation">(</span><span class="token punctuation">)</span>
+d <span class="token operator">=</span> datetime<span class="token punctuation">.</span>datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span>
+s1 <span class="token operator">=</span> <span class="token string">'&#123;:%Y-%m-%d %H:%M:%S&#125;'</span>
+s2 <span class="token operator">=</span> <span class="token string">'&#123;:%Y-%m-%d %H:%M:%S %a&#125;'</span>
+s3 <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f':</span><span class="token interpolation"><span class="token punctuation">&#123;</span>d<span class="token punctuation">:</span><span class="token format-spec">%Y</span><span class="token punctuation">&#125;</span></span><span class="token string">年</span><span class="token interpolation"><span class="token punctuation">&#123;</span>d<span class="token punctuation">:</span><span class="token format-spec">%m</span><span class="token punctuation">&#125;</span></span><span class="token string">月</span><span class="token interpolation"><span class="token punctuation">&#123;</span>d<span class="token punctuation">:</span><span class="token format-spec">%d</span><span class="token punctuation">&#125;</span></span><span class="token string">日 </span><span class="token interpolation"><span class="token punctuation">&#123;</span>d<span class="token punctuation">:</span><span class="token format-spec">%H</span><span class="token punctuation">&#125;</span></span><span class="token string">时</span><span class="token interpolation"><span class="token punctuation">&#123;</span>d<span class="token punctuation">:</span><span class="token format-spec">%M</span><span class="token punctuation">&#125;</span></span><span class="token string">分</span><span class="token interpolation"><span class="token punctuation">&#123;</span>d<span class="token punctuation">:</span><span class="token format-spec">%S</span><span class="token punctuation">&#125;</span></span><span class="token string">秒'</span></span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>formatter<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>s1<span class="token punctuation">,</span>d<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>formatter<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>s2<span class="token punctuation">,</span>d<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>formatter<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>s3<span class="token punctuation">,</span>d<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+2021-06-14 10:24:33
+2021-06-14 10:24:33 Mon
+:2021年06月14日 10时24分33秒
+'''</span></code></pre>
 
 <blockquote>
 <p>格式化列表中的数据</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string</span><br><span class="line">formatter = string.Formatter()</span><br><span class="line">list1 = [<span class="string">&#x27;活着&#x27;</span>,<span class="string">&#x27;海底捞你学不会&#x27;</span>,<span class="string">&#x27;Python从入门到入土&#x27;</span>]</span><br><span class="line">val = formatter.<span class="built_in">format</span>(<span class="string">&#x27;《&#123;&#125;》《&#123;&#125;》《&#123;&#125;》&#x27;</span>,*list1)</span><br><span class="line"><span class="built_in">print</span>(val)</span><br><span class="line"><span class="comment">#《活着》《海底捞你学不会》《Python从入门到入土》</span></span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string
+formatter <span class="token operator">=</span> string<span class="token punctuation">.</span>Formatter<span class="token punctuation">(</span><span class="token punctuation">)</span>
+list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'活着'</span><span class="token punctuation">,</span><span class="token string">'海底捞你学不会'</span><span class="token punctuation">,</span><span class="token string">'Python从入门到入土'</span><span class="token punctuation">]</span>
+val <span class="token operator">=</span> formatter<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token string">'《&#123;&#125;》《&#123;&#125;》《&#123;&#125;》'</span><span class="token punctuation">,</span><span class="token operator">*</span>list1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span>
+<span class="token comment">#《活着》《海底捞你学不会》《Python从入门到入土》</span></code></pre>
 
 <blockquote>
 <p>格式化字典在的数据</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string</span><br><span class="line">s1 = <span class="string">&#x27;&#123;:0&gt;5&#125;&#x27;</span></span><br><span class="line">formatter = string.Formatter()</span><br><span class="line">data = &#123;<span class="string">&#x27;订单号&#x27;</span>:[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],<span class="string">&#x27;会员名&#x27;</span>:[<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>]&#125;</span><br><span class="line">list1 = data[<span class="string">&#x27;订单号&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> list1:</span><br><span class="line">    val = formatter.<span class="built_in">format</span>(s1,i)</span><br><span class="line">    <span class="built_in">print</span>(val)</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">00001</span></span><br><span class="line"><span class="string">00002</span></span><br><span class="line"><span class="string">00003</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string
+s1 <span class="token operator">=</span> <span class="token string">'&#123;:0>5&#125;'</span>
+formatter <span class="token operator">=</span> string<span class="token punctuation">.</span>Formatter<span class="token punctuation">(</span><span class="token punctuation">)</span>
+data <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">'订单号'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">'会员名'</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">,</span><span class="token string">'c'</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span>
+list1 <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token string">'订单号'</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> list1<span class="token punctuation">:</span>
+    val <span class="token operator">=</span> formatter<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>s1<span class="token punctuation">,</span>i<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+00001
+00002
+00003
+'''</span></code></pre>
 
 <blockquote>
 <p>格式化csv文件的数据</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string,csv</span><br><span class="line">s1 = <span class="string">&#x27;&#123;:0&gt;10&#125;&#x27;</span></span><br><span class="line">formatter = string.Formatter()</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;./a.csv&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    rows = csv.reader(f)</span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> rows:</span><br><span class="line">        <span class="keyword">if</span> rows.line_num == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="built_in">print</span>(formatter.<span class="built_in">format</span>(s1,row[<span class="number">0</span>]))</span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string<span class="token punctuation">,</span>csv
+s1 <span class="token operator">=</span> <span class="token string">'&#123;:0>10&#125;'</span>
+formatter <span class="token operator">=</span> string<span class="token punctuation">.</span>Formatter<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'./a.csv'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    rows <span class="token operator">=</span> csv<span class="token punctuation">.</span>reader<span class="token punctuation">(</span>f<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> row <span class="token keyword">in</span> rows<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> rows<span class="token punctuation">.</span>line_num <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+            <span class="token keyword">continue</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>formatter<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>s1<span class="token punctuation">,</span>row<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 
 <h2 id="format-field-方法"><a href="#format-field-方法" class="headerlink" title="format_field()方法"></a>format_field()方法</h2><p><strong>参数说明：</strong></p>
 <blockquote>
@@ -213,12 +413,35 @@ document.addEventListener("pjax:success", initScrollReveal);
 <blockquote>
 <p>为字符串填充占位符</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string</span><br><span class="line">formatter = string.Formatter()</span><br><span class="line">val = <span class="string">&quot;电子科技大学&quot;</span></span><br><span class="line">str1 = formatter.format_field(val,<span class="string">&#x27;*^30&#x27;</span>)<span class="comment">#利用*当占位符</span></span><br><span class="line"><span class="built_in">print</span>(str1)</span><br><span class="line">str2 = formatter.format_field(val,<span class="string">&#x27;-^20&#x27;</span>)<span class="comment">#利用-当占位符</span></span><br><span class="line"><span class="built_in">print</span>(str2)</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">************电子科技大学************</span></span><br><span class="line"><span class="string">-------电子科技大学-------</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string
+formatter <span class="token operator">=</span> string<span class="token punctuation">.</span>Formatter<span class="token punctuation">(</span><span class="token punctuation">)</span>
+val <span class="token operator">=</span> <span class="token string">"电子科技大学"</span>
+str1 <span class="token operator">=</span> formatter<span class="token punctuation">.</span>format_field<span class="token punctuation">(</span>val<span class="token punctuation">,</span><span class="token string">'*^30'</span><span class="token punctuation">)</span><span class="token comment">#利用*当占位符</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>str1<span class="token punctuation">)</span>
+str2 <span class="token operator">=</span> formatter<span class="token punctuation">.</span>format_field<span class="token punctuation">(</span>val<span class="token punctuation">,</span><span class="token string">'-^20'</span><span class="token punctuation">)</span><span class="token comment">#利用-当占位符</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>str2<span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+************电子科技大学************
+-------电子科技大学-------
+'''</span></code></pre>
 
 <blockquote>
 <p>格式化数字(补0或补x)</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string</span><br><span class="line">formatter = string.Formatter()</span><br><span class="line">val = <span class="number">5</span></span><br><span class="line">str1 = formatter.format_field(val,<span class="string">&#x27;0&gt;2&#x27;</span>)<span class="comment">#数字补0，填充左边，长度为2</span></span><br><span class="line"><span class="built_in">print</span>(str1)</span><br><span class="line">str2 = formatter.format_field(val,<span class="string">&#x27;x&lt;4&#x27;</span>)<span class="comment">#数字补x，填充右边，长度为4</span></span><br><span class="line"><span class="built_in">print</span>(str2)</span><br><span class="line">str3 = formatter.format_field(val,<span class="string">&#x27;x^4&#x27;</span>)<span class="comment">#数字补x，填充左右，长度为3</span></span><br><span class="line"><span class="built_in">print</span>(str3)</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">05</span></span><br><span class="line"><span class="string">5xxx</span></span><br><span class="line"><span class="string">x5xx</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> string
+formatter <span class="token operator">=</span> string<span class="token punctuation">.</span>Formatter<span class="token punctuation">(</span><span class="token punctuation">)</span>
+val <span class="token operator">=</span> <span class="token number">5</span>
+str1 <span class="token operator">=</span> formatter<span class="token punctuation">.</span>format_field<span class="token punctuation">(</span>val<span class="token punctuation">,</span><span class="token string">'0>2'</span><span class="token punctuation">)</span><span class="token comment">#数字补0，填充左边，长度为2</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>str1<span class="token punctuation">)</span>
+str2 <span class="token operator">=</span> formatter<span class="token punctuation">.</span>format_field<span class="token punctuation">(</span>val<span class="token punctuation">,</span><span class="token string">'x&lt;4'</span><span class="token punctuation">)</span><span class="token comment">#数字补x，填充右边，长度为4</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>str2<span class="token punctuation">)</span>
+str3 <span class="token operator">=</span> formatter<span class="token punctuation">.</span>format_field<span class="token punctuation">(</span>val<span class="token punctuation">,</span><span class="token string">'x^4'</span><span class="token punctuation">)</span><span class="token comment">#数字补x，填充左右，长度为3</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>str3<span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+05
+5xxx
+x5xx
+'''</span></code></pre>
 
 
 

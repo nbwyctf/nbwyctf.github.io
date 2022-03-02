@@ -175,14 +175,17 @@ document.addEventListener("pjax:success", initScrollReveal);
 <li>http:80</li>
 <li>https：443</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">&quot;8081&quot;</span> <span class="attr">protocol</span>=<span class="string">&quot;HTTP/1.1&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">connectionTimeout</span>=<span class="string">&quot;20000&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">redirectPort</span>=<span class="string">&quot;8443&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Connector</span> <span class="token attr-name">port</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>8081<span class="token punctuation">"</span></span> <span class="token attr-name">protocol</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>HTTP/1.1<span class="token punctuation">"</span></span>
+      <span class="token attr-name">connectionTimeout</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>20000<span class="token punctuation">"</span></span>
+      <span class="token attr-name">redirectPort</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>8443<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
 
 <p>可以配置主机的名称</p>
 <ul>
 <li>默认的主机名为：localhost-&gt;127.0.0.1</li>
 <li>默认网站应用存放的位置为：webapps</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Host</span> <span class="attr">name</span>=<span class="string">&quot;www.baidu.com&quot;</span>  <span class="attr">appBase</span>=<span class="string">&quot;webapps&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">unpackWARs</span>=<span class="string">&quot;true&quot;</span> <span class="attr">autoDeploy</span>=<span class="string">&quot;true&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Host</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>www.baidu.com<span class="token punctuation">"</span></span>  <span class="token attr-name">appBase</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>webapps<span class="token punctuation">"</span></span>
+      <span class="token attr-name">unpackWARs</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span> <span class="token attr-name">autoDeploy</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></code></pre>
 
 <p><strong>高难度面试题</strong>：<br>请你谈谈网站是如何进行访问的！</p>
 <ol>
@@ -199,7 +202,20 @@ document.addEventListener("pjax:success", initScrollReveal);
 <li>将自己写的网站，放到服务器（Tomcat)中指定的web应用的文件夹（webapps)下，就可以访问了</li>
 </ul>
 <p>网站应该有的结构</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">--webapps</span> ：Tomcat服务器的web目录</span><br><span class="line">	-ROOT</span><br><span class="line">	-kuangstudy ：网站的目录名</span><br><span class="line">		- WEB-INF</span><br><span class="line">			-classes : java程序</span><br><span class="line">			-lib：web应用所依赖的jar包</span><br><span class="line">			-web.xml ：网站配置文件</span><br><span class="line">		- index.html 默认的首页</span><br><span class="line">		- static </span><br><span class="line">            -css</span><br><span class="line">            	-style.css</span><br><span class="line">            -js</span><br><span class="line">            -img</span><br><span class="line">         -.....</span><br></pre></td></tr></table></figure>
+<pre class="language-css" data-language="css"><code class="language-css">--webapps ：Tomcat服务器的web目录
+	-ROOT
+	-kuangstudy ：网站的目录名
+		- WEB-INF
+			<span class="token property">-classes</span> <span class="token punctuation">:</span> java程序
+			-lib：web应用所依赖的jar包
+			-web.xml ：网站配置文件
+		- index.html 默认的首页
+		- static 
+            -css
+            	-style.css
+            -js
+            -img
+         -.....</code></pre>
 
 <p>HTTP协议：面试<br>Maven:构建工具</p>
 <ul>
@@ -230,7 +246,10 @@ document.addEventListener("pjax:success", initScrollReveal);
 <h2 id="Http请求"><a href="#Http请求" class="headerlink" title="Http请求"></a>Http请求</h2><ul>
 <li>客户端–发请求（Request）–服务器</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Request URL:https:<span class="comment">//www.baidu.com/   请求地址</span></span><br><span class="line">Request Method:GET    get方法/post方法</span><br><span class="line">Status Code:<span class="number">200</span> OK    状态码：<span class="number">200</span></span><br><span class="line">Remote（远程） Address:<span class="number">14.215</span><span class="number">.177</span><span class="number">.39</span>:<span class="number">443</span></span><br></pre></td></tr></table></figure>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">Request</span> URL<span class="token operator">:</span>https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>www<span class="token punctuation">.</span>baidu<span class="token punctuation">.</span>com<span class="token operator">/</span>   请求地址
+<span class="token class-name">Request</span> <span class="token class-name">Method</span><span class="token operator">:</span>GET    get方法<span class="token operator">/</span>post方法
+<span class="token class-name">Status</span> <span class="token class-name">Code</span><span class="token operator">:</span><span class="token number">200</span> OK    状态码：<span class="token number">200</span>
+<span class="token class-name">Remote</span>（远程） <span class="token class-name">Address</span><span class="token operator">:</span><span class="token number">14.215</span><span class="token number">.177</span><span class="token number">.39</span><span class="token operator">:</span><span class="token number">443</span></code></pre>
 
 <h3 id="请求行"><a href="#请求行" class="headerlink" title="请求行"></a>请求行</h3><ul>
 <li>请求行中的请求方式：GET</li>
@@ -240,7 +259,12 @@ document.addEventListener("pjax:success", initScrollReveal);
 </ul>
 </li>
 </ul>
-<h3 id="消息头"><a href="#消息头" class="headerlink" title="消息头"></a>消息头</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Accept：告诉浏览器，它所支持的数据类型</span><br><span class="line">Accept-Encoding：支持哪种编码格式  GBK   UTF-<span class="number">8</span>   GB2312  ISO8859-<span class="number">1</span></span><br><span class="line">Accept-Language：告诉浏览器，它的语言环境</span><br><span class="line">Cache-Control：缓存控制</span><br><span class="line">Connection：告诉浏览器，请求完成是断开还是保持连接</span><br><span class="line">HOST：主机..../.</span><br></pre></td></tr></table></figure>
+<h3 id="消息头"><a href="#消息头" class="headerlink" title="消息头"></a>消息头</h3><pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">Accept</span>：告诉浏览器，它所支持的数据类型
+<span class="token class-name">Accept</span><span class="token operator">-</span><span class="token class-name">Encoding</span>：支持哪种编码格式  GBK   UTF<span class="token operator">-</span><span class="token number">8</span>   GB2312  ISO8859<span class="token operator">-</span><span class="token number">1</span>
+<span class="token class-name">Accept</span><span class="token operator">-</span><span class="token class-name">Language</span>：告诉浏览器，它的语言环境
+<span class="token class-name">Cache</span><span class="token operator">-</span><span class="token class-name">Control</span>：缓存控制
+<span class="token class-name">Connection</span>：告诉浏览器，请求完成是断开还是保持连接
+HOST：主机<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>/<span class="token punctuation">.</span></code></pre>
 
 <h2 id="Http响应"><a href="#Http响应" class="headerlink" title="Http响应"></a>Http响应</h2><ul>
 <li>服务器–响应…….客户端</li>
@@ -248,9 +272,19 @@ document.addEventListener("pjax:success", initScrollReveal);
 <blockquote>
 <p>百度：</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Cache-Control:<span class="keyword">private</span>    缓存控制</span><br><span class="line">Connection:Keep-Alive    连接</span><br><span class="line">Content-Encoding:gzip    编码</span><br><span class="line">Content-Type:text/html   类型  </span><br></pre></td></tr></table></figure>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">Cache</span><span class="token operator">-</span><span class="token class-name">Control</span><span class="token operator">:</span><span class="token keyword">private</span>    缓存控制
+<span class="token class-name">Connection</span><span class="token operator">:</span><span class="token class-name">Keep</span><span class="token operator">-</span><span class="token class-name">Alive</span>    连接
+<span class="token class-name">Content</span><span class="token operator">-</span><span class="token class-name">Encoding</span><span class="token operator">:</span>gzip    编码
+<span class="token class-name">Content</span><span class="token operator">-</span><span class="token class-name">Type</span><span class="token operator">:</span>text<span class="token operator">/</span>html   类型  </code></pre>
 
-<h3 id="响应体"><a href="#响应体" class="headerlink" title="响应体"></a>响应体</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Accept：告诉浏览器，它所支持的数据类型</span><br><span class="line">Accept-Encoding：支持哪种编码格式  GBK   UTF-<span class="number">8</span>   GB2312  ISO8859-<span class="number">1</span></span><br><span class="line">Accept-Language：告诉浏览器，它的语言环境</span><br><span class="line">Cache-Control：缓存控制</span><br><span class="line">Connection：告诉浏览器，请求完成是断开还是保持连接</span><br><span class="line">HOST：主机</span><br><span class="line">Refresh：告诉客户端，多久刷新一次；</span><br><span class="line">Location：让网页重新定位；</span><br></pre></td></tr></table></figure>
+<h3 id="响应体"><a href="#响应体" class="headerlink" title="响应体"></a>响应体</h3><pre class="language-java" data-language="java"><code class="language-java"><span class="token class-name">Accept</span>：告诉浏览器，它所支持的数据类型
+<span class="token class-name">Accept</span><span class="token operator">-</span><span class="token class-name">Encoding</span>：支持哪种编码格式  GBK   UTF<span class="token operator">-</span><span class="token number">8</span>   GB2312  ISO8859<span class="token operator">-</span><span class="token number">1</span>
+<span class="token class-name">Accept</span><span class="token operator">-</span><span class="token class-name">Language</span>：告诉浏览器，它的语言环境
+<span class="token class-name">Cache</span><span class="token operator">-</span><span class="token class-name">Control</span>：缓存控制
+<span class="token class-name">Connection</span>：告诉浏览器，请求完成是断开还是保持连接
+HOST：主机
+<span class="token class-name">Refresh</span>：告诉客户端，多久刷新一次；
+<span class="token class-name">Location</span>：让网页重新定位；</code></pre>
 
 <h3 id="响应状态码"><a href="#响应状态码" class="headerlink" title="响应状态码"></a>响应状态码</h3><p>200：请求响应成功200<br>3xx:请求重定向·重定向：你重新到我给你新位置去；<br>4xx:找不到资源404·资源不存在；<br>5xx:服务器代码错误 500 502:网关错误</p>
 <p><strong>常见面试题：</strong><br>当你的浏览器中地址栏输入地址并回车的一瞬间到页面能够展示回来，经历了什么？</p>
@@ -280,10 +314,15 @@ document.addEventListener("pjax:success", initScrollReveal);
 <li>作用：加速我们的下载</li>
 <li>国内建议使用阿里云的镜像</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus-aliyun<span class="tag">&lt;/<span class="name">id</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>*,!jeecg,!jeecg-snapshots<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexus aliyun<span class="tag">&lt;/<span class="name">name</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public<span class="tag">&lt;/<span class="name">url</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirror</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span><span class="token punctuation">></span></span>nexus-aliyun<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">></span></span>  
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mirrorOf</span><span class="token punctuation">></span></span>*,!jeecg,!jeecg-snapshots<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirrorOf</span><span class="token punctuation">></span></span>  
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>Nexus aliyun<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>  
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span><span class="token punctuation">></span></span>http://maven.aliyun.com/nexus/content/groups/public<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url</span><span class="token punctuation">></span></span> 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mirror</span><span class="token punctuation">></span></span></code></pre>
 
 <h2 id="本地仓库"><a href="#本地仓库" class="headerlink" title="本地仓库"></a>本地仓库</h2><p>在本地的仓库，远程仓库； 建立一个本地仓库：localRepository</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">localRepository</span>&gt;</span>D:\Environment\apache-maven-3.6.2\maven-repo<span class="tag">&lt;/<span class="name">localRepository</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>localRepository</span><span class="token punctuation">></span></span>D:\Environment\apache-maven-3.6.2\maven-repo<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>localRepository</span><span class="token punctuation">></span></span></code></pre>
 
 <h2 id="在IDEA中使用Maven"><a href="#在IDEA中使用Maven" class="headerlink" title="在IDEA中使用Maven"></a>在IDEA中使用Maven</h2><ol>
 <li>启动IDEA</li>
@@ -327,7 +366,27 @@ document.addEventListener("pjax:success", initScrollReveal);
 <p><img src="https://img-blog.csdnimg.cn/2020051714551021.png" alt="img" loading="lazy"></p>
 <p><img src="https://img-blog.csdnimg.cn/20200517145536671.png" alt="img" loading="lazy"></p>
 <p>maven由于他的约定大于配置，我们之后可以能遇到我们写的配置文件，无法被导出或者生效的问题，解决方案：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--在build中配置resources，来防止我们资源导出失败的问题--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>true<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>true<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="language-html" data-language="html"><code class="language-html"><span class="token comment">&lt;!--在build中配置resources，来防止我们资源导出失败的问题--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>build</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resources</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resource</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>directory</span><span class="token punctuation">></span></span>src/main/resources<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>directory</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>includes</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>include</span><span class="token punctuation">></span></span>**/*.properties<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>include</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>include</span><span class="token punctuation">></span></span>**/*.xml<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>include</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>includes</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filtering</span><span class="token punctuation">></span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filtering</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resource</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resource</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>directory</span><span class="token punctuation">></span></span>src/main/java<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>directory</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>includes</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>include</span><span class="token punctuation">></span></span>**/*.properties<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>include</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>include</span><span class="token punctuation">></span></span>**/*.xml<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>include</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>includes</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>filtering</span><span class="token punctuation">></span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>filtering</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resource</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resources</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>build</span><span class="token punctuation">></span></span></code></pre>
 
 <h2 id="IDEA操作"><a href="#IDEA操作" class="headerlink" title="IDEA操作"></a>IDEA操作</h2><p><img src="https://img-blog.csdnimg.cn/20200517145600272.png" alt="img" loading="lazy"></p>
 <p><img src="https://img-blog.csdnimg.cn/2020051714561486.png" alt="img" loading="lazy"></p>
