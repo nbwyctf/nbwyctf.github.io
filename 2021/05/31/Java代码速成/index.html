@@ -1,33 +1,93 @@
-extends _partial/layout.pug
-
-block content
-  - var post = page
-  - var post_type = getPropertyByType(post.type)
-
-  #post
-    article.hty-card.post-block(itemscope, itemtype='https://schema.org/Article', style=`--smc-primary:${theme.colors.primary};`)
-      include _partial/post/post-schema.pug
-      header.post-header
-        h1.post-title(itemprop='name headline', style=post.type ? `color: ${post_type.color}` : '')
-          if post.type
-            +icon(post_type.icon)
-          | #{post.title}
-
-          if theme.post_edit.enable
-            include _partial/post/post-edit.pug
-
-        +post_meta(post)
-
-        if post.url
-          a.hty-button.hty-button--raised(href=url_for(post.url), style=`margin: 1rem;background-color:${post_type.color}`)=__('post.view_link')
-
-      include ./_partial/post/post-content.pug
-
-      if theme.reward.enable && page.reward !== false
-        include _partial/post/reward.pug
-
-      if theme.creative_commons.license && theme.creative_commons.post
-        include _partial/post/post-copyright.pug
-
-    if post.prev || post.next
-      include _partial/post/post-nav.pug
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="毛毛和车车"><meta name="copyright" content="毛毛和车车"><meta name="generator" content="Hexo 6.0.0"><meta name="theme" content="hexo-theme-yun"><title>Java代码速成 | 毛毛和车车的小站</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.2.4/dist/yun/yun-markdown.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prism-theme-vars/base.css"><script src="//at.alicdn.com/t/font_1140697_dxory92pb0h.js" async></script><script src="https://cdn.jsdelivr.net/npm/@unocss/runtime/mini.global.js"></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".markdown-body img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link rel="icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#0078E7"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+    window.Yun = {}
+    window.CONFIG = {"hostname":"example.com","root":"/","title":"云游君的小站","version":"1.8.10","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"fireworks":{"colors":null},"vendors":{"darken":"https://cdn.jsdelivr.net/npm/darken@1.5.0"}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/hexo-theme-yun.js" type="module"></script><meta name="description" content="快捷打代码 快速打public static void main(String[] args)&amp;#123;&amp;#125;  打psvm 回车 或者psvm Tap  快速打System.out.println() 打sout 回车  快速new一个变量 alt+shift+L  快速for循环 fori+Enter(回车)  快速补全new 一个变量后的当行代码 Alt + Enter(回车)  代">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java代码速成">
+<meta property="og:url" content="http://example.com/2021/05/31/Java%E4%BB%A3%E7%A0%81%E9%80%9F%E6%88%90/index.html">
+<meta property="og:site_name" content="毛毛和车车的小站">
+<meta property="og:description" content="快捷打代码 快速打public static void main(String[] args)&amp;#123;&amp;#125;  打psvm 回车 或者psvm Tap  快速打System.out.println() 打sout 回车  快速new一个变量 alt+shift+L  快速for循环 fori+Enter(回车)  快速补全new 一个变量后的当行代码 Alt + Enter(回车)  代">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-05-31T09:15:00.000Z">
+<meta property="article:modified_time" content="2021-05-31T09:16:01.000Z">
+<meta property="article:author" content="毛毛和车车">
+<meta property="article:tag" content="基础">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary"><script>(function() {
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  const setting = localStorage.getItem('darken-mode') || 'auto'
+  if (setting === 'dark' || (prefersDark && setting !== 'light'))
+    document.documentElement.classList.toggle('dark', true)
+})()</script></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="毛毛和车车"><img width="96" loading="lazy" src="/yun.png" alt="毛毛和车车"></a><div class="site-author-name"><a href="/about/">毛毛和车车</a></div><a class="site-name" href="/about/site.html">毛毛和车车的小站</a><sub class="site-subtitle"></sub><div class="site-desciption"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">39</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">4</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">17</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://yun.yunyoujun.cn" title="文档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BF%AB%E6%8D%B7%E6%89%93%E4%BB%A3%E7%A0%81"><span class="toc-number">1.</span> <span class="toc-text">快捷打代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IDEL%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-number">2.</span> <span class="toc-text">IDEL快捷键</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#0078E7;"><link itemprop="mainEntityOfPage" href="http://example.com/2021/05/31/Java%E4%BB%A3%E7%A0%81%E9%80%9F%E6%88%90/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="毛毛和车车"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="毛毛和车车的小站"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">Java代码速成</h1><div class="post-meta"><div class="post-time"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="创建时间：2021-05-31 17:15:00" itemprop="dateCreated datePublished" datetime="2021-05-31T17:15:00+08:00">2021-05-31</time></div><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/%E7%AC%94%E8%AE%B0/" style="--text-color:dimgray" itemprop="url" rel="index"><span itemprop="text">笔记</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag-item" href="/tags/%E5%9F%BA%E7%A1%80/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">基础</span></a><a class="tag-item" href="/tags/Java/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">Java</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><h1 id="快捷打代码"><a href="#快捷打代码" class="headerlink" title="快捷打代码"></a>快捷打代码</h1><ul>
+<li><p>快速打<code>public static void main(String[] args)&#123;&#125;</code> </p>
+<p>打psvm 回车 或者psvm Tap</p>
+</li>
+<li><p>快速打<code>System.out.println()</code></p>
+<p>打sout 回车</p>
+</li>
+<li><p>快速new一个变量</p>
+<p><code>alt</code>+<code>shift</code>+<code>L</code></p>
+</li>
+<li><p>快速for循环</p>
+<p><code>fori+Enter(回车)</code></p>
+</li>
+<li><p>快速补全new 一个变量后的当行代码</p>
+<p><code>Alt + Enter(回车)</code></p>
+</li>
+<li><p>代码补全</p>
+<p><code>Ctrl + Shift + Enter(回车)</code></p>
+</li>
+<li><p>补全缺失的方法(生成构造器)</p>
+<p><code>Alt+insert</code></p>
+</li>
+<li><p>补全处理异常机制（需要先选择内容）</p>
+<p><code>Ctrl+Alt+T</code></p>
+</li>
+<li><p>快速打印</p>
+<p>先谢System.out.println()里要打印的内容，再”.sout+回车”，即：A.sout+回车，等价于System.out.println(A）</p>
+</li>
+</ul>
+<h1 id="IDEL快捷键"><a href="#IDEL快捷键" class="headerlink" title="IDEL快捷键"></a>IDEL快捷键</h1><ul>
+<li><p><code>Ctrl+F12</code>:    快速浏览当前编辑的文件结构</p>
+</li>
+<li><p><code>Shift+Shift</code>:    通过Search Everywhere窗口计算简单的算术表达式。</p>
+</li>
+<li><p><code> Alt+Insert</code>:    为类中的字段生成getter和setter方法</p>
+</li>
+<li><p><code>Ctrl+两次空格</code>:    速完成位于项目、库或 JDK 中任何位置的静态方法的方法调用\</p>
+</li>
+<li><p><code>Ctrl+J</code>:    要查看带有后缀模板的建议列表</p>
+</li>
+<li><p><code> Ctrl+Alt+Shift+Insert</code>:    要创建临时文件</p>
+</li>
+<li><p><code>Ctrl+Shift+空格 </code>:    成分析整个表达式的预期类型，并帮助找到适用于当前上下文的方法和变量。 它在 return 关键字之后、赋值中、方法调用的参数列表中以及其他地方起作用。</p>
+</li>
+<li><p><code> Ctrl+Alt+B</code>:    导航到抽象方法的实现</p>
+</li>
+<li><p><code>Ctrl+空格</code>:    在声明变量时，代码完成可以为变量提供一个名称</p>
+</li>
+<li><p><code>Ctrl+Alt+Shift+I</code>:    快速找到并运行检查</p>
+</li>
+<li><p><code>Ctrl+Alt+V</code>:    提取变量重构将选定的表达式封装到变量中。它添加一个新的变量声明，并使用表达式作为初始化式</p>
+</li>
+<li><p><code>Ctrl+Alt+Shift+N </code>:    快速打开编辑器中的任何类、字段或函数</p>
+</li>
+<li><p><code>Ctrl+Shift+J</code>:    将两行合并为一行并删除不必要的空格</p>
+</li>
+<li><p><code>Ctrl+Alt+S</code>:    从建议列表中选择一个动态模板时，该模板将扩展为在设置&#x2F;首选项对话框,动态模板页面上定义的变体。</p>
+</li>
+<li><p><code>Ctrl+Shift+UP/DOWN</code>:    整行代码向上下移动</p>
+</li>
+<li><p><code>Ctrl+Q</code>:    快速查看插入符号处的类或方法的文档</p>
+</li>
+<li><p><code>Ctrl+H</code>：显示继承的父类</p>
+</li>
+</ul>
+</div></section><div id="reward-container"><span class="hty-icon-button button-glow" id="reward-button" title="打赏" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === &quot;none&quot;) ? &quot;block&quot; : &quot;none&quot;;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-hand-coin-line"></use></svg></span><div id="reward-comment">I'm so cute. Please give me money.</div></div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>毛毛和车车</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="http://example.com/2021/05/31/Java%E4%BB%A3%E7%A0%81%E9%80%9F%E6%88%90/" title="Java代码速成">http://example.com/2021/05/31/Java%E4%BB%A3%E7%A0%81%E9%80%9F%E6%88%90/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> 许可协议。</li></ul></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2021/06/01/Java%E5%9F%BA%E7%A1%801/" rel="prev" title="Java基础二"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">Java基础二</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2021/05/31/Java%E5%9F%BA%E7%A1%800/" rel="next" title="Java基础一"><span class="post-nav-text">Java基础一</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div class="hty-card" id="comment"></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2019 – 2022 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 毛毛和车车</span></div><div class="powered"><span>由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v6.0.0</span><span class="footer-separator">|</span><span>主题 - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.8.10</span></div></footer><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a></div></body></html>

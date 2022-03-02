@@ -1,33 +1,235 @@
-extends _partial/layout.pug
-
-block content
-  - var post = page
-  - var post_type = getPropertyByType(post.type)
-
-  #post
-    article.hty-card.post-block(itemscope, itemtype='https://schema.org/Article', style=`--smc-primary:${theme.colors.primary};`)
-      include _partial/post/post-schema.pug
-      header.post-header
-        h1.post-title(itemprop='name headline', style=post.type ? `color: ${post_type.color}` : '')
-          if post.type
-            +icon(post_type.icon)
-          | #{post.title}
-
-          if theme.post_edit.enable
-            include _partial/post/post-edit.pug
-
-        +post_meta(post)
-
-        if post.url
-          a.hty-button.hty-button--raised(href=url_for(post.url), style=`margin: 1rem;background-color:${post_type.color}`)=__('post.view_link')
-
-      include ./_partial/post/post-content.pug
-
-      if theme.reward.enable && page.reward !== false
-        include _partial/post/reward.pug
-
-      if theme.creative_commons.license && theme.creative_commons.post
-        include _partial/post/post-copyright.pug
-
-    if post.prev || post.next
-      include _partial/post/post-nav.pug
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="毛毛和车车"><meta name="copyright" content="毛毛和车车"><meta name="generator" content="Hexo 6.0.0"><meta name="theme" content="hexo-theme-yun"><title>川西追星游记1 | 毛毛和车车的小站</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.2.4/dist/yun/yun-markdown.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prism-theme-vars/base.css"><script src="//at.alicdn.com/t/font_1140697_dxory92pb0h.js" async></script><script src="https://cdn.jsdelivr.net/npm/@unocss/runtime/mini.global.js"></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".markdown-body img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link rel="icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#0078E7"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+    window.Yun = {}
+    window.CONFIG = {"hostname":"example.com","root":"/","title":"云游君的小站","version":"1.8.10","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"fireworks":{"colors":null},"vendors":{"darken":"https://cdn.jsdelivr.net/npm/darken@1.5.0"}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/hexo-theme-yun.js" type="module"></script><meta name="description" content="时间：2021.06.05-2021.06.06 地点：新都桥-曼努卡附近 同行：孙宇轩（老司机），陈祥元，黄文彬   出发 早六点，迎着清晨第一缕阳光，出发！    刚出成都，就见灰机    大渡河上的兴康大桥    路上无聊无聊，和黄文彬菜鸡互啄    人往高处走，水往低处流。 由于现在是夏季，还看不到白雪皑皑。    雪山初见    海拔不断升高，气压下降，带的零食都“胀袋”了    入乡">
+<meta property="og:type" content="article">
+<meta property="og:title" content="川西追星游记1">
+<meta property="og:url" content="http://example.com/2021/06/09/%E5%B7%9D%E8%A5%BF%E8%BF%BD%E6%98%9F%E6%B8%B8%E8%AE%B01/index.html">
+<meta property="og:site_name" content="毛毛和车车的小站">
+<meta property="og:description" content="时间：2021.06.05-2021.06.06 地点：新都桥-曼努卡附近 同行：孙宇轩（老司机），陈祥元，黄文彬   出发 早六点，迎着清晨第一缕阳光，出发！    刚出成都，就见灰机    大渡河上的兴康大桥    路上无聊无聊，和黄文彬菜鸡互啄    人往高处走，水往低处流。 由于现在是夏季，还看不到白雪皑皑。    雪山初见    海拔不断升高，气压下降，带的零食都“胀袋”了    入乡">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/kYp1xsXyfQq9Wlj.png">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/lpETYmdAIGbVWsH.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/MDqtHNKrliJ2h4V.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/FO6qnWMhV3fXKNJ.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/m8K5byqXiLBrMk9.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/lnGgEkYJ6ZAzL1P.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/nlANtEsG7m24xSf.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/v76UaPek8SQHgu4.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/NtLaeJg438VATvd.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/NIh7qgdW9LeavfD.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/WLnJY361Mg9Pbmx.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/mRBv6cNlPuVy1JW.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/z6K5aVYFtx8efwh.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/HTY7IlZoPjCFGiz.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/LTeVIZDgdHj9RNC.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/xcphVSnMs2fXeyt.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/y5SbQX7laFRO6wp.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/3z7jexkfsr8hHCG.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/iTtZjk3bV9qICfn.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/PdzH9inIJ8qCy1Y.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/6x23YuEPH1fgFdB.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/q1tAQ3NcfnWLh7O.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/dR1bQUYfvrElLj7.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/nolikEjItrusgMp.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/kg3cxBnSCRv2T6j.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/OPv8q2y61UkgVfS.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/4vHFuLnWOdT9Y3t.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/TqtB8E9riOAbs7Z.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/U3KpWacEO9vBAzb.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/Qgjf7nLvaBEhJOm.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/zkTcQnLKfbAVqG6.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/TGvXZhsbuE25zSo.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/QeEU1bMPAYInKtf.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/6RA1uhQcxWgnGVy.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/aLdyXQPbwlUquKg.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/YsPT2btu5xVmSJA.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/WUGTfIvueEikora.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/Ob9VcBxSY5QrToR.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/BWSq1JM6RK4hifC.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/v2eL5sozDpagRSn.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/1PSIx8of7D2ZvVG.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/qMHow8Ii1eY4maJ.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/aoBEbmJuhYxX9SI.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/AxcIrLwqR7emX8v.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/PkYqUxOKbS97G58.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/lsJNjEeGhSPOwb9.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/vFnZwgLXkexa2PQ.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/SMe71bf95tXHg8q.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/o6tyEd54k8PrcZz.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/06/09/CW64YqpSiKLExBZ.jpg">
+<meta property="article:published_time" content="2021-06-09T01:50:00.000Z">
+<meta property="article:modified_time" content="2021-06-09T01:50:01.000Z">
+<meta property="article:author" content="毛毛和车车">
+<meta property="article:tag" content="游记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/06/09/kYp1xsXyfQq9Wlj.png"><script>(function() {
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  const setting = localStorage.getItem('darken-mode') || 'auto'
+  if (setting === 'dark' || (prefersDark && setting !== 'light'))
+    document.documentElement.classList.toggle('dark', true)
+})()</script></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="毛毛和车车"><img width="96" loading="lazy" src="/yun.png" alt="毛毛和车车"></a><div class="site-author-name"><a href="/about/">毛毛和车车</a></div><a class="site-name" href="/about/site.html">毛毛和车车的小站</a><sub class="site-subtitle"></sub><div class="site-desciption"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">39</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">4</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">17</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://yun.yunyoujun.cn" title="文档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%BA%E5%8F%91"><span class="toc-number">1.</span> <span class="toc-text">出发</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%92%8C%E5%B0%8F%E9%BB%84%E5%90%8C%E5%AD%A6%E7%9E%8E%E8%BD%AC"><span class="toc-number">2.</span> <span class="toc-text">和小黄同学瞎转</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%AE%E7%9A%84%E5%9C%B0"><span class="toc-number">3.</span> <span class="toc-text">目的地</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%8A%B1"><span class="toc-number">4.</span> <span class="toc-text">花</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%94%E7%A8%8B"><span class="toc-number">5.</span> <span class="toc-text">返程</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#0078E7;"><link itemprop="mainEntityOfPage" href="http://example.com/2021/06/09/%E5%B7%9D%E8%A5%BF%E8%BF%BD%E6%98%9F%E6%B8%B8%E8%AE%B01/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="毛毛和车车"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="毛毛和车车的小站"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">川西追星游记1</h1><div class="post-meta"><div class="post-time"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="创建时间：2021-06-09 09:50:00" itemprop="dateCreated datePublished" datetime="2021-06-09T09:50:00+08:00">2021-06-09</time></div><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/%E7%94%9F%E6%B4%BB/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">生活</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag-item" href="/tags/%E6%B8%B8%E8%AE%B0/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">游记</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><blockquote>
+<p>时间：2021.06.05-2021.06.06</p>
+<p>地点：新都桥-曼努卡附近</p>
+<p>同行：孙宇轩（老司机），陈祥元，黄文彬</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/06/09/kYp1xsXyfQq9Wlj.png" loading="lazy"></p>
+<h1 id="出发"><a href="#出发" class="headerlink" title="出发"></a>出发</h1><blockquote>
+<p>早六点，迎着清晨第一缕阳光，出发！</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/06/09/lpETYmdAIGbVWsH.jpg" loading="lazy"></p>
+<blockquote>
+<p>刚出成都，就见灰机</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/06/09/MDqtHNKrliJ2h4V.jpg" loading="lazy"></p>
+<blockquote>
+<p>大渡河上的兴康大桥</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/06/09/FO6qnWMhV3fXKNJ.jpg" loading="lazy"></p>
+<blockquote>
+<p>路上无聊无聊，和黄文彬菜鸡互啄</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/06/09/m8K5byqXiLBrMk9.jpg" loading="lazy"></p>
+<blockquote>
+<p>人往高处走，水往低处流。</p>
+<p>由于现在是夏季，还看不到白雪皑皑。</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/06/09/lnGgEkYJ6ZAzL1P.jpg" loading="lazy"></p>
+<blockquote>
+<p>雪山初见</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/06/09/nlANtEsG7m24xSf.jpg" loading="lazy"></p>
+<blockquote>
+<p>海拔不断升高，气压下降，带的零食都<strong>“胀袋”</strong>了</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/06/09/v76UaPek8SQHgu4.jpg" loading="lazy"></p>
+<blockquote>
+<p>入乡随俗，康定情歌！！！一路上看到的这样写在造地上的藏文超级多。</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/06/09/NtLaeJg438VATvd.jpg" loading="lazy"></p>
+<h1 id="和小黄同学瞎转"><a href="#和小黄同学瞎转" class="headerlink" title="和小黄同学瞎转"></a>和小黄同学瞎转</h1><p><font color='#81C0F2'>到宾馆后放下行李，和黄文彬去转了转，<del>表面上像是考察高原生态环境，</del>实际上就是瞎转，不虚此行！</font></p>
+<blockquote>
+<p>本想摸摸牛牛君，但是牛们都是傲娇牛，不让摸的</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/06/09/NIh7qgdW9LeavfD.jpg" loading="lazy"></p>
+<blockquote>
+<p>还有马！</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/06/09/WLnJY361Mg9Pbmx.jpg" loading="lazy"></p>
+<blockquote>
+<p>小黄同学打算用草吸引傲娇牛的兴趣，</p>
+<p>可惜只吸引了一秒</p>
+<p>连牛毛都没摸到哈哈哈</p>
+<p>不过这一幕还是看起来很温馨的</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/06/09/mRBv6cNlPuVy1JW.jpg" loading="lazy"></p>
+<blockquote>
+<p>高原的溪水怎么看怎么舒服</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/06/09/z6K5aVYFtx8efwh.jpg" loading="lazy"></p>
+<p><img src="https://i.loli.net/2021/06/09/HTY7IlZoPjCFGiz.jpg" loading="lazy"></p>
+<p><img src="https://i.loli.net/2021/06/09/LTeVIZDgdHj9RNC.jpg" loading="lazy"></p>
+<blockquote>
+<p>继续转着转着</p>
+<p>舐犊之情！</p>
+<p>亲眼见，舐犊，过于温暖，呼呼吹着的风都不冷了呢</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/06/09/xcphVSnMs2fXeyt.jpg" loading="lazy"></p>
+<blockquote>
+<p>离谱的来了哈哈哈哈</p>
+<p>还记当时和冯硕说我遇到毒蛇了，刚刚还在我手上</p>
+<p>哈哈哈哈夸克的人工智障,我都知道是个蘑菇</p>
+<p>铜头蝮：？？？</p>
+<p>贵妇犬：？？？</p>
+<p>小狗狗你是不是有很多问号</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/06/09/y5SbQX7laFRO6wp.jpg" loading="lazy"></p>
+<p><img src="https://i.loli.net/2021/06/09/3z7jexkfsr8hHCG.jpg" loading="lazy"></p>
+<blockquote>
+<p>还没完，回去路上看到之前遇到的一只傲娇牛</p>
+<p>头卡住了，笑死</p>
+<p>突然想起以前一部剧，第一集女主也是这样被卡住了吗，神同步</p>
+<p>不过大力出奇迹，最后还是出来了，痛不痛就不知道了</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/06/09/iTtZjk3bV9qICfn.jpg" loading="lazy"></p>
+<blockquote>
+<p>回宾馆后，看见小黄同学神操作，笑死</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/06/09/PdzH9inIJ8qCy1Y.jpg" loading="lazy"></p>
+<h1 id="目的地"><a href="#目的地" class="headerlink" title="目的地"></a>目的地</h1><blockquote>
+<p>前往目的地</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/06/09/6x23YuEPH1fgFdB.jpg" loading="lazy"></p>
+<p><img src="https://i.loli.net/2021/06/09/q1tAQ3NcfnWLh7O.jpg" loading="lazy"></p>
+<p><img src="https://i.loli.net/2021/06/09/dR1bQUYfvrElLj7.jpg" loading="lazy"></p>
+<blockquote>
+<p>到达</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/06/09/nolikEjItrusgMp.jpg" loading="lazy"></p>
+<p><img src="https://i.loli.net/2021/06/09/kg3cxBnSCRv2T6j.jpg" loading="lazy"></p>
+<p><img src="https://i.loli.net/2021/06/09/OPv8q2y61UkgVfS.jpg" loading="lazy"></p>
+<blockquote>
+<p>感谢孙宇轩大佬拍的全景图</p>
+<p>读者可自行右键在新标签页中打开以实现放大</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/06/09/4vHFuLnWOdT9Y3t.jpg" loading="lazy"></p>
+<blockquote>
+<p>山</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/06/09/TqtB8E9riOAbs7Z.jpg" loading="lazy"></p>
+<p><img src="https://i.loli.net/2021/06/09/U3KpWacEO9vBAzb.jpg" loading="lazy"></p>
+<p><img src="https://i.loli.net/2021/06/09/Qgjf7nLvaBEhJOm.jpg" loading="lazy"></p>
+<p><img src="https://i.loli.net/2021/06/09/zkTcQnLKfbAVqG6.jpg" loading="lazy"></p>
+<p><img src="https://i.loli.net/2021/06/09/TGvXZhsbuE25zSo.jpg" loading="lazy"></p>
+<p><img src="https://i.loli.net/2021/06/09/QeEU1bMPAYInKtf.jpg" loading="lazy"></p>
+<p><img src="https://i.loli.net/2021/06/09/6RA1uhQcxWgnGVy.jpg" loading="lazy"></p>
+<h1 id="花"><a href="#花" class="headerlink" title="花"></a>花</h1><p><font color='#81C0F2'>高原的花是真的多，有些地方真的鲜花开满山，一簇一簇的，五彩缤纷，甚是好看。</font></p>
+<blockquote>
+<p>直接上图，我水平有限，读者可以辨认一下这些花</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/06/09/aLdyXQPbwlUquKg.jpg" loading="lazy"></p>
+<blockquote>
+<p>万万想不到证明没得花居然是狼毒（断肠草）</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/06/09/YsPT2btu5xVmSJA.jpg" loading="lazy"></p>
+<blockquote>
+<p>五彩缤纷的花</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/06/09/WUGTfIvueEikora.jpg" loading="lazy"></p>
+<p><img src="https://i.loli.net/2021/06/09/Ob9VcBxSY5QrToR.jpg" loading="lazy"></p>
+<p><img src="https://i.loli.net/2021/06/09/BWSq1JM6RK4hifC.jpg" loading="lazy"></p>
+<p><img src="https://i.loli.net/2021/06/09/v2eL5sozDpagRSn.jpg" loading="lazy"></p>
+<blockquote>
+<p>虫与花</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/06/09/1PSIx8of7D2ZvVG.jpg" loading="lazy"></p>
+<p><img src="https://i.loli.net/2021/06/09/qMHow8Ii1eY4maJ.jpg" loading="lazy"></p>
+<blockquote>
+<p>花海</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/06/09/aoBEbmJuhYxX9SI.jpg" loading="lazy"></p>
+<p><img src="https://i.loli.net/2021/06/09/AxcIrLwqR7emX8v.jpg" loading="lazy"></p>
+<p><img src="https://i.loli.net/2021/06/09/PkYqUxOKbS97G58.jpg" loading="lazy"></p>
+<h1 id="返程"><a href="#返程" class="headerlink" title="返程"></a>返程</h1><blockquote>
+<p>康定机场与斯丁措</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/06/09/lsJNjEeGhSPOwb9.jpg" loading="lazy"></p>
+<p><img src="https://i.loli.net/2021/06/09/vFnZwgLXkexa2PQ.jpg" loading="lazy"></p>
+<blockquote>
+<p>牦牛大队</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/06/09/SMe71bf95tXHg8q.jpg" loading="lazy"></p>
+<p><img src="https://i.loli.net/2021/06/09/o6tyEd54k8PrcZz.jpg" loading="lazy"></p>
+<blockquote>
+<p>牦牛群过马路，高速路上确实挺危险的</p>
+<p>路上还遇到了一只土拨鼠从车前快速跑过</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/06/09/CW64YqpSiKLExBZ.jpg" loading="lazy"></p>
+</div></section><div id="reward-container"><span class="hty-icon-button button-glow" id="reward-button" title="打赏" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === &quot;none&quot;) ? &quot;block&quot; : &quot;none&quot;;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-hand-coin-line"></use></svg></span><div id="reward-comment">I'm so cute. Please give me money.</div></div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>毛毛和车车</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="http://example.com/2021/06/09/%E5%B7%9D%E8%A5%BF%E8%BF%BD%E6%98%9F%E6%B8%B8%E8%AE%B01/" title="川西追星游记1">http://example.com/2021/06/09/%E5%B7%9D%E8%A5%BF%E8%BF%BD%E6%98%9F%E6%B8%B8%E8%AE%B01/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> 许可协议。</li></ul></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2021/06/15/Flask/" rel="prev" title="Flask"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">Flask</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2021/06/04/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="next" title="Java多线程"><span class="post-nav-text">Java多线程</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div class="hty-card" id="comment"></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2019 – 2022 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 毛毛和车车</span></div><div class="powered"><span>由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v6.0.0</span><span class="footer-separator">|</span><span>主题 - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.8.10</span></div></footer><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a></div></body></html>

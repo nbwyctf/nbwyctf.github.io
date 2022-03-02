@@ -1,33 +1,360 @@
-extends _partial/layout.pug
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="毛毛和车车"><meta name="copyright" content="毛毛和车车"><meta name="generator" content="Hexo 6.0.0"><meta name="theme" content="hexo-theme-yun"><title>Math库 | 毛毛和车车的小站</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.2.4/dist/yun/yun-markdown.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prism-theme-vars/base.css"><script src="//at.alicdn.com/t/font_1140697_dxory92pb0h.js" async></script><script src="https://cdn.jsdelivr.net/npm/@unocss/runtime/mini.global.js"></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".markdown-body img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link rel="icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#0078E7"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+    window.Yun = {}
+    window.CONFIG = {"hostname":"example.com","root":"/","title":"云游君的小站","version":"1.8.10","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"fireworks":{"colors":null},"vendors":{"darken":"https://cdn.jsdelivr.net/npm/darken@1.5.0"}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/hexo-theme-yun.js" type="module"></script><meta name="description" content="常量math.e 参数说明：返回自然数的底  123import mathprint(math.e)#2.708281828459045  math.pi 参数说明：返回圆周率的值  123import mathprint(math.pi)#3.141592653589793    三角函数sin()方法 sin()方法用于返回指定弧度的正弦值 math.sin(x)  参数说明：  x:表示指定">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Math库">
+<meta property="og:url" content="http://example.com/2021/07/02/Math%E5%BA%93/index.html">
+<meta property="og:site_name" content="毛毛和车车的小站">
+<meta property="og:description" content="常量math.e 参数说明：返回自然数的底  123import mathprint(math.e)#2.708281828459045  math.pi 参数说明：返回圆周率的值  123import mathprint(math.pi)#3.141592653589793    三角函数sin()方法 sin()方法用于返回指定弧度的正弦值 math.sin(x)  参数说明：  x:表示指定">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-07-02T13:20:00.000Z">
+<meta property="article:modified_time" content="2021-07-03T02:20:00.000Z">
+<meta property="article:author" content="毛毛和车车">
+<meta property="article:tag" content="基础">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary"><script>(function() {
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  const setting = localStorage.getItem('darken-mode') || 'auto'
+  if (setting === 'dark' || (prefersDark && setting !== 'light'))
+    document.documentElement.classList.toggle('dark', true)
+})()</script></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="毛毛和车车"><img width="96" loading="lazy" src="/yun.png" alt="毛毛和车车"></a><div class="site-author-name"><a href="/about/">毛毛和车车</a></div><a class="site-name" href="/about/site.html">毛毛和车车的小站</a><sub class="site-subtitle"></sub><div class="site-desciption"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">39</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">4</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">17</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://yun.yunyoujun.cn" title="文档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F"><span class="toc-number">1.</span> <span class="toc-text">常量</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#math-e"><span class="toc-number">1.1.</span> <span class="toc-text">math.e</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#math-pi"><span class="toc-number">1.2.</span> <span class="toc-text">math.pi</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">三角函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#sin-%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text">sin()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cos-%E6%96%B9%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text">cos()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tan-%E6%96%B9%E6%B3%95"><span class="toc-number">2.3.</span> <span class="toc-text">tan()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#asin-%E6%96%B9%E6%B3%95"><span class="toc-number">2.4.</span> <span class="toc-text">asin()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#acos-%E6%96%B9%E6%B3%95"><span class="toc-number">2.5.</span> <span class="toc-text">acos()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#atan-%E6%96%B9%E6%B3%95"><span class="toc-number">2.6.</span> <span class="toc-text">atan()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#atan2-%E6%96%B9%E6%B3%95"><span class="toc-number">2.7.</span> <span class="toc-text">atan2()方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%82%E5%87%BD%E6%95%B0%E4%B8%8E%E5%AF%B9%E6%95%B0%E5%87%BD%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">幂函数与对数函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#pow-%E6%96%B9%E6%B3%95"><span class="toc-number">3.1.</span> <span class="toc-text">pow()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sqrt-%E6%96%B9%E6%B3%95"><span class="toc-number">3.2.</span> <span class="toc-text">sqrt()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#exp-%E6%96%B9%E6%B3%95"><span class="toc-number">3.3.</span> <span class="toc-text">exp()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#expm1-%E6%96%B9%E6%B3%95"><span class="toc-number">3.4.</span> <span class="toc-text">expm1()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#log-%E6%96%B9%E6%B3%95"><span class="toc-number">3.5.</span> <span class="toc-text">log()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#log1p-%E6%96%B9%E6%B3%95"><span class="toc-number">3.6.</span> <span class="toc-text">log1p()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#log2-%E6%96%B9%E6%B3%95"><span class="toc-number">3.7.</span> <span class="toc-text">log2()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#log10-%E6%96%B9%E6%B3%95"><span class="toc-number">3.8.</span> <span class="toc-text">log10()方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%92%E5%BA%A6%E8%BD%AC%E6%8D%A2"><span class="toc-number">4.</span> <span class="toc-text">角度转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#degrees-%E6%96%B9%E6%B3%95"><span class="toc-number">4.1.</span> <span class="toc-text">degrees()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#radians-%E6%96%B9%E6%B3%95"><span class="toc-number">4.2.</span> <span class="toc-text">radians()方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E8%AE%BA%E4%B8%8E%E8%A1%A8%E7%A4%BA"><span class="toc-number">5.</span> <span class="toc-text">数论与表示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ceil-%E6%96%B9%E6%B3%95"><span class="toc-number">5.1.</span> <span class="toc-text">ceil()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#floor-%E6%96%B9%E6%B3%95"><span class="toc-number">5.2.</span> <span class="toc-text">floor()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fabs-%E6%96%B9%E6%B3%95"><span class="toc-number">5.3.</span> <span class="toc-text">fabs()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fmod-%E6%96%B9%E6%B3%95"><span class="toc-number">5.4.</span> <span class="toc-text">fmod()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#isnan-%E6%96%B9%E6%B3%95"><span class="toc-number">5.5.</span> <span class="toc-text">isnan()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#isclose-%E6%96%B9%E6%B3%95"><span class="toc-number">5.6.</span> <span class="toc-text">isclose()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#modf-%E6%96%B9%E6%B3%95"><span class="toc-number">5.7.</span> <span class="toc-text">modf()方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8C%E6%9B%B2%E5%87%BD%E6%95%B0"><span class="toc-number">6.</span> <span class="toc-text">双曲函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#sinh"><span class="toc-number">6.1.</span> <span class="toc-text">sinh()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cosh"><span class="toc-number">6.2.</span> <span class="toc-text">cosh()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tanh"><span class="toc-number">6.3.</span> <span class="toc-text">tanh()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#asinh"><span class="toc-number">6.4.</span> <span class="toc-text">asinh()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#acosh"><span class="toc-number">6.5.</span> <span class="toc-text">acosh()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#atanh"><span class="toc-number">6.6.</span> <span class="toc-text">atanh()</span></a></li></ol></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#0078E7;"><link itemprop="mainEntityOfPage" href="http://example.com/2021/07/02/Math%E5%BA%93/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="毛毛和车车"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="毛毛和车车的小站"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">Math库</h1><div class="post-meta"><div class="post-time"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="创建时间：2021-07-02 21:20:00" itemprop="dateCreated datePublished" datetime="2021-07-02T21:20:00+08:00">2021-07-02</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-2-line"></use></svg></span> <time title="修改时间：2021-07-03 10:20:00" itemprop="dateModified" datetime="2021-07-03T10:20:00+08:00">2021-07-03</time></div><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/%E7%AC%94%E8%AE%B0/" style="--text-color:dimgray" itemprop="url" rel="index"><span itemprop="text">笔记</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag-item" href="/tags/%E5%9F%BA%E7%A1%80/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">基础</span></a><a class="tag-item" href="/tags/Python/" style="--text-color:#3776ab"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">Python</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><h1 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h1><h2 id="math-e"><a href="#math-e" class="headerlink" title="math.e"></a>math.e</h2><blockquote>
+<p>参数说明：返回自然数的底</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(math.e)</span><br><span class="line"><span class="comment">#2.708281828459045</span></span><br></pre></td></tr></table></figure>
 
-block content
-  - var post = page
-  - var post_type = getPropertyByType(post.type)
+<h2 id="math-pi"><a href="#math-pi" class="headerlink" title="math.pi"></a>math.pi</h2><blockquote>
+<p>参数说明：返回圆周率的值</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(math.pi)</span><br><span class="line"><span class="comment">#3.141592653589793</span></span><br></pre></td></tr></table></figure>
 
-  #post
-    article.hty-card.post-block(itemscope, itemtype='https://schema.org/Article', style=`--smc-primary:${theme.colors.primary};`)
-      include _partial/post/post-schema.pug
-      header.post-header
-        h1.post-title(itemprop='name headline', style=post.type ? `color: ${post_type.color}` : '')
-          if post.type
-            +icon(post_type.icon)
-          | #{post.title}
 
-          if theme.post_edit.enable
-            include _partial/post/post-edit.pug
 
-        +post_meta(post)
+<h1 id="三角函数"><a href="#三角函数" class="headerlink" title="三角函数"></a>三角函数</h1><h2 id="sin-方法"><a href="#sin-方法" class="headerlink" title="sin()方法"></a>sin()方法</h2><blockquote>
+<p>sin()方法用于返回指定弧度的正弦值</p>
+<p>math.sin(x)</p>
+</blockquote>
+<p>参数说明：</p>
+<ul>
+<li>x:表示指定的数值</li>
+<li>返回值：返回x的正弦值</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(math.sin(math.pi/<span class="number">6</span>))</span><br><span class="line"><span class="built_in">print</span>(math.sin(-math.pi/<span class="number">6</span>))</span><br><span class="line"><span class="built_in">print</span>(math.sin(<span class="number">0</span>))</span><br><span class="line"><span class="built_in">print</span>(math.sin(math.pi/<span class="number">2</span>))</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">0.49999999999999994</span></span><br><span class="line"><span class="string">-0.49999999999999994</span></span><br><span class="line"><span class="string">0.0</span></span><br><span class="line"><span class="string">1.0</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
 
-        if post.url
-          a.hty-button.hty-button--raised(href=url_for(post.url), style=`margin: 1rem;background-color:${post_type.color}`)=__('post.view_link')
 
-      include ./_partial/post/post-content.pug
+<h2 id="cos-方法"><a href="#cos-方法" class="headerlink" title="cos()方法"></a>cos()方法</h2><blockquote>
+<p>cos()方法用于返回指定弧度的正弦值</p>
+<p>math.cos(x)</p>
+</blockquote>
+<p>参数说明：</p>
+<ul>
+<li>x:表示指定的数值</li>
+<li>返回值：返回x的余弦值</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(math.cos(math.pi/<span class="number">3</span>))</span><br><span class="line"><span class="built_in">print</span>(math.cos(-math.pi/<span class="number">3</span>))</span><br><span class="line"><span class="built_in">print</span>(math.cos(<span class="number">0</span>))</span><br><span class="line"><span class="built_in">print</span>(math.cos(math.pi))</span><br><span class="line"><span class="built_in">print</span>(math.cos(math.pi * <span class="number">2</span>))</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">0.5000000000000001</span></span><br><span class="line"><span class="string">0.5000000000000001</span></span><br><span class="line"><span class="string">1.0</span></span><br><span class="line"><span class="string">-1.0</span></span><br><span class="line"><span class="string">1.0</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
 
-      if theme.reward.enable && page.reward !== false
-        include _partial/post/reward.pug
 
-      if theme.creative_commons.license && theme.creative_commons.post
-        include _partial/post/post-copyright.pug
+<h2 id="tan-方法"><a href="#tan-方法" class="headerlink" title="tan()方法"></a>tan()方法</h2><blockquote>
+<p>tan()方法用于返回指定弧度的正弦值</p>
+<p>math.tan(x)</p>
+</blockquote>
+<p>参数说明：</p>
+<ul>
+<li>x:表示指定的数值</li>
+<li>返回值：返回x的正切值</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(math.tan(<span class="number">1</span>))</span><br><span class="line"><span class="built_in">print</span>(math.tan(-<span class="number">1</span>))</span><br><span class="line"><span class="built_in">print</span>(math.tan(<span class="number">0</span>))</span><br><span class="line"><span class="built_in">print</span>(math.tan(math.pi/<span class="number">4</span>))</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">1.5574077246549023</span></span><br><span class="line"><span class="string">-1.5574077246549023</span></span><br><span class="line"><span class="string">0.0</span></span><br><span class="line"><span class="string">0.9999999999999999</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
 
-    if post.prev || post.next
-      include _partial/post/post-nav.pug
+
+<h2 id="asin-方法"><a href="#asin-方法" class="headerlink" title="asin()方法"></a>asin()方法</h2><blockquote>
+<p>asin()方法用于获取指定值的反正弦值</p>
+<p>math.asin(x)</p>
+</blockquote>
+<p>参数说明：</p>
+<ul>
+<li>x:表示-1到1之间的数值。如果x的值大于1会产生一个错误</li>
+<li>返回值：返回x的正弦值</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(math.asin(-<span class="number">0.5</span>))</span><br><span class="line"><span class="built_in">print</span>(math.asin(<span class="number">0</span>))</span><br><span class="line"><span class="built_in">print</span>(math.asin(-<span class="number">1</span>))</span><br><span class="line"><span class="built_in">print</span>(math.asin(<span class="number">1</span>))</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">-0.5235987755982989</span></span><br><span class="line"><span class="string">0.0</span></span><br><span class="line"><span class="string">-1.5707963267948966</span></span><br><span class="line"><span class="string">1.5707963267948966</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="acos-方法"><a href="#acos-方法" class="headerlink" title="acos()方法"></a>acos()方法</h2><blockquote>
+<p>acos()方法用于获取指定值的反余弦值</p>
+<p>math.acos(x)</p>
+</blockquote>
+<p>参数说明：</p>
+<ul>
+<li>x:表示-1到1之间的数值。如果x的值大于1会产生一个错误</li>
+<li>返回值：返回x的余弦值</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(math.acos(-<span class="number">0.5</span>))</span><br><span class="line"><span class="built_in">print</span>(math.acos(<span class="number">0</span>))</span><br><span class="line"><span class="built_in">print</span>(math.acos(-<span class="number">1</span>))</span><br><span class="line"><span class="built_in">print</span>(math.acos(<span class="number">1</span>))</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">2.0943951023931957</span></span><br><span class="line"><span class="string">1.5707963267948966</span></span><br><span class="line"><span class="string">3.141592653589793</span></span><br><span class="line"><span class="string">0.0</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="atan-方法"><a href="#atan-方法" class="headerlink" title="atan()方法"></a>atan()方法</h2><blockquote>
+<p>atan()方法用于获取指定值的反正切值</p>
+<p>math.atan(x)</p>
+</blockquote>
+<p>参数说明：</p>
+<ul>
+<li>x:表示-1到1之间的数值。</li>
+<li>返回值：返回x的正切值</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(math.atan(-<span class="number">0.5</span>))</span><br><span class="line"><span class="built_in">print</span>(math.atan(<span class="number">0</span>))</span><br><span class="line"><span class="built_in">print</span>(math.atan(<span class="number">0.5</span>))</span><br><span class="line"><span class="built_in">print</span>(math.atan(-<span class="number">1</span>))</span><br><span class="line"><span class="built_in">print</span>(math.atan(<span class="number">5</span>))</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">-0.4636476090008061</span></span><br><span class="line"><span class="string">0.0</span></span><br><span class="line"><span class="string">0.4636476090008061</span></span><br><span class="line"><span class="string">-0.7853981633974483</span></span><br><span class="line"><span class="string">1.373400766945016</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="atan2-方法"><a href="#atan2-方法" class="headerlink" title="atan2()方法"></a>atan2()方法</h2><blockquote>
+<p>atan2()方法返回给定x，y坐标值得反正切值</p>
+<p>math.atan2(y,x)</p>
+</blockquote>
+<p>参数说明：</p>
+<ul>
+<li>y，x:表示指定的数值</li>
+<li>返回值：返回给定x，y坐标值得反正切值</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(math.atan2(-<span class="number">0.50</span>,-<span class="number">0.50</span>))</span><br><span class="line"><span class="built_in">print</span>(math.atan2(<span class="number">0.50</span>,<span class="number">0.50</span>))</span><br><span class="line"><span class="built_in">print</span>(math.atan2(<span class="number">5</span>,<span class="number">5</span>))</span><br><span class="line"><span class="built_in">print</span>(math.atan2(-<span class="number">10</span>,<span class="number">10</span>))</span><br><span class="line"><span class="built_in">print</span>(math.atan2(<span class="number">10</span>,<span class="number">20</span>))</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">-2.356194490192345</span></span><br><span class="line"><span class="string">0.7853981633974483</span></span><br><span class="line"><span class="string">0.7853981633974483</span></span><br><span class="line"><span class="string">-0.7853981633974483</span></span><br><span class="line"><span class="string">0.4636476090008061</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="幂函数与对数函数"><a href="#幂函数与对数函数" class="headerlink" title="幂函数与对数函数"></a>幂函数与对数函数</h1><h2 id="pow-方法"><a href="#pow-方法" class="headerlink" title="pow()方法"></a>pow()方法</h2><blockquote>
+<p>pow()方法用于获取x的y次幂</p>
+<p>math.pow(x,y)</p>
+</blockquote>
+<p>参数说明：</p>
+<ul>
+<li>x：表示底数</li>
+<li>y：表示幂指数</li>
+<li>返回值：返回x的y次幂，即x<code>**</code>y</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(math.<span class="built_in">pow</span>(<span class="number">2</span>,<span class="number">3</span>))</span><br><span class="line"><span class="built_in">print</span>(math.<span class="built_in">pow</span>(<span class="number">2</span>,<span class="number">0</span>))</span><br><span class="line"><span class="built_in">print</span>(math.<span class="built_in">pow</span>(<span class="number">3</span>,<span class="number">2</span>))</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">8.0</span></span><br><span class="line"><span class="string">1.0</span></span><br><span class="line"><span class="string">9.0</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="sqrt-方法"><a href="#sqrt-方法" class="headerlink" title="sqrt()方法"></a>sqrt()方法</h2><blockquote>
+<p>sqrt()方法用于获取指定值的平方根</p>
+<p>math.sqrt(x)</p>
+</blockquote>
+<p>参数说明：</p>
+<ul>
+<li>x：表示需要指定的数值</li>
+<li>返回值：返回x的平方根</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(math.sqrt(<span class="number">100</span>))</span><br><span class="line"><span class="built_in">print</span>(math.sqrt(<span class="number">7</span>))</span><br><span class="line"><span class="built_in">print</span>(math.sqrt(math.pi))</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">10.0</span></span><br><span class="line"><span class="string">2.6457513110645907</span></span><br><span class="line"><span class="string">1.7724538509055159</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="exp-方法"><a href="#exp-方法" class="headerlink" title="exp()方法"></a>exp()方法</h2><blockquote>
+<p>exp()方法返回 e<sup>x</sup>的值</p>
+<p>math.exp(x)</p>
+</blockquote>
+<p>参数说明：</p>
+<ul>
+<li>x：表示数值表达式</li>
+<li>返回值：返回x作为指数的e<sup>x</sup>的值</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(math.exp(-<span class="number">4</span>))</span><br><span class="line"><span class="built_in">print</span>(math.exp(<span class="number">5</span>))</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">0.01831563888873418</span></span><br><span class="line"><span class="string">148.4131591025766</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="expm1-方法"><a href="#expm1-方法" class="headerlink" title="expm1()方法"></a>expm1()方法</h2><blockquote>
+<p>expm1()方法返回 e<sup>x</sup>的值</p>
+<p>math.expm1(x)</p>
+</blockquote>
+<p>参数说明：</p>
+<ul>
+<li>x：表示数值表达式</li>
+<li>返回值：返回e的x次方减一的值</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(math.expm1(<span class="number">0</span>))</span><br><span class="line"><span class="built_in">print</span>(math.expm1(<span class="number">1</span>))</span><br><span class="line"><span class="built_in">print</span>(math.expm1(<span class="number">2</span>))</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">0.0</span></span><br><span class="line"><span class="string">1.718281828459045</span></span><br><span class="line"><span class="string">6.38905609893065</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="log-方法"><a href="#log-方法" class="headerlink" title="log()方法"></a>log()方法</h2><blockquote>
+<p>log()方法用于获取指定值的自然对数</p>
+<p>math.log(x[,base])</p>
+</blockquote>
+<p>参数说明：</p>
+<ul>
+<li>x：指定的数值</li>
+<li>base：表示底数，默认为e</li>
+<li>返回值：返回x的自然对数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(math.log(<span class="number">1.12</span>))</span><br><span class="line"><span class="built_in">print</span>(math.log(<span class="number">1</span>))</span><br><span class="line"><span class="built_in">print</span>(math.log(math.e * math.e))</span><br><span class="line"><span class="built_in">print</span>(math.log(math.pi))</span><br><span class="line"><span class="built_in">print</span>(math.log(<span class="number">81</span>,<span class="number">9</span>))</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">0.11332868530700327</span></span><br><span class="line"><span class="string">0.0</span></span><br><span class="line"><span class="string">2.0</span></span><br><span class="line"><span class="string">1.1447298858494002</span></span><br><span class="line"><span class="string">2.0</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="log1p-方法"><a href="#log1p-方法" class="headerlink" title="log1p()方法"></a>log1p()方法</h2><blockquote>
+<p>log1p()方法用于获取参数x+1的自然对数</p>
+<p>math.log1p(x)</p>
+</blockquote>
+<p>参数说明：</p>
+<ul>
+<li>x：指定的数值</li>
+<li>返回值：返回x+1的自然对数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(math.log1p(<span class="number">10</span>))</span><br><span class="line"><span class="built_in">print</span>(math.log1p(<span class="number">0</span>))</span><br><span class="line"><span class="built_in">print</span>(math.log1p(math.e-<span class="number">1</span>))</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">2.3978952727983707</span></span><br><span class="line"><span class="string">0.0</span></span><br><span class="line"><span class="string">1.0</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="log2-方法"><a href="#log2-方法" class="headerlink" title="log2()方法"></a>log2()方法</h2><blockquote>
+<p>log2()方法用于x以2为底的对数</p>
+<p>math.log2(x)</p>
+</blockquote>
+<p>参数说明：</p>
+<ul>
+<li>x：指定的数值</li>
+<li>base：表示底数，默认为e</li>
+<li>返回值：返回x以2为底的对数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(math.log2(<span class="number">2</span>))</span><br><span class="line"><span class="built_in">print</span>(math.log2(<span class="number">4</span>))</span><br><span class="line"><span class="built_in">print</span>(math.log2(<span class="number">32</span>))</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">1.0</span></span><br><span class="line"><span class="string">2.0</span></span><br><span class="line"><span class="string">5.0</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="log10-方法"><a href="#log10-方法" class="headerlink" title="log10()方法"></a>log10()方法</h2><blockquote>
+<p>log10()方法用于获取x的常用对数</p>
+<p>math.log10(x)</p>
+</blockquote>
+<p>参数说明：</p>
+<ul>
+<li>x：指定的数值</li>
+<li>返回值：返回x的常用对数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(math.log10(<span class="number">100</span>))</span><br><span class="line"><span class="built_in">print</span>(math.log10(<span class="number">1</span>))</span><br><span class="line"><span class="built_in">print</span>(math.log10(math.pi))</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">2.0</span></span><br><span class="line"><span class="string">0.0</span></span><br><span class="line"><span class="string">0.49714987269413385</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="角度转换"><a href="#角度转换" class="headerlink" title="角度转换"></a>角度转换</h1><h2 id="degrees-方法"><a href="#degrees-方法" class="headerlink" title="degrees()方法"></a>degrees()方法</h2><blockquote>
+<p>degrees()方法用于将弧度转化为角度值</p>
+<p>math.degrees(x)</p>
+</blockquote>
+<p>参数说明：</p>
+<ul>
+<li>x：指定的弧度</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(math.degrees(math.pi/<span class="number">3</span>))</span><br><span class="line"><span class="built_in">print</span>(math.degrees(-math.pi/<span class="number">6</span>))</span><br><span class="line"><span class="built_in">print</span>(math.degrees(<span class="number">0</span>))</span><br><span class="line"><span class="built_in">print</span>(math.degrees(-math.pi/<span class="number">2</span>))</span><br><span class="line"><span class="built_in">print</span>(math.degrees(math.pi/<span class="number">4</span>))</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">59.99999999999999</span></span><br><span class="line"><span class="string">-29.999999999999996</span></span><br><span class="line"><span class="string">0.0</span></span><br><span class="line"><span class="string">-90.0</span></span><br><span class="line"><span class="string">45.0</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="radians-方法"><a href="#radians-方法" class="headerlink" title="radians()方法"></a>radians()方法</h2><blockquote>
+<p>radians()方法用于将角度值转化为弧度值</p>
+<p>math.radians(x)</p>
+</blockquote>
+<p>参数说明：</p>
+<ul>
+<li>x：指定的数值</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(math.radians(<span class="number">180</span>))</span><br><span class="line"><span class="built_in">print</span>(math.radians(<span class="number">90</span>))</span><br><span class="line"><span class="built_in">print</span>(math.radians(<span class="number">60</span>))</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">3.141592653589793</span></span><br><span class="line"><span class="string">1.5707963267948966</span></span><br><span class="line"><span class="string">1.0471975511965976</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="数论与表示"><a href="#数论与表示" class="headerlink" title="数论与表示"></a>数论与表示</h1><h2 id="ceil-方法"><a href="#ceil-方法" class="headerlink" title="ceil()方法"></a>ceil()方法</h2><blockquote>
+<p>返回指定数值的上舍整数</p>
+<p>math.ceil(x)</p>
+</blockquote>
+<p>参数说明：</p>
+<ul>
+<li><p>x：指定的数值</p>
+</li>
+<li><p>返回值：返回一个大于或等于x的最小整数。如果x不是float，则委托给<code>x.__ceil()__</code>，它应该返回一个Integral值。</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(math.ceil(-<span class="number">50.06</span>))</span><br><span class="line"><span class="built_in">print</span>(math.ceil(-<span class="number">20.23</span>))</span><br><span class="line"><span class="built_in">print</span>(math.ceil(math.pi))</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">-50</span></span><br><span class="line"><span class="string">-20</span></span><br><span class="line"><span class="string">4</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="floor-方法"><a href="#floor-方法" class="headerlink" title="floor()方法"></a>floor()方法</h2><blockquote>
+<p>返回指定数值的下舍整数</p>
+<p>math.floor(x)</p>
+</blockquote>
+<p>参数说明：</p>
+<ul>
+<li><p>x：指定的数值</p>
+</li>
+<li><p>返回值：返回一个大于或等于x的最小整数。如果x不是float，则委托给<code>x.__ceil()__</code>，它应该返回一个Integral值。</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(math.floor(-<span class="number">50.06</span>))</span><br><span class="line"><span class="built_in">print</span>(math.floor(-<span class="number">20.23</span>))</span><br><span class="line"><span class="built_in">print</span>(math.floor(math.pi))</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">-51</span></span><br><span class="line"><span class="string">-21</span></span><br><span class="line"><span class="string">3</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="fabs-方法"><a href="#fabs-方法" class="headerlink" title="fabs()方法"></a>fabs()方法</h2><blockquote>
+<p>用于获取指定数值的绝对值</p>
+<p>math.fabs’(x)</p>
+</blockquote>
+<p>参数说明：</p>
+<ul>
+<li><p>x：指定的数值</p>
+</li>
+<li><p>返回值：返回x的绝对值</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(math.fabs(-<span class="number">5</span>))</span><br><span class="line"><span class="built_in">print</span>(math.fabs(<span class="number">1.23</span>))</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">5.0</span></span><br><span class="line"><span class="string">1.23</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="fmod-方法"><a href="#fmod-方法" class="headerlink" title="fmod()方法"></a>fmod()方法</h2><blockquote>
+<p>用于获取两个数值的余数，返回值类型为浮点数</p>
+<p>math.fmod(x,y)</p>
+</blockquote>
+<p>参数说明：</p>
+<ul>
+<li><p>x：表示被除数</p>
+</li>
+<li><p>y：表示除数</p>
+</li>
+<li><p>返回值：返回x&#x2F;y的余数，返回值类型是浮点数</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(math.fmod(<span class="number">7</span>,<span class="number">3</span>))</span><br><span class="line"><span class="built_in">print</span>(math.fmod(<span class="number">22</span>,<span class="number">6</span>))</span><br><span class="line"><span class="built_in">print</span>(math.fmod(<span class="number">4</span>,<span class="number">2</span>))</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">1.0</span></span><br><span class="line"><span class="string">4.0</span></span><br><span class="line"><span class="string">0.0</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="isnan-方法"><a href="#isnan-方法" class="headerlink" title="isnan()方法"></a>isnan()方法</h2><blockquote>
+<p>判断是否为数值，不是数字返回True，否则返回False</p>
+<p>math.isnan(x)</p>
+</blockquote>
+<p>参数说明：</p>
+<ul>
+<li>x：表示需要判断的内容</li>
+<li>返回值：如果x不是数字返回True，否则返回False</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(math.isnan(<span class="number">100</span>))</span><br><span class="line"><span class="built_in">print</span>(math.isnan(<span class="number">0.0</span>))</span><br><span class="line"><span class="built_in">print</span>(math.isnan(<span class="built_in">float</span>(<span class="string">&#x27;NaN&#x27;</span>)))</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">False</span></span><br><span class="line"><span class="string">False</span></span><br><span class="line"><span class="string">True</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="isclose-方法"><a href="#isclose-方法" class="headerlink" title="isclose()方法"></a>isclose()方法</h2><blockquote>
+<p>判断两个值是否接近或相等，如果两个值接近或相等返回True,否则返回False</p>
+<p>math.isclose(a,b,rel_tol&#x3D;1e-09,abs_tol&#x3D;0.0)</p>
+</blockquote>
+<p>参数说明：</p>
+<ul>
+<li>a，b：需要判断的两个值</li>
+<li>rel_tol：相对容差</li>
+<li>abs_tol：最小绝对容差</li>
+<li>返回值：当两个值接近（指定容差）或相等返回True,否则返回False</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(math.isclose(<span class="number">5</span>,<span class="number">6</span>))</span><br><span class="line"><span class="built_in">print</span>(math.isclose(<span class="number">5</span>,<span class="number">6</span>,rel_tol=<span class="number">1</span>))</span><br><span class="line"><span class="built_in">print</span>(math.isclose(<span class="number">6</span>,<span class="number">6</span>))</span><br><span class="line"><span class="built_in">print</span>(math.isclose(<span class="number">3.14</span>,<span class="number">3.21</span>))</span><br><span class="line"><span class="built_in">print</span>(math.isclose(<span class="number">3.14</span>,<span class="number">3.21</span>,rel_tol=<span class="number">0.7</span>))</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">False</span></span><br><span class="line"><span class="string">True</span></span><br><span class="line"><span class="string">True</span></span><br><span class="line"><span class="string">False</span></span><br><span class="line"><span class="string">True</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="modf-方法"><a href="#modf-方法" class="headerlink" title="modf()方法"></a>modf()方法</h2><blockquote>
+<p>获取指定数值的小数部分与整数部分，两部分数值符号与x相同，整数部分以浮点型表示</p>
+<p>math.modf(x)</p>
+</blockquote>
+<p>参数说明：</p>
+<ul>
+<li><p>x：指定的数值</p>
+</li>
+<li><p>返回值：返回x的小数部分与整数部分</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="built_in">print</span>(math.modf(<span class="number">10.18</span>))</span><br><span class="line"><span class="built_in">print</span>(math.modf(<span class="number">4.7</span>))</span><br><span class="line"><span class="built_in">print</span>(math.modf(<span class="number">2</span>))</span><br><span class="line"><span class="built_in">print</span>(math.modf(math.pi))</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">(0.17999999999999972, 10.0)</span></span><br><span class="line"><span class="string">(0.7000000000000002, 4.0)</span></span><br><span class="line"><span class="string">(0.0, 2.0)</span></span><br><span class="line"><span class="string">(0.14159265358979312, 3.0)</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="双曲函数"><a href="#双曲函数" class="headerlink" title="双曲函数"></a>双曲函数</h1><h2 id="sinh"><a href="#sinh" class="headerlink" title="sinh()"></a>sinh()</h2><blockquote>
+<p>返回指定值的双曲线正弦值</p>
+<p>math.sinh(x)</p>
+</blockquote>
+<h2 id="cosh"><a href="#cosh" class="headerlink" title="cosh()"></a>cosh()</h2><blockquote>
+<p>返回指定值的双曲线余弦值</p>
+<p>math.cosh(x)</p>
+</blockquote>
+<h2 id="tanh"><a href="#tanh" class="headerlink" title="tanh()"></a>tanh()</h2><blockquote>
+<p>返回指定值的双曲线正切值</p>
+<p>math.tanh()</p>
+</blockquote>
+<h2 id="asinh"><a href="#asinh" class="headerlink" title="asinh()"></a>asinh()</h2><blockquote>
+<p>返回指定值的反双曲正弦值</p>
+<p>math.asinh(x)</p>
+</blockquote>
+<h2 id="acosh"><a href="#acosh" class="headerlink" title="acosh()"></a>acosh()</h2><blockquote>
+<p>返回指定值的反双曲余弦值</p>
+<p>math.acosh(x)</p>
+</blockquote>
+<h2 id="atanh"><a href="#atanh" class="headerlink" title="atanh()"></a>atanh()</h2><blockquote>
+<p>返回指定值的反双曲正弦值</p>
+<p>math.atanh()</p>
+</blockquote>
+</div></section><div id="reward-container"><span class="hty-icon-button button-glow" id="reward-button" title="打赏" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === &quot;none&quot;) ? &quot;block&quot; : &quot;none&quot;;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-hand-coin-line"></use></svg></span><div id="reward-comment">I'm so cute. Please give me money.</div></div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>毛毛和车车</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="http://example.com/2021/07/02/Math%E5%BA%93/" title="Math库">http://example.com/2021/07/02/Math%E5%BA%93/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> 许可协议。</li></ul></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2021/07/05/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" rel="prev" title="JUC编程"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">JUC编程</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2021/06/17/Random%E5%BA%93/" rel="next" title="random库"><span class="post-nav-text">random库</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div class="hty-card" id="comment"></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2019 – 2022 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 毛毛和车车</span></div><div class="powered"><span>由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v6.0.0</span><span class="footer-separator">|</span><span>主题 - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.8.10</span></div></footer><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a></div></body></html>
