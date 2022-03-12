@@ -1,0 +1,177 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="车同学和他的毛毛"><meta name="copyright" content="车同学和他的毛毛"><meta name="generator" content="Hexo 6.0.0"><meta name="theme" content="hexo-theme-yun"><title>毛毛和车车的小站</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.2.4/dist/yun/yun-markdown.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prism-theme-vars/base.css"><script src="//at.alicdn.com/t/font_1140697_dxory92pb0h.js" async></script><script src="https://cdn.jsdelivr.net/npm/@unocss/runtime/mini.global.js"></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".markdown-body img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link rel="icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#0078E7"><link rel="preload" href="https://cdn.jsdelivr.net/gh/YunYouJun/yunyoujun.github.io@latest/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/YunYouJun/yunyoujun.github.io@latest/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+    window.Yun = {}
+    window.CONFIG = {"hostname":"nbwyctf.github.io","root":"/","title":"毛毛和车车的小窝","version":"1.8.10","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"fireworks":{"colors":null},"vendors":{"darken":"https://cdn.jsdelivr.net/npm/darken@1.5.0"}};
+  </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/YunYouJun/yunyoujun.github.io@latest/css/hexo-theme-yun.css"><script src="https://cdn.jsdelivr.net/gh/YunYouJun/yunyoujun.github.io@latest/js/hexo-theme-yun.js" type="module"></script><script src="//at.alicdn.com/t/font_2580000_1bbml5xtge8.js" async></script><meta name="description" content="在学习ElasticSearch之前，先简单了解一下Lucene：  Doug Cutting开发  是apache软件基金会4 jakarta项目组的一个子项目  是一个开放源代码的全文检索引擎工具包  不是一个完整的全文检索引擎，而是一个全文检索引擎的架构，提供了完整的查询引擎和索引引擎，部分文本分析引擎（英文与德文两种西方语言）  当前以及最近几年最受欢迎的免费Java信息检索程序库。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="毛毛和车车的小站">
+<meta property="og:url" content="https://nbwyctf.github.io/2022/03/11/ElasticSearch/index.html">
+<meta property="og:site_name" content="毛毛和车车的小站">
+<meta property="og:description" content="在学习ElasticSearch之前，先简单了解一下Lucene：  Doug Cutting开发  是apache软件基金会4 jakarta项目组的一个子项目  是一个开放源代码的全文检索引擎工具包  不是一个完整的全文检索引擎，而是一个全文检索引擎的架构，提供了完整的查询引擎和索引引擎，部分文本分析引擎（英文与德文两种西方语言）  当前以及最近几年最受欢迎的免费Java信息检索程序库。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/2aa8e3beb5871b69bacfbb8ea476024b.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/553df4df5803d0d748851ead4bcd2df7.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/8a363b4dca2f0e878634f3e95a345c1f.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/7e3bdc49ad0de72a4669da1e2e5b91b1.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/54d6400bf029f5086e61148312c11991.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/17a71c649421cd7ec42d73ecf5ce0c76.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/54d6400bf029f5086e61148312c11991.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/930407acb07f960f346918bfa55e54ad.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/img_convert/90337e146295d779b5c19d3b33ad4fbb.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210608171553663.png">
+<meta property="article:published_time" content="2022-03-11T10:41:44.816Z">
+<meta property="article:modified_time" content="2022-03-11T11:11:02.180Z">
+<meta property="article:author" content="车同学和他的毛毛">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/img_convert/2aa8e3beb5871b69bacfbb8ea476024b.png"><script>(function() {
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  const setting = localStorage.getItem('darken-mode') || 'auto'
+  if (setting === 'dark' || (prefersDark && setting !== 'light'))
+    document.documentElement.classList.toggle('dark', true)
+})()</script></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="https://cdn.jsdelivr.net/gh/YunYouJun/yunyoujun.github.io@latest/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="https://cdn.jsdelivr.net/gh/YunYouJun/yunyoujun.github.io@latest/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="车同学和他的毛毛"><img width="96" loading="lazy" src="https://i.loli.net/2021/05/28/5vYC3gscLoEijyk.jpg" alt="车同学和他的毛毛"></a><div class="site-author-name"><a href="/about/">车同学和他的毛毛</a></div><a class="site-name" href="/about/site.html">毛毛和车车的小站</a><sub class="site-subtitle"></sub><div class="site-desciption"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">42</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">4</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">18</span></a></div><a class="site-state-item hty-icon-button" href="/about/#comments/" title="留言板"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-clipboard-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/nbwyctf/nbwyctf.github.io" title="GitHub" target="_blank" style="color:#6e5494"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://music.163.com/#/my/m/music/playlist?id=950802696" title="网易云音乐" target="_blank" style="color:#C20C0C"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-netease-cloud-music-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://www.zhihu.com/people/hun-dun-hu-die-38" title="知乎" target="_blank" style="color:#0084FF"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-zhihu-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/433682899" title="哔哩哔哩" target="_blank" style="color:#FF8EB3"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-bilibili-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://blog.csdn.net/weixin_50955418?spm=1000.2115.3001.5343" title="CSDN" target="_blank" style="color:#C20C0C"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-csdn1"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://mail.qq.com/cgi-bin/frame_html?sid=bs0rVj61kCCQEmwM&amp;r=991c2e409df3ff2ca47730672ea55ea2" title="E-Mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ElasticSearch%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">ElasticSearch概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%86%E5%8F%B2"><span class="toc-number">1.0.1.</span> <span class="toc-text">历史</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES%E5%92%8CSolr"><span class="toc-number">1.1.</span> <span class="toc-text">ES和Solr</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ElasticSearch%E7%AE%80%E4%BB%8B"><span class="toc-number">1.1.1.</span> <span class="toc-text">ElasticSearch简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Solr%E7%AE%80%E4%BB%8B"><span class="toc-number">1.1.2.</span> <span class="toc-text">Solr简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ElasticSearch%E4%B8%8ESolr%E6%AF%94%E8%BE%83"><span class="toc-number">1.1.3.</span> <span class="toc-text">ElasticSearch与Solr比较</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ElasticSearch%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">ElasticSearch安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows%E4%B8%8B%E5%AE%89%E8%A3%85"><span class="toc-number">2.0.1.</span> <span class="toc-text">Windows下安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%8F%AF%E8%A7%86%E5%8C%96%E7%95%8C%E9%9D%A2"><span class="toc-number">2.0.2.</span> <span class="toc-text">安装可视化界面</span></a></li></ol></li></ol></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#0078E7;"><link itemprop="mainEntityOfPage" href="https://nbwyctf.github.io/2022/03/11/ElasticSearch/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="车同学和他的毛毛"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="毛毛和车车的小站"></span><header class="post-header"><h1 class="post-title" itemprop="name headline"></h1><div class="post-meta"><div class="post-time"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="创建时间：2022-03-11 18:41:44" itemprop="dateCreated datePublished" datetime="2022-03-11T18:41:44+08:00">2022-03-11</time></div><div class="post-classify"></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><p>在学习ElasticSearch之前，先简单了解一下<strong>Lucene</strong>：</p>
+<ul>
+<li><p><strong>Doug Cutting开发</strong></p>
+</li>
+<li><p>是<strong>apache软件基金会</strong>4 jakarta项目组的一个子项目</p>
+</li>
+<li><p>是一个<strong>开放源代码</strong>的<strong>全文检索引擎工具包</strong></p>
+</li>
+<li><p><strong>不是一个完整的全文检索引擎，而是一个全文检索引擎的架构</strong>，提供了完整的查询引擎和索引引擎，部分<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%96%87%E6%9C%AC%E5%88%86%E6%9E%90/11046544">文本分析</a>引擎（英文与德文两种西方语言）</p>
+</li>
+<li><p>当前以及最近几年最受欢迎的<strong>免费Java信息检索程序库</strong>。</p>
+</li>
+</ul>
+<p><strong>Lucene和ElasticSearch的关系：</strong></p>
+<ul>
+<li>ElasticSearch是基于Lucene 做了一下封装和增强</li>
+</ul>
+<h1 id="ElasticSearch概述"><a href="#ElasticSearch概述" class="headerlink" title="ElasticSearch概述"></a>ElasticSearch概述</h1><p><strong>Elaticsearch</strong>，简称为es，es是一个开源的<strong>高扩展</strong>的<strong>分布式全文检索引擎</strong>，它可以近乎<strong>实时的存储</strong>、<strong>检索数据</strong>;本身扩展性很好，可以扩展到上百台服务器，处理PB级别(大数据时代）的数据。es也使用java开发并使用Lucene作为其核心来实现所有索引和搜索的功能，但是它的<strong>目的</strong>是 通过简单的<strong>RESTful API</strong>来隐藏Lucene的复杂性，从而让全文搜索变得简单 。</p>
+<p>据国际权威的数据库产品评测机构DB Engines的统计，在2016年1月，ElasticSearch已超过Solr等，成为<strong>排名第一的搜索引擎类应用</strong>。</p>
+<blockquote>
+<h3 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h3></blockquote>
+<p>多年前，一个叫做Shay Banon的刚结婚不久的失业开发者，由于妻子要去伦敦学习厨师，他便跟着也去了。在他找工作的过程中，为了给妻子构建一个食谱的搜索引擎，他开始构建一个早期版本的Lucene。</p>
+<p>直接基于Lucene工作会比较困难，所以Shay开始抽象Lucene代码以便Java程序员可以在应用中添加搜索功能。他发布了他的第一个开源项目，叫做“Compass”。</p>
+<p>后来Shay找到一份工作，这份工作处在高性能和内存数据网格的分布式环境中，因此高性能的、实时的、分布式的搜索引擎也是理所当然需要的。然后他决定重写Compass库使其成为一个独立的服务叫做Elasticsearch。</p>
+<p>第一个公开版本出现在2010年2月，在那之后Elasticsearch已经成为Github上最受欢迎的项目之一，代码贡献者超过300人。一家主营Elasticsearch的公司就此成立，他们一边提供商业支持一边开发新功能，不过Elasticsearch将永远开源且对所有人可用。</p>
+<p>Shay的妻子依旧等待着她的食谱搜索…..</p>
+<p><strong>谁在使用：</strong></p>
+<p>1、维基百科，类似百度百科，全文检索，高亮，搜索推荐&#x2F;2</p>
+<p>2、The Guardian (国外新闻网站) ，类似搜狐新闻，用户行为日志(点击，浏览，收藏，评论) +社交网络数据(对某某新闻的相关看法) ，数据分析，给到每篇新闻文章的作者，让他知道他的文章的公众反馈(好，坏，热门，垃圾，鄙视，崇拜)</p>
+<p>3、Stack Overflow (国外的程序异常讨论论坛) ， IT问题，程序的报错，提交上去，有人会跟你讨论和回答，全文检索，搜索相关问题和答案，程序报错了，就会将报错信息粘贴到里面去，搜索有没有对应的答案</p>
+<p>4、GitHub (开源代码管理)，搜索 上千亿行代码</p>
+<p>5、电商网站，检索商品</p>
+<p>6、日志数据分析，<code>logstash</code>采集日志， ES进行复杂的数据分析，<strong>ELK技术，<code>elasticsearch+logstash+kibana</code></strong></p>
+<p>7、商品价格监控网站，用户设定某商品的价格阈值，当低于该阈值的时候，发送通知消息给用户，比如说订阅牙膏的监控，如果高露洁牙膏的家庭套装低于50块钱，就通知我，我就去买</p>
+<p>8、BI系统，商业智能，Business Intelligence。比如说有个大型商场集团，分析一下某某区域最近3年的用户消费金额的趋势以及用户群体的组成构成，产出相关的数张报表</p>
+<p>9、国内:站内搜索(电商，招聘，门户，等等)，IT系统搜索(OA，CRM，ERP，等等)，数据分析(ES热门的一个使用场景)</p>
+<h2 id="ES和Solr"><a href="#ES和Solr" class="headerlink" title="ES和Solr"></a>ES和Solr</h2><h3 id="ElasticSearch简介"><a href="#ElasticSearch简介" class="headerlink" title="ElasticSearch简介"></a>ElasticSearch简介</h3><ul>
+<li><p>Elasticsearch是一个<strong>实时分布式搜索和分析引擎</strong>。 它让你以前所未有的速度处理大数据成为可能</p>
+</li>
+<li><p>它用于 <strong>全文搜索、结构化搜索、分析</strong> 以及将这三者混合使用</p>
+</li>
+<li><p><code>维基百科</code>使用Elasticsearch提供<strong>全文搜索</strong>并<strong>高亮关键字</strong>，以及输入<strong>实时搜索</strong>和<strong>搜索纠错</strong>等搜索建议功能</p>
+</li>
+<li><p><code>英国卫报</code>使用Elasticsearch结合用户日志和社交网络数据提供给他们的编辑以实时的反馈，以便及时了解公众对新发表的文章的回应</p>
+</li>
+<li><p><code>StackOverflow</code>结合全文搜索</p>
+</li>
+<li><p>与地理位置查询，以及more-like-this功能来找到相关的问题和答案</p>
+</li>
+<li><p><code>Github</code>使用Elasticsearch检索1300亿行的代码</p>
+</li>
+<li><p>但是Elasticsearch不仅用于大型企业，它还让像<code>DataDog</code>以及<code>Klout</code>这样的创业公司将最初的想法变成可扩展的解决方案。</p>
+</li>
+<li><p>Elasticsearch可以在你的笔记本上运行，也可以在数以百计的服务器上处理PB级别的数据</p>
+</li>
+<li><p>Elasticsearch是一个基于Apache Lucene(TM)的开源搜索引擎</p>
+</li>
+<li><p>无论在开源还是专有领域， Lucene可被认为是迄今为止最先进、性能最好的、功能最全的搜索引擎库</p>
+<ul>
+<li>但是，<strong>Lucene只是一个库</strong>。想要使用它，你必须使用Java来作为开发语言并将其直接集成到你的应用中，更糟糕的是，Lucene非常复杂，你需要深入了解检索的相关知识来理解它是如何工作的。</li>
+</ul>
+</li>
+<li><p>Elasticsearch也使用Java开发并使用Lucene作为其核心来实现所有索引和搜索的功能，但是它的<strong>目的</strong>是<mark>通过简单的<strong>RESTful API</strong>来隐藏Lucene的复杂性，从而让全文搜索变得简单。</mark></p>
+</li>
+</ul>
+<h3 id="Solr简介"><a href="#Solr简介" class="headerlink" title="Solr简介"></a>Solr简介</h3><ul>
+<li><p>Solr是Apache下的一个顶级开源项目，采用Java开发，它是<strong>基于Lucene的全文搜索服务器</strong>。Solr提供了比Lucene更为<strong>丰富的查询语言</strong>，同时实现了<strong>可配置</strong>、<strong>可扩展</strong>，并<strong>对索引、搜索性能进行了优化</strong></p>
+</li>
+<li><p>Solr可以<strong>独立运行</strong>，运行在letty、Tomcat等这些Servlet容器中 ， Solr 索引的实现方法很简单，<mark>用POST方法向Solr服务器发送一个描述Field及其内容的XML文档， Solr根据xml文档<strong>添加、删除、更新</strong>索引</mark>。</p>
+</li>
+<li><p>Solr 搜索只需要发送HTTP GET请求，然后对Solr返回xml、json等格式的查询结果进行解析，组织页面布局。</p>
+</li>
+<li><p>Solr不提供构建UI的功能，<strong>Solr提供了一个管理界面，通过管理界面可以查询Solr的配置和运行情况。</strong></p>
+</li>
+<li><p>Solr是基于Lucene开发企业级搜索服务器，实际上就是封装了Lucene.</p>
+</li>
+<li><p>Solr是一个独立的企业级搜索应用服务器，它<strong>对外提供类似于Web-service的API接口</strong>。用户可以通过http请求，向搜索引擎服务器提交-定格式的文件，生成索引;也可以通过提出查找请求，并得到返回结果。</p>
+</li>
+</ul>
+<h3 id="ElasticSearch与Solr比较"><a href="#ElasticSearch与Solr比较" class="headerlink" title="ElasticSearch与Solr比较"></a>ElasticSearch与Solr比较</h3><ol>
+<li>当单纯的对已有数据进行搜索时，Solr更快</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/2aa8e3beb5871b69bacfbb8ea476024b.png" alt="img" loading="lazy"></p>
+<ol start="2">
+<li>当实时建立索引时，Solr会产生IO阻塞，查询性能较差，ElasticSearch具有明显的优势</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/553df4df5803d0d748851ead4bcd2df7.png" alt="img" loading="lazy"></p>
+<ol start="3">
+<li>随着数据量的增加，Solr的搜索效率会变得更低，而ElasticSearch却没有明显的变化</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/8a363b4dca2f0e878634f3e95a345c1f.png" alt="img" loading="lazy"></p>
+<ol start="4">
+<li>转变我们的搜索基础设施后从Solr ElasticSearch，我们看见一个即时~ 50x提高搜索性能！</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/7e3bdc49ad0de72a4669da1e2e5b91b1.png" alt="img" loading="lazy"></p>
+<p>总结</p>
+<p>1、<strong>es</strong>基本是<strong>开箱即用</strong>(解压就可以用!) ，非常简单。Solr安装略微复杂一丢丢!<br>2、<strong>Solr 利用Zookeeper进行分布式管理</strong>，而<strong>Elasticsearch 自身带有分布式协调管理功能 。</strong></p>
+<p>3、Solr 支持更多格式的数据，比如JSON、XML、 CSV ，而<strong>Elasticsearch仅支持json文件格式</strong>。<br>4、Solr 官方提供的功能更多，而Elasticsearch本身更注重于核心功能，高级功能多有第三方插件提供，例如图形化界面需要kibana友好支撑</p>
+<p>撑<br>5、 <strong>Solr 查询快，但更新索引时慢(即插入删除慢)</strong> ，用于电商等查询多的应用;</p>
+<ul>
+<li><p><strong>ES建立索引快(即查询慢)</strong> ，即<strong>实时性查询快</strong>，用于facebook、新浪等搜索。</p>
+</li>
+<li><p>Solr是传统搜索应用的有力解决方案，但Elasticsearch更适用于新兴的实时搜索应用。</p>
+</li>
+</ul>
+<p>6、Solr比较成熟，有一个更大，更成熟的用户、开发和贡献者社区，而Elasticsearch相对开发维护者较少，更新太快，学习使用成本较高。</p>
+<h1 id="ElasticSearch安装"><a href="#ElasticSearch安装" class="headerlink" title="ElasticSearch安装"></a>ElasticSearch安装</h1><p>使用Java开发，必须保证<code>ElasticSearch</code>的版本与Java的核心jar包版本对应！（Java环境保证没错）</p>
+<h3 id="Windows下安装"><a href="#Windows下安装" class="headerlink" title="Windows下安装"></a>Windows下安装</h3><p>1、安装</p>
+<p>下载地址：<a target="_blank" rel="noopener" href="https://www.elastic.co/cn/downloads/">https://www.elastic.co/cn/downloads/</a></p>
+<p>历史版本下载：<a target="_blank" rel="noopener" href="https://www.elastic.co/cn/downloads/past-releases/">https://www.elastic.co/cn/downloads/past-releases/</a></p>
+<p>解压即可（尽量将ElasticSearch相关工具放在统一目录下）</p>
+<p>2、熟悉目录</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/54d6400bf029f5086e61148312c11991.png" alt="img" loading="lazy"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/17a71c649421cd7ec42d73ecf5ce0c76.png" alt="img" loading="lazy"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/54d6400bf029f5086e61148312c11991.png" alt="img" loading="lazy"></p>
+<pre class="language-markdown" data-language="markdown"><code class="language-markdown">bin 启动文件目录
+config 配置文件目录
+1og4j2 日志配置文件
+jvm.options java 虚拟机相关的配置(默认启动占1g内存，内容不够需要自己调整)
+elasticsearch.ym1 elasticsearch 的配置文件! 默认9200端口!跨域!
+1ib
+相关jar包
+modules 功能模块目录
+plugins 插件目录
+ik分词器</code></pre>
+
+<p>3、启动</p>
+<blockquote>
+<p>一定要检查自己的java环境是否配置好</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/930407acb07f960f346918bfa55e54ad.png" alt="img" loading="lazy"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/90337e146295d779b5c19d3b33ad4fbb.png" alt="img" loading="lazy"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210608171553663.png" alt="img" loading="lazy"></p>
+<h3 id="安装可视化界面"><a href="#安装可视化界面" class="headerlink" title="安装可视化界面"></a>安装可视化界面</h3><pre class="language-none"><code class="language-none">elasticsearch-head</code></pre>
+
+<p><strong>使用前提</strong>：需要安装nodejs  </p>
+<blockquote>
+<p>nodejs安装</p>
+</blockquote>
+<p>Node.js 安装包及源码下载地址为：<a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a></p>
+</div></section><div id="reward-container"><span class="hty-icon-button button-glow" id="reward-button" title="打赏" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === &quot;none&quot;) ? &quot;block&quot; : &quot;none&quot;;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-hand-coin-line"></use></svg></span><div id="reward-comment">I'm so cute. Please give me money.</div></div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>车同学和他的毛毛</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="https://nbwyctf.github.io/2022/03/11/ElasticSearch/" title="">https://nbwyctf.github.io/2022/03/11/ElasticSearch/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> 许可协议。</li></ul></article><div class="post-nav"><div class="post-nav-item"></div><div class="post-nav-item"><a class="post-nav-next" href="/2022/03/09/Redis/" rel="next" title="Redis"><span class="post-nav-text">Redis</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div class="hty-card" id="comment"></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2019 – 2022 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 车同学和他的毛毛</span></div><div class="powered"><span>由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v6.0.0</span><span class="footer-separator">|</span><span>主题 - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.8.10</span></div></footer><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a></div></body></html>
