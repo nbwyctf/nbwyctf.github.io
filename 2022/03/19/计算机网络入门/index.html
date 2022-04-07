@@ -1,0 +1,987 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="车同学和他的毛毛"><meta name="copyright" content="车同学和他的毛毛"><meta name="generator" content="Hexo 6.0.0"><meta name="theme" content="hexo-theme-yun"><title>计算机网络入门 | 毛毛和车车的小站</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.2.4/dist/yun/yun-markdown.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prism-theme-vars/base.css"><script src="//at.alicdn.com/t/font_1140697_dxory92pb0h.js" async></script><script src="https://cdn.jsdelivr.net/npm/@unocss/runtime/mini.global.js"></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".markdown-body img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link rel="icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#0078E7"><link rel="preload" href="https://cdn.jsdelivr.net/gh/YunYouJun/yunyoujun.github.io@latest/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/YunYouJun/yunyoujun.github.io@latest/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+    window.Yun = {}
+    window.CONFIG = {"hostname":"nbwyctf.github.io","root":"/","title":"毛毛和车车的小窝","version":"1.8.10","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"fireworks":{"colors":null},"vendors":{"darken":"https://cdn.jsdelivr.net/npm/darken@1.5.0"}};
+  </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/YunYouJun/yunyoujun.github.io@latest/css/hexo-theme-yun.css"><script src="https://cdn.jsdelivr.net/gh/YunYouJun/yunyoujun.github.io@latest/js/hexo-theme-yun.js" type="module"></script><script src="//at.alicdn.com/t/font_2580000_1bbml5xtge8.js" async></script><meta name="description" content="计算机网络简介 概念：  是一个将分散的、具有独立功能的计算机系统，通过通信设备与线路连接起来，由功能完善的软件实现资源共享和信息传递的系统。 计算机网络是互连的、自治（无主从关系）的计算机集合。  组成部分  硬件、软件、协议  工作方式   边缘部分  -为用户直接使用  C&#x2F;S方式 P2P方式   核心部分  -为边缘部分服务    功能组成   通信子网  -实现数据通信">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络入门">
+<meta property="og:url" content="https://nbwyctf.github.io/2022/03/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:site_name" content="毛毛和车车的小站">
+<meta property="og:description" content="计算机网络简介 概念：  是一个将分散的、具有独立功能的计算机系统，通过通信设备与线路连接起来，由功能完善的软件实现资源共享和信息传递的系统。 计算机网络是互连的、自治（无主从关系）的计算机集合。  组成部分  硬件、软件、协议  工作方式   边缘部分  -为用户直接使用  C&#x2F;S方式 P2P方式   核心部分  -为边缘部分服务    功能组成   通信子网  -实现数据通信">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.niupic.com/images/2022/03/20/9WMZ.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210127172057255.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210127172118111.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210127172141186.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2021020720415451.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210127172213803.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210127172231615.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210127172333492.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210127172343518.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210127172354524.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210127172408606.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200703004334235.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020070300482031.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200703005114701.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200703005650472.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200703010043691.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020070301065437.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200703011608294.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200703012144697.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210204214054815.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210204214642914.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210204215346994.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210204221120338.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210204221501845.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210204221831138.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210204224440923.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210204225035577.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210204225235116.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205101025865.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205101524393.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205101823359.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205102109359.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205103545602.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205104221506.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2021020510450636.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205230152667.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/202102052321410.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205232429727.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205233459631.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205233515988.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205233946278.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205235139252.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2021020610204186.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210206103509759.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210206104044261.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2021020610480896.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210206105234687.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210206105827639.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210206110230216.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210206110921258.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210206111530978.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210206111705535.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210206112000569.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210206112111207.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210206112144726.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210206112234844.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2021020611235494.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210206112504633.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210206112718623.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210206112729844.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210206112822979.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210206112841284.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210206112906122.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210206112926575.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210206113010144.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210206113129998.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205110201196.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205111208400.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205111708336.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205112138766.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205112503516.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205112832621.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205113205458.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205170452296.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205171237333.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205172001338.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205172339397.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205172551372.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205172719478.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205172918575.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205172951388.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205173731557.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205173921444.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205174329240.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205174329240.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205174838531.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205174947201.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205175746820.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205180512399.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2021020518062065.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205215212339.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205215437559.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2021020521561044.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205215919856.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205220003983.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205220126650.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205220207182.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205220305521.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205220338455.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205222040265.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205223228998.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205223433830.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2021020522354113.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205224016267.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205224238102.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210205224631661.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2021020522514810.png">
+<meta property="article:published_time" content="2022-03-19T12:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-06T13:15:01.000Z">
+<meta property="article:author" content="车同学和他的毛毛">
+<meta property="article:tag" content="基础">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.niupic.com/images/2022/03/20/9WMZ.png"><script>(function() {
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  const setting = localStorage.getItem('darken-mode') || 'auto'
+  if (setting === 'dark' || (prefersDark && setting !== 'light'))
+    document.documentElement.classList.toggle('dark', true)
+})()</script></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="https://cdn.jsdelivr.net/gh/YunYouJun/yunyoujun.github.io@latest/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="https://cdn.jsdelivr.net/gh/YunYouJun/yunyoujun.github.io@latest/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="车同学和他的毛毛"><img width="96" loading="lazy" src="https://i.loli.net/2021/05/28/5vYC3gscLoEijyk.jpg" alt="车同学和他的毛毛"></a><div class="site-author-name"><a href="/about/">车同学和他的毛毛</a></div><a class="site-name" href="/about/site.html">毛毛和车车的小站</a><sub class="site-subtitle"></sub><div class="site-desciption"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">45</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">4</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">18</span></a></div><a class="site-state-item hty-icon-button" href="/about/#comments/" title="留言板"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-clipboard-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/nbwyctf/nbwyctf.github.io" title="GitHub" target="_blank" style="color:#6e5494"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://music.163.com/#/my/m/music/playlist?id=950802696" title="网易云音乐" target="_blank" style="color:#C20C0C"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-netease-cloud-music-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://www.zhihu.com/people/hun-dun-hu-die-38" title="知乎" target="_blank" style="color:#0084FF"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-zhihu-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/433682899" title="哔哩哔哩" target="_blank" style="color:#FF8EB3"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-bilibili-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://blog.csdn.net/weixin_50955418?spm=1000.2115.3001.5343" title="CSDN" target="_blank" style="color:#C20C0C"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-csdn1"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://mail.qq.com/cgi-bin/frame_html?sid=bs0rVj61kCCQEmwM&amp;r=991c2e409df3ff2ca47730672ea55ea2" title="E-Mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"><span class="toc-number">1.</span> <span class="toc-text">计算机网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E5%8C%96%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.2.</span> <span class="toc-text">标准化工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-number">1.3.</span> <span class="toc-text">性能指标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9F%E7%8E%87"><span class="toc-number">1.3.1.</span> <span class="toc-text">速率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%A6%E5%AE%BD"><span class="toc-number">1.3.2.</span> <span class="toc-text">带宽</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%9E%E5%90%90%E9%87%8F"><span class="toc-number">1.3.3.</span> <span class="toc-text">吞吐量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E5%BB%B6"><span class="toc-number">1.3.4.</span> <span class="toc-text">时延</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E5%BB%B6%E5%B8%A6%E5%AE%BD%E7%A7%AF"><span class="toc-number">1.3.5.</span> <span class="toc-text">时延带宽积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%80%E8%BF%94%E6%97%B6%E5%BB%B6RTT"><span class="toc-number">1.3.6.</span> <span class="toc-text">往返时延RTT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E7%8E%87"><span class="toc-number">1.3.7.</span> <span class="toc-text">利用率</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%B1%82%E7%BB%93%E6%9E%84"><span class="toc-number">1.4.</span> <span class="toc-text">分层结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.5.</span> <span class="toc-text">OSI参考模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-x2F-IP%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.6.</span> <span class="toc-text">TCP&#x2F;IP参考模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E5%B1%82%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.7.</span> <span class="toc-text">5层参考模型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%B1%82"><span class="toc-number">2.</span> <span class="toc-text">应用层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.1.</span> <span class="toc-text">网络应用模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7-x2F-%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A8%A1%E5%9E%8B-C-x2F-S-%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.1.1.</span> <span class="toc-text">客户&#x2F;服务器模型  (C&#x2F;S)模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#P2P%E6%A8%A1%E5%9E%8B%EF%BC%88Peer-to-Peer%EF%BC%89"><span class="toc-number">2.1.2.</span> <span class="toc-text">P2P模型（Peer-to-Peer）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.2.</span> <span class="toc-text">DNS系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D"><span class="toc-number">2.2.1.</span> <span class="toc-text">域名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">2.2.2.</span> <span class="toc-text">域名服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E8%BF%87%E7%A8%8B"><span class="toc-number">2.2.3.</span> <span class="toc-text">域名解析过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E6%9F%A5%E8%AF%A2%EF%BC%88%E9%9D%A0%E5%88%AB%E4%BA%BA%EF%BC%89"><span class="toc-number">2.2.3.1.</span> <span class="toc-text">递归查询（靠别人）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%AD%E4%BB%A3%E6%9F%A5%E8%AF%A2%EF%BC%88%E9%9D%A0%E8%87%AA%E5%B7%B1%EF%BC%89"><span class="toc-number">2.2.3.2.</span> <span class="toc-text">迭代查询（靠自己）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AB%98%E9%80%9F%E7%BC%93%E5%AD%98"><span class="toc-number">2.2.3.3.</span> <span class="toc-text">高速缓存</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE%EF%BC%88FTP%EF%BC%8CTFTP%EF%BC%89"><span class="toc-number">2.3.</span> <span class="toc-text">文件传输协议（FTP，TFTP）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#FTP%E7%9A%84%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-number">2.3.1.</span> <span class="toc-text">FTP的服务端和客户端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FTP%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">2.3.2.</span> <span class="toc-text">FTP的工作原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6"><span class="toc-number">2.4.</span> <span class="toc-text">电子邮件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E6%88%90%E7%BB%93%E6%9E%84"><span class="toc-number">2.4.1.</span> <span class="toc-text">组成结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SMTP%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.4.2.</span> <span class="toc-text">SMTP协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MIME%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.4.3.</span> <span class="toc-text">MIME协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%82%AE%E5%B1%80%E5%8D%8F%E8%AE%AEPOP3"><span class="toc-number">2.4.4.</span> <span class="toc-text">邮局协议POP3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E9%99%85%E6%8A%A5%E6%96%87%E5%AD%98%E5%8F%96%E5%8D%8F%E8%AE%AEIMAP"><span class="toc-number">2.4.5.</span> <span class="toc-text">网际报文存取协议IMAP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E4%B8%87%E7%BB%B4%E7%BD%91%E7%9A%84%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6"><span class="toc-number">2.4.6.</span> <span class="toc-text">基于万维网的电子邮件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%87%E7%BB%B4%E7%BD%91%E5%92%8CHTTP%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.5.</span> <span class="toc-text">万维网和HTTP协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%87%E7%BB%B4%E7%BD%91%E6%A6%82%E8%BF%B0"><span class="toc-number">2.5.1.</span> <span class="toc-text">万维网概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.5.2.</span> <span class="toc-text">HTTP协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP%E5%8D%8F%E8%AE%AE%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-number">2.5.2.1.</span> <span class="toc-text">HTTP协议的过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">2.5.2.2.</span> <span class="toc-text">HTTP协议的特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP%E7%9A%84%E8%BF%9E%E6%8E%A5%E6%96%B9%E5%BC%8F"><span class="toc-number">2.5.2.3.</span> <span class="toc-text">HTTP的连接方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP%E7%9A%84%E6%8A%A5%E6%96%87%E7%BB%93%E6%9E%84"><span class="toc-number">2.5.2.4.</span> <span class="toc-text">HTTP的报文结构</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E5%B1%82%EF%BC%88%E8%BF%90%E8%BE%93%E5%B1%82%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">传输层（运输层）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%BE%93%E5%B1%82%E7%AB%AF%E5%8F%A3%E5%8F%B7%E3%80%81%E5%A4%8D%E7%94%A8%E5%92%8C%E5%88%86%E7%94%A8%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">3.1.</span> <span class="toc-text">运输层端口号、复用和分用的概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E5%8F%B7"><span class="toc-number">3.1.1.</span> <span class="toc-text">端口号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%91%E9%80%81%E6%96%B9%E7%9A%84%E5%A4%8D%E7%94%A8%E5%92%8C%E6%8E%A5%E6%94%B6%E6%96%B9%E7%9A%84%E5%88%86%E7%94%A8"><span class="toc-number">3.1.2.</span> <span class="toc-text">发送方的复用和接收方的分用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UDP-x2F-TCP"><span class="toc-number">3.2.</span> <span class="toc-text">UDP&#x2F;TCP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP%E7%9A%84%E8%BF%90%E8%BE%93%E9%93%BE%E6%8E%A5%E7%AE%A1%E7%90%86"><span class="toc-number">3.3.</span> <span class="toc-text">TCP的运输链接管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP%E8%BF%9E%E6%8E%A5%E7%9A%84%E5%BB%BA%E7%AB%8B%EF%BC%88%E4%B8%89%E6%8F%A1%EF%BC%89"><span class="toc-number">3.3.1.</span> <span class="toc-text">TCP连接的建立（三握）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP%E8%BF%9E%E6%8E%A5%E7%9A%84%E5%BB%BA%E7%AB%8B%E9%87%8A%E6%94%BE%EF%BC%88%E5%9B%9B%E6%8C%A5%EF%BC%89"><span class="toc-number">3.3.2.</span> <span class="toc-text">TCP连接的建立释放（四挥）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP%E6%8A%A5%E6%96%87%E7%9A%84%E9%A6%96%E9%83%A8%E6%A0%BC%E5%BC%8F%EF%BC%9A"><span class="toc-number">3.4.</span> <span class="toc-text">TCP报文的首部格式：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP%E7%9A%84%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6"><span class="toc-number">3.5.</span> <span class="toc-text">TCP的流量控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6"><span class="toc-number">3.6.</span> <span class="toc-text">TCP拥塞控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%85%A2%E5%BC%80%E5%A7%8B%E7%AE%97%E6%B3%95"><span class="toc-number">3.6.1.</span> <span class="toc-text">慢开始算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%A5%E5%A1%9E%E9%81%BF%E5%85%8D%E7%AE%97%E6%B3%95"><span class="toc-number">3.6.2.</span> <span class="toc-text">拥塞避免算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%87%8D%E4%BC%A0%E7%AE%97%E6%B3%95"><span class="toc-number">3.6.3.</span> <span class="toc-text">快重传算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E6%81%A2%E5%A4%8D%E7%AE%97%E6%B3%95"><span class="toc-number">3.6.4.</span> <span class="toc-text">快恢复算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP%E8%B6%85%E6%97%B6%E9%87%8D%E4%BC%A0%E6%97%B6%E9%97%B4%E7%9A%84%E9%80%89%E6%8B%A9"><span class="toc-number">3.7.</span> <span class="toc-text">TCP超时重传时间的选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.8.</span> <span class="toc-text">TCP可靠传输的实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="toc-number">4.</span> <span class="toc-text">网络层</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="toc-number">5.</span> <span class="toc-text">数据链路层</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E5%B1%82"><span class="toc-number">6.</span> <span class="toc-text">物理层</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#0078E7;"><link itemprop="mainEntityOfPage" href="https://nbwyctf.github.io/2022/03/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%85%A5%E9%97%A8/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="车同学和他的毛毛"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="毛毛和车车的小站"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">计算机网络入门</h1><div class="post-meta"><div class="post-time"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="创建时间：2022-03-19 20:00:00" itemprop="dateCreated datePublished" datetime="2022-03-19T20:00:00+08:00">2022-03-19</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-2-line"></use></svg></span> <time title="修改时间：2022-04-06 21:15:01" itemprop="dateModified" datetime="2022-04-06T21:15:01+08:00">2022-04-06</time></div><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/%E7%AC%94%E8%AE%B0/" style="--text-color:dimgray" itemprop="url" rel="index"><span itemprop="text">笔记</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag-item" href="/tags/%E5%9F%BA%E7%A1%80/" style="--text-color:#C19C00"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">基础</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
+<p>概念：</p>
+</blockquote>
+<p>是一个将分散的、具有独立功能的<strong>计算机系统</strong>，通过<strong>通信设备</strong>与<strong>线路</strong>连接起来，由功能完善的<strong>软件</strong>实现<em>资源共享</em>和<em>信息传递</em>的系统。</p>
+<p>计算机网络是<strong>互连</strong>的、<strong>自治</strong>（无主从关系）的计算机集合。</p>
+<blockquote>
+<p>组成部分</p>
+</blockquote>
+<p>硬件、软件、协议</p>
+<blockquote>
+<p>工作方式</p>
+</blockquote>
+<ul>
+<li><p>边缘部分  -为用户直接使用</p>
+<ul>
+<li>C&#x2F;S方式</li>
+<li>P2P方式</li>
+</ul>
+</li>
+<li><p>核心部分  -为边缘部分服务</p>
+</li>
+</ul>
+<blockquote>
+<p>功能组成</p>
+</blockquote>
+<ul>
+<li><p>通信子网  -实现<strong>数据通信</strong>        （应用层、表示层、会话层、传输层）</p>
+</li>
+<li><p>资源子网  -实现<strong>资源共享</strong>&#x2F;数据处理   （网络层、数据链路层、物理层）</p>
+</li>
+</ul>
+<blockquote>
+<p>网络分类</p>
+</blockquote>
+<ol>
+<li>按分布范围分<strong>广域网WAN</strong>（交换技术）、<strong>城域网MAN</strong>、<strong>局域网WAN</strong>（广播技术）、<strong>个人区域网PAN</strong></li>
+<li>按使用者分：公用网（exp：中国电信）、专用网</li>
+<li>按交换技术分：电路交换、报文交换、分组交换</li>
+<li>按拓扑结构分：总线型、星型、环形、网状型（常用于广域网）</li>
+<li>按传输技术分： <strong>广播式网络</strong>（共享公共通信信道）、<strong>点对点网络</strong>（使用<strong>分组存储转发</strong>和<strong>路由选择</strong>机制）</li>
+</ol>
+<h2 id="标准化工作"><a href="#标准化工作" class="headerlink" title="标准化工作"></a>标准化工作</h2><p>标准的<strong>分类</strong></p>
+<ul>
+<li>法定标准        由权威机构制定正式的、合法的标准    <font color="FF0000">OSI</font></li>
+<li>事实标准        某些公司的产品在竞争中占据了主流，时间长了，这些产品中的协议和技术就成了标准    <font color="FF0000">TCP&#x2F;IP</font></li>
+</ul>
+<p><strong>相关组织</strong></p>
+<ul>
+<li>国际化标准组织 <strong>ISO</strong>     OSI参考模型、HDLC协议</li>
+<li>国际电信联盟 <strong>ITU</strong>     制定通信规则</li>
+<li>国际电气电子工程师协会 <strong>IEEE</strong>     学术机构、IEEE802系列标准、5G</li>
+<li>Internet工程任务组 <strong>IETF</strong>    负责因特网相关标准的制定 RFC</li>
+</ul>
+<h2 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h2><h3 id="速率"><a href="#速率" class="headerlink" title="速率"></a>速率</h3><p>速率即<strong>数据率</strong>或称<strong>数据传输率</strong>或<strong>比特率</strong>。</p>
+<p>连接在计算机网络上的<strong>主机</strong>在数字信道上传送数据<strong>位数</strong>的<strong>速率</strong>。</p>
+<p>比特    1&#x2F;0    位</p>
+<p>单位是b&#x2F;s，kb&#x2F;s，Mb&#x2F;s，Gb&#x2F;s，Tb&#x2F;s</p>
+<blockquote>
+<p>速率：1 Tb&#x2F;s &#x3D; 10^3 Gb&#x2F;s &#x3D; 10^6 Mb&#x2F;S &#x3D; 10^9 kb&#x2F;s &#x3D; 10^12 b&#x2F;s</p>
+<p>存储容量：1 Byte(字节)&#x3D; 8 bit(比特)        1KB &#x3D; 2^10 B &#x3D; 1024 B &#x3D; 1024 * 8 b</p>
+</blockquote>
+<h3 id="带宽"><a href="#带宽" class="headerlink" title="带宽"></a>带宽</h3><p>网络设备所支持的最高速度</p>
+<p>（1）“<strong>带宽</strong>”原本指某个信号具有的频带宽度，即最高频率与最低频率之差，单位是赫兹（Hz）</p>
+<p>（2）计算机网络中，<strong>带宽</strong>用来表示网络的通信线路传送数据的能力，通常是指单位时间内从网络中的某一点到另一点所能通过的“<font color="#FF0000">最高速据率</font>”。单位是“比特每秒”，b&#x2F;s，kb&#x2F;s，Mb&#x2F;s，Gb&#x2F;s。</p>
+<p>注：链路带宽指生成数据的速度，而非在链路上传播的速度</p>
+<h3 id="吞吐量"><a href="#吞吐量" class="headerlink" title="吞吐量"></a>吞吐量</h3><p>表示在<strong>单位时间</strong>内通过<strong>某个网络（或信道、接口）</strong>的数据量。单位b&#x2F;s，kb&#x2F;s，Mb&#x2F;s等。吞吐量受网络的带宽或网络的额定速率的限制。</p>
+<h3 id="时延"><a href="#时延" class="headerlink" title="时延"></a>时延</h3><p>指数据（报文&#x2F;分组&#x2F;比特流）从网络（或链路）的一端到另一端所需的时间。也叫延迟或迟延。单位是s。<br>时延：</p>
+<ul>
+<li>发送时延：发送时延 &#x3D; 数据长度 &#x2F; 信道带宽（发送速率）</li>
+<li>传播时延：信道长度 &#x2F; 电磁波在信道上的传输速率</li>
+<li>排队时延： 等待输出 &#x2F; 入链路可用</li>
+<li>处理时延：检错 &#x2F; 找出口</li>
+</ul>
+<h3 id="时延带宽积"><a href="#时延带宽积" class="headerlink" title="时延带宽积"></a>时延带宽积</h3><p>时延带宽积 &#x3D; 传播时延 * 带宽</p>
+<p>时延带宽积又称为以比特为单位的链路长度。即“<strong>某段链路现在有多少比特</strong>”</p>
+<h3 id="往返时延RTT"><a href="#往返时延RTT" class="headerlink" title="往返时延RTT"></a>往返时延RTT</h3><p>从发送方发送数据开始，到发送方收到接收方的确认（接收方收到数据后立即发送确认），总共经历的时延。</p>
+<p>RTT 包括 <strong>往返传播时延</strong>（传播时延 * 2）和<strong>末端处理时延</strong></p>
+<h3 id="利用率"><a href="#利用率" class="headerlink" title="利用率"></a>利用率</h3><ul>
+<li>信道利用率        信道利用率 &#x3D; 有数据通过的时间 &#x2F; （有+无）数据通过的时间</li>
+<li>网络利用率        信道利用率加权平均值</li>
+</ul>
+<h2 id="分层结构"><a href="#分层结构" class="headerlink" title="分层结构"></a>分层结构</h2><ul>
+<li>7层OSI参考模型 （法定标准）</li>
+<li>4层TCP&#x2F;IP参考模型 （事实标准）</li>
+<li>5层体系结构</li>
+</ul>
+<blockquote>
+<p>基本原则</p>
+</blockquote>
+<ol>
+<li>各层之间相互<strong>独立</strong>，每层只实现一种相对独立的功能。</li>
+<li>每层之间界面自然清晰，易于理解，相互交流尽可能少。</li>
+<li>结构上可分割开。每层都采用<strong>最合适的技术</strong>来实现。</li>
+<li>保持<strong>下层</strong>对<strong>上层</strong>的独立性，<strong>上层单向使用下层提供的服务</strong>。</li>
+<li>整个分层结构应该能促进标准化工作。</li>
+</ol>
+<p><strong>实体</strong>：第n层中的活动元素称为<strong>n层实体</strong>。同一层的实体叫<strong>对等实体</strong>。<br><strong>协议</strong>：为进行网络中的<strong>对等实体</strong>数据交换而建立的规则、标准或约定称为网络协议。 【水平】<br><strong>接口（访问服务点SAP）</strong>：上层使用下层服务的入口。<br><strong>服务</strong>：下层为相邻上层提供的功能调用。【垂直】</p>
+<p>SDU服务数据单元：为完成用户所要求的功能而应传送的数据。<br>PCI协议控制信息：控制协议操作的信息。<br>PDU协议数据单元：对等层次之间传送的数据单位。</p>
+<p>nSDU + nPCL &#x3D; nPDU &#x3D; (n-1)SDU</p>
+<p>&#x3D;&#x3D;<strong>概念总结</strong>&#x3D;&#x3D;：</p>
+<ul>
+<li>网络体系结构是从<strong>功能</strong>上描述计算机网络结构。</li>
+<li>计算机网络体系结构简称网络体系结构是<strong>分层结构</strong>。</li>
+<li>每层遵循某个&#x2F;些<strong>网络协议</strong>以完成本层功能。</li>
+<li><strong>计算机网络体系结构</strong>是计算机网络的<strong>各层及其协议</strong>的集合。</li>
+<li>第n层在向n+1层提供服务时，此服务不仅包含第n层本身的功能，还包含由下层服务提供的功能。</li>
+<li>仅仅在<strong>相邻层间有接口</strong>，且所提供服务的具体实现细节对上一层完全屏蔽。</li>
+<li>体系结构是<strong>抽象</strong>的，而实现是指能运行的一些软件和硬件。</li>
+</ul>
+<h2 id="OSI参考模型"><a href="#OSI参考模型" class="headerlink" title="OSI参考模型"></a>OSI参考模型</h2><p>OSI 七层</p>
+<pre class="language-sh" data-language="sh"><code class="language-sh">7 应用层
+6 表示层
+5 会话层
+4 传输层
+3 网络层
+2 数据链路层
+1 物理层
+# 自下而上巧记 “物联（数据链路）网叔（传输）会使（示）用” </code></pre>
+
+<p>1、2、3层为通信子网；4、5、6、7为资源子网</p>
+<p><img src="https://i.niupic.com/images/2022/03/20/9WMZ.png" loading="lazy"></p>
+<h2 id="TCP-x2F-IP参考模型"><a href="#TCP-x2F-IP参考模型" class="headerlink" title="TCP&#x2F;IP参考模型"></a>TCP&#x2F;IP参考模型</h2><p>TCP&#x2F;IP参考模型 四层</p>
+<pre class="language-shell" data-language="shell"><code class="language-shell">应用层    HTTP<span class="token operator">|</span>FTP<span class="token operator">|</span>DNS
+传输层    TCP<span class="token operator">|</span>UDP
+网际层    IP
+网络接口层    Ethernet<span class="token operator">|</span>ATM<span class="token operator">|</span>Frame Relay</code></pre>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>ISO&#x2F;OSI参考模型</th>
+<th>TCP&#x2F;IP模型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>传输层</td>
+<td>面向连接</td>
+<td>无连接 + 面向连接</td>
+</tr>
+<tr>
+<td>网络层</td>
+<td>无连接 + 面向连接</td>
+<td>无连接</td>
+</tr>
+</tbody></table>
+<p><strong>面向连接</strong>分为三个阶段，第一是建立连接，在此阶段，发出一个建立连接的请求。只有在连接成功建立之后，才能开始数据传输，这是第二阶段。接着，当数据传输完毕，必须释放连接。</p>
+<p>而面向<strong>无连接</strong>没有这么多阶段，它直接进行数据传输。</p>
+<h2 id="5层参考模型"><a href="#5层参考模型" class="headerlink" title="5层参考模型"></a>5层参考模型</h2><p>综合了OSI和TCP&#x2F;IP的优点</p>
+<pre class="language-shell" data-language="shell"><code class="language-shell">应用层    支持各种网络应用 FTP、SMTP、HTTP
+传输层    进程-进程的数据传输 TCP、UDP
+网络层    源主机到目的主机的数据分组路由与转发 IP、ICMP、OSPF等
+数据链路层    把网络层传下来的数据报组装成帧 Ethernet、PPP
+物理层    比特传输</code></pre>
+
+
+
+<h1 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h1><blockquote>
+<p><strong>应用层概述</strong></p>
+<p>应用层对应用程序的通信提供服务。<strong>应用层协议定义</strong>：</p>
+</blockquote>
+<p>应用进程交换的报文类型，请求还是响应？</p>
+<p>各种报文类型的语法，如报文中的各个字段及其详细描述。</p>
+<p>字段的语义，即包含在字段中的信息的含义。</p>
+<p>进程何时、如何发送报文，以及对报文进行响应的规则。</p>
+<h2 id="网络应用模型"><a href="#网络应用模型" class="headerlink" title="网络应用模型"></a>网络应用模型</h2><h3 id="客户-x2F-服务器模型-C-x2F-S-模型"><a href="#客户-x2F-服务器模型-C-x2F-S-模型" class="headerlink" title="客户&#x2F;服务器模型  (C&#x2F;S)模型"></a>客户&#x2F;服务器模型  (C&#x2F;S)模型</h3><p><img src="https://img-blog.csdnimg.cn/20210127172057255.png" alt="在这里插入图片描述" loading="lazy"></p>
+<p>&#x3D;&#x3D;服务器&#x3D;&#x3D;：提供计算服务的设备。</p>
+<ol>
+<li>永久提供服务</li>
+<li>永久性访问地址&#x2F;域名</li>
+</ol>
+<p>&#x3D;&#x3D;客户机&#x3D;&#x3D;：请求计算服务的主机。</p>
+<ol>
+<li>与服务器通信，</li>
+<li>使用服务器提供的服务</li>
+<li>间歇性接入网络</li>
+<li>可能使用动态IP地址</li>
+<li>不与其他客户机直接通信</li>
+</ol>
+<h3 id="P2P模型（Peer-to-Peer）"><a href="#P2P模型（Peer-to-Peer）" class="headerlink" title="P2P模型（Peer-to-Peer）"></a>P2P模型（Peer-to-Peer）</h3><p><img src="https://img-blog.csdnimg.cn/20210127172118111.png" alt="img" loading="lazy"></p>
+<ul>
+<li>不存在永远在线的服务器</li>
+<li>每个主机既可以<strong>提供服务</strong>，也可以<strong>请求服务</strong></li>
+<li>任意端系统&#x2F;节点之间可以<strong>直接通讯</strong></li>
+<li>节点间歇性接入网络</li>
+<li>节点可能改变IP地址</li>
+<li>可扩展性好</li>
+<li>网络健壮性强</li>
+</ul>
+<h2 id="DNS系统"><a href="#DNS系统" class="headerlink" title="DNS系统"></a>DNS系统</h2><blockquote>
+<p>DNS（Domain Name System）</p>
+</blockquote>
+<p>DNS就是将打在地址栏的域名转化为IP地址的东西。</p>
+<h3 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h3><p>域名就是<code>www.xxx.com</code>，当然这是最简单的一种 <code>.com</code>之后还可以有东西，称之为根，域名从左向右，级别逐渐增高。</p>
+<p>根<br>    顶级域名<br>        1.国家顶级域名cn，us，uk<br>        2.通用顶级域名com，net，org，gov，int，aero，museum，travel<br>        3.基础结构域名&#x2F;反向域名arpa<br>    二级域名：<br>        1.类型域名 ac，com，edu，gov，mil，net，org<br>        2.行政区域名 用于我国各省、自治区、直辖市bj，js<br>        3.cctv，cskaoyan，自己注册的二级域名<br>    三级域名<br>    四级域名</p>
+<h3 id="域名服务器"><a href="#域名服务器" class="headerlink" title="域名服务器"></a>域名服务器</h3><p>DNS服务器有很多台，根据层次结构分为三层，根域名服务器，顶级域名服务器，权限域名服务器。本地域名服务器不算层次结构。</p>
+<ul>
+<li><p>根域名服务器<br>    当本地域名服务器中没有该域名的IP缓存，则本地域名服务器会向根域名服务器发出请求<br>    根域名服务器会根据域名的顶级域名，查找到对应顶级域名服务器的IP地址，将请求报文发送给顶级域名服务器</p>
+</li>
+<li><p>顶级域名服务器<br>    管理该顶级域名服务器注册的所有二级域名</p>
+</li>
+<li><p>权限域名服务器<br>    负责一个区的域名服务器</p>
+</li>
+<li><p>本地域名服务器<br>    当一个主机发出DNS查询请求时，这个查询请求报文就会发给本地域名服务器</p>
+</li>
+</ul>
+<p>根域名服务器并不是一个域名只有一台，而是一个域名对应多台域名服务器，全世界一共有13个这样的域名，分别是a.rootservers.net，b.rootservers.net，c.rootservers.net，~m.rootservers.net</p>
+<p>在权限域名服务器中，虽然看似abc.com比y.abc.com少了一位，但是他们的<strong>地位仍是对等的</strong>，对应的两台权限域名服务器。</p>
+<h3 id="域名解析过程"><a href="#域名解析过程" class="headerlink" title="域名解析过程"></a>域名解析过程</h3><h4 id="递归查询（靠别人）"><a href="#递归查询（靠别人）" class="headerlink" title="递归查询（靠别人）"></a>递归查询（靠别人）</h4><p>主机先是想本地域名服务器发送请求，如果查不到的话，<br><strong>本地域名服务器</strong>向根域名服务器发送请求（找别人），如果还是查不到的话，<br><strong>根域名域名服务器</strong>向顶级域名服务器发送请求（找别人），如果还是查不到的话，<br><strong>顶级域名服务器</strong>向权限域名服务器发送请求（找别人）<br>可以看到每一次向下一个查询的服务器都变了，不是主机一个个去问，而是<strong>服务器自己一个个问下去</strong></p>
+<h4 id="迭代查询（靠自己）"><a href="#迭代查询（靠自己）" class="headerlink" title="迭代查询（靠自己）"></a>迭代查询（靠自己）</h4><p>主机先是想本地域名服务器发送请求，如果查不到的话，<br>本地域名服务器就让<strong>主机</strong>去向根域名服务器发送请求（主机去找，本地域名给目标根域名服务器的IP地址），如果还是查不到的话，<br>根域名域名服务器让主机去向对应的顶级域名服务器发送请求（主机去找，根域名给目标顶级域名服务器的IP地址），如果还是查不到的话，<br>顶级域名服务器让<strong>主机</strong>去向权限域名服务器发送请求（主机去找，顶级域名给目标权限域名服务器的IP地址）<br>可以看到这里是<strong>主机</strong>一个个挨个问的地址</p>
+<p><img src="https://img-blog.csdnimg.cn/20210127172141186.png" alt="img" loading="lazy"></p>
+<h4 id="高速缓存"><a href="#高速缓存" class="headerlink" title="高速缓存"></a>高速缓存</h4><p>为了减少多次查询同一个域名的资源浪费，<strong>本地域名服务器</strong>会存储最近使用的ip地址解析，下次再访问同一个域名就不需要这么多查询步骤了。同时这个高速缓存<strong>主机本身也有存储</strong></p>
+<p>同时本地域名服务器还可以对顶级域名服务器，权限域名服务器的地址进行缓存，下一次即使是不知道的ip地址，查询也可以更快<br>高速缓存为了保持正确性，需要定时更新</p>
+<p><img src="https://img-blog.csdnimg.cn/2021020720415451.png" alt="img" loading="lazy"></p>
+<h2 id="文件传输协议（FTP，TFTP）"><a href="#文件传输协议（FTP，TFTP）" class="headerlink" title="文件传输协议（FTP，TFTP）"></a>文件传输协议（FTP，TFTP）</h2><blockquote>
+<p>文件传送协议FTP（File Transfer Protocol）</p>
+<p>简单文件传输协议（Trivial  File Transfer Protocol）</p>
+</blockquote>
+<h3 id="FTP的服务端和客户端"><a href="#FTP的服务端和客户端" class="headerlink" title="FTP的服务端和客户端"></a>FTP的服务端和客户端</h3><p>FTP是基于客户&#x2F;服务器（C&#x2F;S）的协议，提供不同种类主机系统（硬、软件体系等都可以不同）之间的文件传输能力</p>
+<p>用户通过一个客户机程序连接至在远程计算机上运行的服务器程序。依照FTP协议提供服务，进行文件传送的计算机就是<strong>FTP服务器</strong>。连接FTP服务器，遵循FTP协议与服务器传送文件的电脑就是<strong>FTP客户端</strong>。</p>
+<h3 id="FTP的工作原理"><a href="#FTP的工作原理" class="headerlink" title="FTP的工作原理"></a>FTP的工作原理</h3><ul>
+<li>文件传送是将某台计算机中的文件通过网络传送到可能相距很远的一台计算机中，是一项<strong>基本的网络应用</strong></li>
+<li>文件传输协议FTP是因特网上<strong>使用的最广泛的文件传送协议</strong></li>
+<li><strong>FTP协议的要点</strong>：<ol>
+<li>FTP提供交互式的访问，允许<strong>客户指明文件的类型和格式</strong>（如指明是否使用ASCII码），并允许文件<strong>具有存取权限</strong>（如访问文件必须经过授权，并输入有效的口令）</li>
+<li><strong>FTP屏蔽了各计算机系统的细节，因而适合于在异构网络中任意计算机之间传输文件</strong></li>
+</ol>
+</li>
+</ul>
+<p><strong>为什么有匿名登陆</strong>：对于一些公共服务器来说，增加验证阶段就是增加资源开销，减少验证阶段就可以节省资源来更好地服务。<br><strong>主进程和从属进程的区别</strong>：主进程是打开端口，让外部发送的数据可以进来，并且将这些数据逐个分配各从属进程。从属进程则是单独为了这些数据服务</p>
+<p><strong>FTP使用TCP实现可靠传输</strong></p>
+<p>FTP服务器进程：</p>
+<ul>
+<li><p>1个主进程</p>
+<p>启动从属进程</p>
+</li>
+<li><p>n个从属进程</p>
+<p>从属进程负责响应ftp服务</p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20210127172213803.png" alt="在这里插入图片描述" loading="lazy"></p>
+<p>FTP传输模式</p>
+<ul>
+<li>文本模式：ASCII模式，以文本序列传输数据</li>
+<li>二进制模式：Binary模式，以二进制序列传输数据</li>
+</ul>
+<h2 id="电子邮件"><a href="#电子邮件" class="headerlink" title="电子邮件"></a>电子邮件</h2><p><img src="https://img-blog.csdnimg.cn/20210127172231615.png" alt="img" loading="lazy"></p>
+<h3 id="组成结构"><a href="#组成结构" class="headerlink" title="组成结构"></a>组成结构</h3><p><img src="https://img-blog.csdnimg.cn/20210127172333492.png" alt="img" loading="lazy"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210127172343518.png" alt="img" loading="lazy"></p>
+<ul>
+<li>SMTP协议用于发送邮件</li>
+<li>POP3协议和IMAP用来读取邮件</li>
+</ul>
+<h3 id="SMTP协议"><a href="#SMTP协议" class="headerlink" title="SMTP协议"></a>SMTP协议</h3><p>SMTP ：<code>Simple Mail TransferProtocol</code></p>
+<p>SMTP规定了在两个相互通信的<strong>SMTP进程</strong>之间应如何交换信息<br>负责发送邮件的SMTP进程就是<strong>SMTP客户</strong>，负责接受邮件的进程就是<strong>SMTP服务器</strong><br>SMTP规定了14条命令和21条应答信息</p>
+<p>建立在TCP连接上 基于C&#x2F;S模式 工作在25号端口</p>
+<p><strong>SMTP通信的三个阶段</strong></p>
+<ul>
+<li>连接建立</li>
+<li>邮件传送</li>
+<li>连接释放</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20210127172354524.png" alt="img" loading="lazy"></p>
+<p>缺点：</p>
+<ol>
+<li><p>SMTP不能传送可执行文件或者其他二进制对象</p>
+</li>
+<li><p>SMTP仅限于传送7位ASCII码，不能传送其他非英语国家的文字</p>
+</li>
+<li><p>SMTP服务器会拒绝超过一定长度的邮件</p>
+</li>
+</ol>
+<p><strong>注意：这里服务器和客户端可以互换，视具体情况而定，发送方是客户端，接收方是服务器端</strong></p>
+<h3 id="MIME协议"><a href="#MIME协议" class="headerlink" title="MIME协议"></a>MIME协议</h3><p>MIME：<code>Multipurpose Internet Mail Extensions</code></p>
+<p>MIME改善SMTP发送数据的缺点，是SMTP的功能性扩展</p>
+<p>​        使电子邮件系统可以支持声音、图像、视频、多种国家语言等等  &#x3D;&gt;&gt;  使得传输内容丰富多彩</p>
+<p>MIME协议已经逐渐开始应用到浏览器当中，通过对不同文件类型用不同的标识符标识，来让浏览器读取通过MIME的相关文件</p>
+<p><img src="https://img-blog.csdnimg.cn/20210127172408606.png" alt="img" loading="lazy"></p>
+<h3 id="邮局协议POP3"><a href="#邮局协议POP3" class="headerlink" title="邮局协议POP3"></a>邮局协议POP3</h3><p>POP：<code>Post Office Protocol</code></p>
+<p>接收端邮件服务器作为服务器，接受方的用户代理作为客户</p>
+<p>pop3的工作方式：</p>
+<ul>
+<li>下载并保留（在服务器）</li>
+<li>下载并删除</li>
+</ul>
+<h3 id="网际报文存取协议IMAP"><a href="#网际报文存取协议IMAP" class="headerlink" title="网际报文存取协议IMAP"></a>网际报文存取协议IMAP</h3><p>IMAP：<code>Internet Message Access Protocol</code></p>
+<p><img src="https://img-blog.csdnimg.cn/20200703004334235.png" alt="img" loading="lazy"></p>
+<h3 id="基于万维网的电子邮件"><a href="#基于万维网的电子邮件" class="headerlink" title="基于万维网的电子邮件"></a>基于万维网的电子邮件</h3><p>与之前的不同的地方就是，基于万维网的电子邮件的<strong>邮件服务器端可以不同</strong></p>
+<p>同时，发送邮件使用的SMTP&#x2F;MIME和收邮件时的POP3&#x2F;IMAP协议都<strong>换成了HTTP协议</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/2020070300482031.png" alt="img" loading="lazy"></p>
+<h2 id="万维网和HTTP协议"><a href="#万维网和HTTP协议" class="headerlink" title="万维网和HTTP协议"></a>万维网和HTTP协议</h2><h3 id="万维网概述"><a href="#万维网概述" class="headerlink" title="万维网概述"></a>万维网概述</h3><p>URL（Uniform Resource Location统一资源定位）用来标识整个互联网当中的某一个资源（文字，视屏，音频等）的位置</p>
+<p>HTTP（Hypertext Transfer Protocol）用来将这些资源传送给用户</p>
+<p>HTML（Hyper Text Markup Language）帮助设计者来设计页面，让不同设计者设计的页面都可以在界面上显示</p>
+<p><img src="https://img-blog.csdnimg.cn/20200703005114701.png" alt="img" loading="lazy"></p>
+<h3 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h3><h4 id="HTTP协议的过程"><a href="#HTTP协议的过程" class="headerlink" title="HTTP协议的过程"></a>HTTP协议的过程</h4><p>这张图里讲了HTTP的具体过程</p>
+<p>服务器通过TCP 80端口来监听HTTP请求</p>
+<p>注意HTTP可以不一次性下载完页面的所有资源，可以只下载文本部分，其他音频视频等待用户下一步请求之后再传输</p>
+<p><img src="https://img-blog.csdnimg.cn/20200703005650472.png" alt="img" loading="lazy"></p>
+<h4 id="HTTP协议的特点"><a href="#HTTP协议的特点" class="headerlink" title="HTTP协议的特点"></a>HTTP协议的特点</h4><p><img src="https://img-blog.csdnimg.cn/20200703010043691.png" alt="img" loading="lazy"></p>
+<h4 id="HTTP的连接方式"><a href="#HTTP的连接方式" class="headerlink" title="HTTP的连接方式"></a>HTTP的连接方式</h4><blockquote>
+<p> HTTP的连接方式：持久连接和非持久连接</p>
+</blockquote>
+<p>非持久连接在TCP三次握手的<strong>第三次握手时发生</strong>，将HTTP请求作为第三次握手的数据部分发给服务器，服务器收到请求之后将HTTP相应报文传输给客户。耗时就是RTT*2+文档传输时间。<br>缺点就是这样如果再想传输，那么就需要重新建立TCP连接从头开始</p>
+<p>持久连接和非持久连接类似，都是在第三次握手时发生，将HTTP请求作为第三次握手的数据部分发给服务器，服务器收到请求之后将HTTP相应报文传输给客户。但是<strong>持久连接再需要请资源的时候就不需要建立新的TCP连接了</strong><br><img src="https://img-blog.csdnimg.cn/2020070301065437.png" alt="img" loading="lazy"></p>
+<p><strong>持久连接的两种方式——非流水线和流水线</strong></p>
+<p>非流水线就是发一个，确认一个，才能再发下一个</p>
+<p>流水线就是一个个连着发，然后多个确认</p>
+<h4 id="HTTP的报文结构"><a href="#HTTP的报文结构" class="headerlink" title="HTTP的报文结构"></a>HTTP的报文结构</h4><p><strong>开始行</strong>用于&#x3D;&#x3D;区别&#x3D;&#x3D;<strong>请求报文</strong>和<strong>响应报文</strong>。可以明显的看到两者第一行的东西都不一样</p>
+<p>请求报文的方法是指命令，就是对所请求的对象进行什么操作，如获取&#x2F;删除等等</p>
+<p>CRLF相当于我们程序里面的<code>；</code>，标识一行的结束。同时，在整个首部行结束时，为了区别首部行和实体主体还会有一行单独的CRLF</p>
+<p><img src="https://img-blog.csdnimg.cn/20200703011608294.png" alt="img" loading="lazy"></p>
+<p>这里举了请求报文的例子，和一些常用的状态码</p>
+<p><img src="https://img-blog.csdnimg.cn/20200703012144697.png" alt="img" loading="lazy"></p>
+<h1 id="传输层（运输层）"><a href="#传输层（运输层）" class="headerlink" title="传输层（运输层）"></a>传输层（运输层）</h1><blockquote>
+<p>为应用层提供通信服务，使用网络层的服务</p>
+</blockquote>
+<p><strong>传输层简单传输过程</strong>：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210204214054815.png" alt="img" loading="lazy"></p>
+<p>假设进程<strong>Ap1与Ap4</strong>之间进行基于网络的通信，他们通信的<strong>简单过程</strong>如下：</p>
+<ol>
+<li>根据不同的进程，在传输层选择使用不同的端口</li>
+<li>通过网络层及其下层来传输应用层报文</li>
+<li>将收到的应用层报文到达接收方的<strong>运输层</strong>后，<strong>通过不同的端口</strong>，<strong>交付给应用层中相应的应用进程</strong></li>
+</ol>
+<p>值得注意的是：这里端口并<strong>不是指看得见、摸得着的物理端口</strong>，<strong>而是指用来区分不同应用进程的标识符</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20210204214642914.png" alt="img" loading="lazy"></p>
+<p>功能：</p>
+<ul>
+<li><p>传输层提供进程和进程之间的逻辑通信（网络层及以下层提供主机之间的逻辑通信）</p>
+<p>“逻辑通信”是指传输层之间的通信<strong>使人感觉是沿水平方向传送数据</strong>，但事实上，这<strong>两条数据并没有一条水平方向的物理连接</strong>，要传送的数据是<strong>沿着图中上下多次的虚线方向传送</strong>。</p>
+</li>
+<li><p>复用和分用</p>
+</li>
+<li><p>传输层对收到的报文进行差错检测</p>
+</li>
+</ul>
+<h2 id="运输层端口号、复用和分用的概念"><a href="#运输层端口号、复用和分用的概念" class="headerlink" title="运输层端口号、复用和分用的概念"></a>运输层端口号、复用和分用的概念</h2><h3 id="端口号"><a href="#端口号" class="headerlink" title="端口号"></a>端口号</h3><p>首先明白为什么要用到端口号：</p>
+<ul>
+<li>在操作系统中 ，运行在计算机上的<strong>进程使用进程标识符PID来标志</strong>，</li>
+<li>但是因特网上的计算机并不是使用统一的操作系统，<strong>不同的操作系统使用不同格式的进程标识符</strong>。</li>
+<li>为了使运行不同系统的计算机的应用进程之间能够进行网络通信，就必须<strong>使用统一的方法来对TCP&#x2F;IP体系的应用进程进行标识</strong>。也就是使用端口号。</li>
+<li>TCP&#x2F;IP体系的运输层使用<strong>端口号来区分应用层的不同应用进程。</strong></li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20210204215346994.png" alt="img" loading="lazy"></p>
+<h3 id="发送方的复用和接收方的分用"><a href="#发送方的复用和接收方的分用" class="headerlink" title="发送方的复用和接收方的分用"></a>发送方的复用和接收方的分用</h3><ul>
+<li>复用可以理解为<strong>多个进程重复使用一个协议进行应用报文的封装</strong></li>
+<li>分用可以理解为<strong>一个封装好的应用报文根据某协议进行解析成不同的进程应用报文</strong></li>
+</ul>
+<p>例如：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210204221120338.png" alt="img" loading="lazy"></p>
+<p>在发送方中，<strong>多个进程通过端口利用一个运输层协议将数据封装成报文后发送</strong>，这就称为发送方<strong>复用</strong>，不同协议就叫不同协议复用，如图中的UDP复用。</p>
+<p>在IP复用中也会<strong>根据协议字段的不同将其使用不同协议再次进行封装。</strong></p>
+<p>在接收方中，利用一个协议，将用报文解析成不同数据，将数据根据端口发送不同进程，这就称为接收方<strong>分用</strong>。</p>
+<p>在IP分用中也会<strong>根据协议字段的不同将其使用不同协议进行解析。</strong></p>
+<p><strong>在TCP&#x2F;IP体系的应用层常用协议的运输层熟知端口号：</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20210204221501845.png" alt="img" loading="lazy"></p>
+<p>针对上述知识，我们对<strong>一个域名访问中的运输层传输流程进行解读：</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20210204221831138.png" alt="img" loading="lazy"></p>
+<p>假如我们在浏览器中输入某域名，点击回车键开始访问。</p>
+<p><strong>若此时在本地hosts缓存中有该域名的IP地址，直接发送带有目的地址的IP数据报</strong></p>
+<p><strong>若计算机中没有该域名对应的IP地址</strong>，进行以下操作：</p>
+<ol>
+<li><p><strong>构建DNS请求报文</strong>：</p>
+<p>​        先构建DNS请求报文数据，此处用抽象的文字表示。然后在空闲的短暂端口中随机选择一个端口来表表示本进程。因为DNS协议请求是熟悉端口之一，根据上面的常见端口熟悉协议可以查找到，DNS协议的端口为53。</p>
+</li>
+<li><p><strong>将该UDP请求数据报通过以太网发送给DNF服务器</strong>。</p>
+<p>​        DNS服务器接收到请求数据报文后，<strong>从中解封出UDP用户数据报</strong>。从数据报的目的端口知道<strong>目的端口为53</strong>后，服务器会<strong>将数据载荷部分（DNS请求报文）交给53端口对应的进程进行处理</strong>，此例中也就是DNS服务器端进程。<strong>DNS服务器端进程解析DNS查询请求报文的内容，然后按照其要求查找对应的IP地址。查找到后会发送DNS响应报文</strong>，该响应报文使用运输层的UDP协议封装成UDP报文。本例中我们将其内容抽象的表示成文字。然后将其源<strong>端口设置成发送来的端口</strong>，<strong>目的端口设置为发送来的源端口</strong>。</p>
+</li>
+<li><p><strong>接收方将UDP用户响应数据报封装在IP数据报中发送给发送方</strong>。</p>
+<p>​        用户在获得响应报文后，从中<strong>解封出用户数据报。根据用户数据报的目的端口</strong>，可以知道其传输给DNS进程。此时会将<strong>数据载荷，也就是DNS响应报文交给DNS进程进行处理</strong>，DNS进程<strong>将其响应报文进行解析</strong>，就可知道自己之前所请求的Web服务器的域名，此时就可以开始进行访问域名。</p>
+</li>
+<li><p><strong>知道域名对应的IP地址后，可以开始构建HTTP请求，并发送该请求</strong>。</p>
+<p>​        在此例中，将HTTP请求内容抽象为文字，<strong>HTTP请求报文的构建需要TCP协议构建TCP首部</strong>，在首部中选择一个空闲的短暂端口作为源端口，此时该端口代表TCP应用进程。<strong>目的端口选择80，这是HTTP协议所占的常用端口</strong>。<strong>将TCP报文段封装在IP数据报中，并进行发送</strong>。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210204224440923.png" alt="img" loading="lazy"></p>
+<p>​        HTTP请求报文通过以太网传输到对应Web服务器中，在接收到报文后会对其进行解析，在知道其端口为80后，会将数据载荷部分传输给本服务器中的HTTP服务器端进程进行解析。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210204225035577.png" alt="img" loading="lazy"></p>
+<p>​        解析到内容后按照其要求查找首页内容。查找到后会给给用户PC发送HTTP响应报文。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210204225235116.png" alt="img" loading="lazy"></p>
+<p>​        响应报文内容用抽象文字来表示，此时构建的源端口和目的端口刚好和发送的端口含义相反，原因与上面查询DNS服务过程相同。构建完后会发送响应报文回用户PC。</p>
+</li>
+<li><p><strong>Web服务器发送响应报文回用户PC</strong>。</p>
+<p>​        用户PC接收到报文后进行解封，解封后发现目的端口是49152，也就是用户PC内的HTTP进程。因此将数据载荷（HTTP报文）传输给HTTP进程进行处理。HTTP进程解析到其内同后，在网页浏览器中进行展示。</p>
+</li>
+</ol>
+<p>至此，一次网页请求结束。</p>
+<h2 id="UDP-x2F-TCP"><a href="#UDP-x2F-TCP" class="headerlink" title="UDP&#x2F;TCP"></a>UDP&#x2F;TCP</h2><ul>
+<li><strong>用户数据报协议UDP（User Datagram Protocol）</strong>、<strong>传输控制协议TCP（Transmission Control Protocol）</strong></li>
+<li>UDP和TCP是TCP&#x2F;IP体系结构<strong>运输层中</strong>的<strong>两个重要协议</strong>，其使用频率仅次于网际层的IP协议</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20210205101025865.png" alt="img" loading="lazy"></p>
+<ul>
+<li>传输层采用面向连接的 TCP 协议时，尽管下面的网络是不可靠的（只提供尽最大努力服务），但TCP协议就相当于在<strong>逻辑上建立了一条通信信道</strong>，该信道是<strong>全双工的可靠信道</strong>。</li>
+<li>当传输层采用无连接的 <strong>UDP 协议</strong>时，这种逻辑通信信道是<strong>一条不可靠信道</strong>。</li>
+</ul>
+<p><strong>从以下几个方面对比UDP和TCP：</strong></p>
+<ul>
+<li><p>以下的<strong>连接</strong>是<strong>逻辑上</strong>连接<strong>不是物理上</strong>的连接。</p>
+<ol>
+<li><p><strong>在连接方式上：</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20210205101524393.png" alt="img" loading="lazy"></p>
+</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>UDP是无连接的通信方式<br>TCP是通过著名的<strong>“三次握手”建立连接，“四次挥手”释放连接</strong>。</p>
+</blockquote>
+<ol start="2">
+<li><strong>在传播方式上：</strong></li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20210205101823359.png" alt="img" loading="lazy"></p>
+<blockquote>
+<p>DP由于不建立连接，支持<strong>多播和广播</strong><br>TCP由于每次通信需要建立<strong>基于TCP连接的可靠信道</strong>，且<strong>每次只能建立一条连接</strong>，因此只支持<strong>单播</strong></p>
+</blockquote>
+<ol start="3">
+<li><strong>在报文传输处理上：</strong></li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20210205102109359.png" alt="报文传输处理上" loading="lazy"></p>
+<p>​        UDP协议中，对于应用层传输下来的<strong>报文不进行处理，保留报文的边界</strong>。在给报文<strong>加上UDP首部，进行发送</strong>。UDP接收方首部接收到UDP数据后，去除其首部，交付给应用层。</p>
+<p>​        可以看出，<strong>UDP是针对报文为单位进行处理的，也就是UDP是面向应用报文的</strong>。</p>
+<p>在TCP发送方：</p>
+<p>​        TCP协议会把应用进程交付下来的数据块（报文）看作是一连串无结构的字节流（TCP并不知道这些子节含义），将他们<strong>编号</strong>，并<strong>存储在自己的发送缓存中</strong>,TCP再根据发送策略，<strong>提取一定量的字节，加上TCP首部，构建成TCP报文</strong>进行发送。</p>
+<p>对于接收方,同时进行两件事：</p>
+<p>​        从所接受到的TCP报文段中，取出数据载荷部分并<strong>存储在接收缓存</strong>中，同时将接收缓存中的一些字节<strong>交付给应用进程</strong>。</p>
+<p>有两个点值得注意：</p>
+<ol>
+<li><p>TCP协议保证<strong>接收方收到的字节流和发送方应用进程发出的字节流完全一样</strong></p>
+</li>
+<li><p><strong>TCP不保证接收方应用进程所收到的数据块与发送方发送的数据块，具有对应大小的关系</strong>，</p>
+<p>例如，发送方应用进程交给<strong>发送方的TCP共10个数据块</strong>，但接<strong>收方的TCP可能只用了4个数据块</strong>，就把收到的字节流交付给了上层的应用进程。但就是不会全部将数据交付给上层。</p>
+<p>因此接收方的TCP应用进程<strong>必须有能力识别收到的字节流，把它还原成有意义的应用层数据</strong></p>
+</li>
+</ol>
+<p>​        可以看出，TCP对报文的处理是以子节为单位的，也就是<strong>TCP是面向字节流的</strong>，这正是TCP实现<strong>可靠传输、流量控制、以及拥塞控制的基础</strong></p>
+<ul>
+<li>图中只画了一个方向的数据流，在实际网络中，基于TCP连接的两端，可以同时进行TCP报文段的发送和接收，也就是全双工通信</li>
+</ul>
+<ol start="4">
+<li><strong>在给上层提供的服务上：</strong></li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20210205103545602.png" alt="img" loading="lazy"></p>
+<blockquote>
+<p><strong>UDP提供的是不可靠服务</strong>：<br>对于发送的UDP数据报，接收方在<strong>检测到其误码后直接丢弃</strong>，<strong>不做其他操作</strong>。对于发送方发送过程中出现<strong>分组丢失，也不做处理</strong>。因此其传输数据是<strong>不一定能使接收方全部收到数据</strong>，因此是<strong>不可靠服务</strong>。</p>
+<p><strong>TCP提供的是可靠服务</strong>：<br>由于TCP字传输过程中需要<strong>建立连接</strong>，通过建立的<strong>可靠信道进行传输</strong>，因此<strong>不会出现传输差错</strong>，也就是误码、丢失、乱序、重复。因此可以<strong>保证发送端发送什么，接收端接收到什么</strong>，是<strong>可靠传输</strong>。</p>
+</blockquote>
+<ol start="5">
+<li><strong>协议首部的对比：</strong></li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20210205104221506.png" alt="img" loading="lazy"></p>
+<blockquote>
+<p>由于UDP不提供可靠传输的服务，因此其首部只需要在网际层的基础上添加区分端口的子节，其首部比较简单。<br>在TCP中，需要提供可靠传输、流量控制、拥塞控制等服务，首部比较复杂，字段比较多。</p>
+</blockquote>
+<p>TCP和UDP的对比总结：</p>
+<p><img src="https://img-blog.csdnimg.cn/2021020510450636.png" alt="img" loading="lazy"></p>
+<h2 id="TCP的运输链接管理"><a href="#TCP的运输链接管理" class="headerlink" title="TCP的运输链接管理"></a>TCP的运输链接管理</h2><h3 id="TCP连接的建立（三握）"><a href="#TCP连接的建立（三握）" class="headerlink" title="TCP连接的建立（三握）"></a>TCP连接的建立（三握）</h3><ul>
+<li><p>TCP是<strong>面向连接的协议</strong>，它基于<strong>运输连接</strong>来传送TCP报文段</p>
+</li>
+<li><p>TCP运输连接的建立和释放时每一次面向连接的通信中必不可少的过程</p>
+</li>
+<li><p>TCP运输连接建立有以下三个阶段：</p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20210205230152667.png" alt="img" loading="lazy"></p>
+<blockquote>
+<p><strong>三次挥手建立连接、建立连接后进行数据传输、四次挥手释放TCP连接</strong></p>
+</blockquote>
+<ul>
+<li>TCP的<strong>运输连接管理</strong>就是使用<strong>运输连接的建立和释放都能正常的进行</strong>。</li>
+</ul>
+<p><strong>TCP的连接建立要解决以下三个问题：</strong></p>
+<ol>
+<li><strong>使TCP双方都能确知对方的存在</strong></li>
+<li><strong>使TCP双方能够协商一些参数</strong>（如窗口最大值、是否使用窗口扩大选项和时间戳选项和服务质量等等）</li>
+<li><strong>使TCP双方能够对运输实体资源（如缓存大小、连接表中的项目等）进行分配</strong></li>
+</ol>
+<p><strong>使用三报文握手建立连接的具体过程：</strong></p>
+<ol>
+<li>在最开始：<strong>双方都是处于关闭状态，此时双方的TCP进程都是关闭的。</strong>此时，<strong>服务器在连接之前要进行准备</strong>。</li>
+</ol>
+<p>​        准备过程中，服务器<strong>创建传输控制块</strong>，在块中有TCP连接表等一些TCP连接的重要信息。<strong>创建后便开始监听</strong>，准备接收来自客户端的连接请求。</p>
+<p>​        值得注意的是：</p>
+<p>​                <strong>TCP服务器进程是被动等待来自TCP客户进程的连接请求</strong>。而不是主动发起，因此称为被动打开连接。</p>
+<p>​        与服务器类似，客户端进程也需要进行准备，<strong>其准备过程只有建立传输数据块</strong>，准备完毕后开始”握手“。</p>
+<ol start="2">
+<li><strong>第一次发送握手报文</strong></li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/202102052321410.png" alt="img" loading="lazy"></p>
+<p>​        在打算建立TCP连接时，客户端向TCP服务器进程<strong>发送TCP连接请求报文段</strong>，并<strong>进入同步已发送状态</strong></p>
+<p>​        TCP连接请求报文段首部中，有两个关键数据：</p>
+<p>​                <strong>同步位SYN</strong>：被设置为1，表明这是一个TCP连接请求报文段</p>
+<p>​                <strong>序号字段seq</strong>：被设置了一个初始值x，作为TCP客户端进程所选择的初始序号<br>​        <font color="#FF0000">注意</font>：<strong>TCP规定SYN被设置为1的报文段不能携带数据，但要消耗掉一个序号</strong></p>
+<ol start="3">
+<li><strong>服务器收到信号后，发送第二次握手报文</strong></li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20210205232429727.png" alt="img" loading="lazy"></p>
+<p>​        TCP服务器进程收到客户端发送的TCP连接请求报文段后，如果同意建立连接，则<strong>向TCP客户进程发送TCP连接请求确认报文段</strong>，并进入<strong>同步已接收状态</strong></p>
+<p>​        TCP连接请求确认报文段首部中有几个关键数据位：</p>
+<p>​                <strong>同步位SYN和确认为ACK</strong>：都设置为1，表明这是一个TCP连接请求确认报文段。</p>
+<p>​                <strong>序号字段seq</strong>：设置了一个初始值y，<strong>作为TCP服务器进程所选择的初始序号</strong>。</p>
+<p>​                <strong>确认号字段ack</strong>：值被设置成了x+1，这是<strong>对TCP客户进程所选择的初始序号（seq）的确认</strong>。</p>
+<p>​        <font color="#FF0000">注意</font>：<strong>这个报文段也不能携带数据，因为它是SYN被设置为1的报文段，但同样要消耗掉一个序号</strong></p>
+<ol start="4">
+<li><strong>发送方接收到确认报文后，开始第三次握手</strong></li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20210205233459631.png" alt="img" loading="lazy"></p>
+<p>​        TCP客户进程<strong>收到TCP连接请求确认报文段</strong>后，还要向TCP服务器进程发送一个<strong>普通的TCP确认报文段</strong>，并进入连接已连接状态</p>
+<p>​        普通的TCP确认报文段首部中有以下重点数据位：</p>
+<p>​                <strong>确认位ACK</strong>：设置为1，由于没有SYN同步字段，表明这是一个<strong>普通的TCP确认报文段</strong>，表示已确认收到建立连接报文。</p>
+<p>​                <strong>序号字段seq</strong>：设置为x+1，因为TCP客户进程发送的<strong>第一个TCP报文段的序号为x</strong>，所以TCP客户进程发送的<strong>第二个报文段的序号为x+1</strong>（SYN字段报文需要消耗一个序号）</p>
+<p>​                <strong>确认号字段ack</strong>：设置为y+1，这是对TCP服务器进程所选择的初始序号的确认</p>
+<p>​        <font color="#FF0000">注意</font>：<strong>TCP规定普通的TCP确认报文段(只有ACK没有SYN)可以携带数据，但如果不携带数据，则不消耗序号</strong></p>
+<ol start="5">
+<li><strong>三次握手完毕</strong>后，服务器也进入连接已建立状态，此时$\underline{双方连接已建立，可以开始进行数据传输}$。</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20210205233515988.png" alt="img" loading="lazy"></p>
+<p><strong>为什么TCP客户端进行最后还要发送一个普通的TCP确认报文段呢？</strong>，<strong>是否多余？</strong></p>
+<p>答案是<strong>否定</strong>的。</p>
+<ul>
+<li><strong>三次握手</strong>建立连接是为了<strong>防止已经失效的连接请求报文段突然又传到服务端，产生错误</strong>。</li>
+</ul>
+<p>例如，下面采用两次握手就建立连接：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210205233946278.png" alt="img" loading="lazy"></p>
+<p>​        客户端发出去了第一个连接请求报文并没有丢失，但是由于某种原因造成了<strong>较长时间的迟到</strong>现象。此时发送端<strong>重新开始发送请求连接报文，并且通过两次握手成功建立连接</strong>，<strong>没有进行请求序号的验证</strong>。</p>
+<p>​        在传输完数据之后，通过四次挥手释放连接。此时<strong>双方处于关闭连接状态</strong>。</p>
+<p>​        但是此时，已经迟到多时的请求报文到达了服务器，本来这是一个早已失效的报文段，但是服务器收到此失效的报文之后，会<strong>误认为是客户端再次发出的一个新的连接请求</strong>。</p>
+<p>​        于是服务器就向客户端又发出<strong>确认报文</strong>，表示<strong>同意建立连接</strong>。此时服务器处于<strong>连接状态</strong>，而客户端由于处于<strong>关闭状态，不会接收该确认报文</strong>。</p>
+<p>​        如果不采用“三次握手”，服务端接收到客户端发出的请求报文就会认为要请求建立新的连接，并且进入连接状态，但是客户端此时可能并没有发出建立连接的请求，该报文是由于某种情况迟到的请求，因此不会去向B端发送数据，<strong>服务端没有收到数据就会一直等待</strong>。<strong>这样子会造成服务端白白浪费掉很多资源</strong>。</p>
+<p>综上所诉，<strong>三次握手并不多余，这是为了防止已失效的连接请求报文段突然又传送到了TCP服务器，因而导致错误。</strong></p>
+<p><strong>总结：</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20210205235139252.png" alt="img" loading="lazy"></p>
+<h3 id="TCP连接的建立释放（四挥）"><a href="#TCP连接的建立释放（四挥）" class="headerlink" title="TCP连接的建立释放（四挥）"></a>TCP连接的建立释放（四挥）</h3><p>在双方连接已建立后，此时需要客户端<strong>主动发出关闭</strong>信号</p>
+<ol>
+<li><strong>第一次挥手</strong></li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/2021020610204186.png" alt="img" loading="lazy"></p>
+<p>​        TCP客户进程会<strong>发送TCP连接释放报文段</strong>，并进入<strong>终止等待1状态</strong></p>
+<p>​        TCP连接释放报文段首部中有以下关键数据位：</p>
+<p>​                <strong>终止位FIN和确认位ACK</strong>：值都被设置为1，<strong>表明这是一个TCP连接释放报文段</strong>，同时也<strong>对之前收到的报文段进行确认</strong></p>
+<p>​                <strong>序号seq字段</strong>：值设置为u，u等于<strong>TCP客户进程之前已传送过的数据的最后一个字节的序号加1</strong>，用来表示发送过程中的最后一个字节序号为u。</p>
+<p>​                <strong>确认号ack字段</strong>：值设置为v，v等于<strong>服务器进程之前发送的数据中最后一个字节的序号加1</strong>，也就是确认收到已经收到的服务器发送的数据</p>
+<p>​        <font color="#FF0000">注意</font>：TCP规定<strong>终止位FIN等于1的报文段即使不携带数据，也要消耗掉一个序号</strong></p>
+<ol start="2">
+<li><strong>第二次挥手</strong></li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20210206103509759.png" alt="img" loading="lazy"></p>
+<p>​        接收方再接收到连接释放报文后，会<strong>发送一个普通的TCP确认报文段</strong>并且进入<strong>关闭等待状态</strong>。</p>
+<p>​        普通的TCP确认报文段首部中有以下关键数据位：</p>
+<p>​                <strong>确认位ACK</strong>：值被设置为1，表明这是一个<strong>普通的TCP确认报文段</strong>。</p>
+<p>​                <strong>序号seq</strong>：值设置为v，v等于<strong>TCP服务器进程之前已传送过的数据的最后一个字节的序号加1</strong>，<strong>与之前收到的TCP连接释放报文段中的确认号ack值匹配</strong></p>
+<p>​                <strong>确认号ack字段</strong>：值为u+1，这是<strong>对TCP连接释放报文段的确认</strong>，也就是为<strong>发送方连接释放报文中的seq的值+1</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20210206104044261.png" alt="img" loading="lazy"></p>
+<p>​        在进行第二次挥手后，会产生以下过程：</p>
+<p>​                TCP服务器进程<strong>通知高层应用进程，TCP客户进程要断开与自己的TCP连接</strong>，此时的TCP连接进入<strong>半关闭状态</strong>。</p>
+<p>​                所谓<strong>半关闭状态</strong>可以认为，此时<strong>客户端与服务器的连接不再传输数据</strong>，也就是客户端没有数据在发生。而此时<strong>服务器若有剩余数据要发送会继续发送</strong>。客户端到服务器这一信道关闭了，而服务器到客户端这一半没有关闭，因此称为<strong>半关闭状态</strong>。</p>
+<p>​                这个半关闭状态可能会<strong>持续一段时间</strong>，直到发送方没有数据进行发送。</p>
+<p>在以上等待过程中，<strong>客户端会进入终止等待2状态</strong></p>
+<ol start="3">
+<li><strong>第三次挥手</strong></li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/2021020610480896.png" alt="img" loading="lazy"></p>
+<p>​        此时TCP服务器进程会<strong>发送TCP连接释放报文段</strong>并进入<strong>最后确认状态</strong>。</p>
+<p>​        在该报文段中有以下关键数据段：</p>
+<p>​                <strong>终止位FIN和确认位ACK</strong>：值都被设置为1，表明这是一个<strong>TCP连接释放报文段</strong>，同时也<strong>对之前收到的报文段进行确认</strong></p>
+<p>​                <strong>序号seq</strong>：值为w，因为在半关闭状态下，TCP服务器进程可能又发送一段数据，因此w就是该段数据<strong>最后的序号</strong></p>
+<p>​                <strong>确认号ack</strong>：值为u+1，这是对之前收到的<strong>TCP连接释放报文段的重复确认</strong>，因此值与发送方<strong>第一次挥手发送的seq值+1</strong></p>
+<ol start="4">
+<li>TCP客户进程收到TCP连接释放报文段后开始<strong>第四次挥手</strong>：</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20210206105234687.png" alt="img" loading="lazy"></p>
+<p>​        此时针对第三次挥手的报文段发送<strong>普通的TCP确认报文段</strong>，之后进入<strong>时间等待状态</strong>。</p>
+<p>​        该报文段首部中有以下关键数据位：</p>
+<p>​                <strong>确认位ACK</strong>：值被设置为1，表明这是一个<strong>普通的TCP确认报文段</strong>。</p>
+<p>​                <strong>序号seq字段</strong>：值设置为u+1，用来表示最后一个发送的字节序号，但是<strong>为何没有发送数据，而此时值要设置为u+1</strong>（对比第一次挥手数据）？，因为TCP客户进程之前发送的<strong>TCP连接释放报文段(带有FIN)虽然不携带数据，但要消耗掉一个序号</strong>。</p>
+<p>​                <strong>确认号ack</strong>：值设置为w+1，这是对所收到的TCP连接释放报文段的确认</p>
+<p>此时，<strong>TCP服务器进程收到该报文段后就进入关闭状态</strong>，而<strong>TCP客户进程还要经过2MSL后才能进入关闭状态：</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20210206105827639.png" alt="img" loading="lazy"></p>
+<p>​        MSL具体的值可以根据TCP协议的不同实现进行设置。</p>
+<p>此时就会出现一个问题：</p>
+<ul>
+<li><strong>为什么不发送报文段后直接关闭，而是要等待2MSL个时间后才关闭？</strong>，<strong>是否有必要？</strong></li>
+</ul>
+<p>答案是<strong>有必要</strong>。</p>
+<p>考虑以下情况：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210206110230216.png" alt="img" loading="lazy"></p>
+<p>若客户端发送完最后一次报文后，也就是第四次挥手后就直接进入关闭状态，此时若<strong>第四次挥手报文丢失，会导致服务器的超时重传</strong>。</p>
+<p>此时客户端又已经关闭，导致不接受该报文，因此服务器会一直不断重传，并<strong>一直处于最后确认状态无法进入关闭状态</strong>。</p>
+<p>因此，有以下结论：</p>
+<p>客户端进入时间<strong>等待状态</strong>以及处于该状态<strong>2MSL时长</strong>，可以<strong>确保TCP服务器进程可以收到最后一个TCP确认报文段而进入关闭状态</strong>。</p>
+<p>TCP客户进程在发送完最后一个TCP确认报文段后，<strong>在经过2MSL时长，就可以使本次连接持续时间内所产生的所有报文段都从网络中消失</strong>，这样就可以使<strong>下一个新的TCP连接中，不会出现旧连接中的报文段</strong>。</p>
+<p>若出现这样一种情况：</p>
+<p>TCP双方已经建立了连接，但是传输过程中<strong>TCP客户进程所在的主机出现了故障</strong>，此时<strong>TCP服务器进程以后就不能再收到TCP客户进程发来的数据</strong>，这时服务器进程会一直处于等待状态。</p>
+<p>为了使TCP服务器进程不要再白白等待下去出现了TCP保活计时器：</p>
+<p><strong>TCP保活计时器</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20210206110921258.png" alt="img" loading="lazy"></p>
+<h2 id="TCP报文的首部格式："><a href="#TCP报文的首部格式：" class="headerlink" title="TCP报文的首部格式："></a>TCP报文的首部格式：</h2><ul>
+<li>为了实现可靠传输，TCP采用了<strong>面向字节流</strong>的方式。</li>
+<li>在发送数据时，从发送缓存中<strong>取出一部分或者全部字节</strong>，并给其<strong>添加一个首部</strong>使之称为TCP报文段。</li>
+<li>一个TCP报文段由<strong>首部</strong>和<strong>数据载荷</strong>两部分构成</li>
+<li>TCP的全部功能都体现在它首部中各字段的作用</li>
+</ul>
+<p>TCP首部和IP地址的首部类似，都由<strong>固定部分和扩展部分构成</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20210206111530978.png" alt="img" loading="lazy"></p>
+<p>例如：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210206111705535.png" alt="img" loading="lazy"></p>
+<p>在其发送的首部中就会有地址号和目的端口号，关于域名访问过程的详细可以看：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Nimrod__/article/details/113666367">域名访问简单过程解析</a></p>
+<p><strong>序号、确认号、ACK字段：</strong><br><img src="https://img-blog.csdnimg.cn/20210206112000569.png" alt="序号" loading="lazy"></p>
+<blockquote>
+<p>图中例子序号为166，就是从166开始。</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20210206112111207.png" alt="确认号" loading="lazy"></p>
+<blockquote>
+<p>也就是四次挥手中的seq</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20210206112144726.png" alt="ACK" loading="lazy"></p>
+<p>以上三个字段的使用例子：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210206112234844.png" alt="三个字段例子" loading="lazy"></p>
+<p><strong>数据偏移字段：</strong><img src="https://img-blog.csdnimg.cn/2021020611235494.png" alt="img" loading="lazy"><br>例如：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210206112504633.png" alt="数据偏移例子" loading="lazy"></p>
+<blockquote>
+<p>其<strong>数据偏移二进制数的十进制表示 * 4 &#x3D; 首部长度</strong></p>
+</blockquote>
+<p>保留、窗口、校验和字段：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210206112718623.png" alt="保留、窗口" loading="lazy"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210206112729844.png" alt="校验和" loading="lazy"></p>
+<p><strong>与连接管理相关的字段：</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20210206112822979.png" alt="同步标志位" loading="lazy"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210206112841284.png" alt="img" loading="lazy"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210206112906122.png" alt="img" loading="lazy"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210206112926575.png" alt="img" loading="lazy"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210206113010144.png" alt="img" loading="lazy"></p>
+<p><strong>选项和填充字段：</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20210206113129998.png" alt="img" loading="lazy"></p>
+<h2 id="TCP的流量控制"><a href="#TCP的流量控制" class="headerlink" title="TCP的流量控制"></a>TCP的流量控制</h2><ul>
+<li><p>对于数据传输中，我们希望传输的越快越好，但是若<strong>传输过快会导致接收方不够时间接收数据</strong>，造成数据丢失。</p>
+</li>
+<li><p><strong>流量控制</strong>就是为了让发送方速率不要太快，要让接收方来的及接收。</p>
+</li>
+<li><p>利用<strong>滑动窗口机制</strong>可以很方便的在TCP连接数实现对发送方的流量控制</p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20210205110201196.png" alt="img" loading="lazy"></p>
+<p>exp：</p>
+<p>A与B建立连接,建立完后约定好一个数据传输窗口，例如400，此后，双方传输数据就会以此约束的窗口大小进行。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210205111208400.png" alt="img" loading="lazy"></p>
+<blockquote>
+<p>A主机根据窗口长度，向B主机分三次发送了300子节的数据，但是201-300子节数据报<strong>丢失</strong>，此时发送方还不知道丢失，只知道传输了300子节，还能传输100子节。</p>
+<p>此时接收方根据收到的数据，进行累计确认，发送确认信号，此信号的参数含义为：</p>
+<p><strong>ACK &#x3D; 1</strong>:这是一个TCP确认字段<br><strong>ack &#x3D; 201</strong> :201编号以前的数据全部确认收到<br><strong>rwnd &#x3D; 300</strong> : 将接收窗口大小调整为300<br><strong>（这是第一次流量控制）</strong></p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20210205111708336.png" alt="img" loading="lazy"></p>
+<blockquote>
+<p>在A收到确认ACK报文后，根据报文内容，将<strong>窗口进行滑动</strong>，此时由于前200子节<strong>已确认</strong>，<strong>因此将其从缓存中删除</strong>。同时根据报文内容的窗口调整调整为300大小。</p>
+<p>然后继续发送数据，直到无法发送窗口已满。</p>
+<p>此时由于201-300分组丢失超过重传计数器设置时间，对开始重传201-300分组。</p>
+<p>接收方在收到501号所有分组后，发送新的ACK确认报文，报文中将窗口设置为100大小。<br><strong>（这是第二次流量控制）</strong></p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20210205112138766.png" alt="img" loading="lazy"></p>
+<blockquote>
+<p>在接收方接收到ACK报文后，对前500子节数据在缓存中删除，并将窗口调整为100，然后调整滑动窗口位置，开始新的传输。</p>
+<p>传输窗口数据后不再传输数据。等待ACK确认信号。</p>
+<p>此时接收方接收到数据后再次发送ACK报文，将窗口大小设置为0。</p>
+<p><strong>(这是第三次流量控制)</strong></p>
+</blockquote>
+<p>此时由于窗口为零，不再发送数据。此时请考虑一种情况：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210205112503516.png" alt="img" loading="lazy"></p>
+<p>​        在缓存不足，接收方窗口调整为0后，过了一段时间便有了新的空间，此时发送一个新的调整窗口报文，但是此时<strong>报文传输丢失</strong>！无法到达发送方。此时就会出现发送方等待接收方有缓存空间，接收方等待发送方发送数据的<strong>死锁情况</strong>。</p>
+<p>​        为了解决这个问题，TCP为每一个连接设有一个持续计时器</p>
+<p><img src="https://img-blog.csdnimg.cn/20210205112832621.png" alt="img" loading="lazy"></p>
+<p>​        在连接的一方接收到对方的零窗口通知后一段时间后，超时计时器到时，就会发送一个1子节的零窗口发送报文，在<strong>接收方接收到该信号后，就会通告自己的窗口大小</strong>。当知道窗口可以传输数据后，就会开始通信。</p>
+<ul>
+<li>上图如果零窗口探测报文在发送过程中如果丢失，还是能打破死锁局面</li>
+<li>因为零窗口探测报文段也有重传计时器，重传计时器超时后，零窗口探测报文段会被重传</li>
+</ul>
+<p><strong>值得注意的是：</strong></p>
+<blockquote>
+<p>TCP中规定不论接收方有没有空间，都必须接收发送方的3种报文：<br><strong>零窗口检测报文段、确认报文段、携带有紧急数据的报文段。</strong></p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20210205113205458.png" alt="img" loading="lazy"></p>
+<h2 id="TCP拥塞控制"><a href="#TCP拥塞控制" class="headerlink" title="TCP拥塞控制"></a>TCP拥塞控制</h2><ul>
+<li><p><strong>拥塞</strong>指的是<strong>某段时间内</strong>，若对网络中的<strong>某一资源的需求超过了该资源所能提供的可用部分</strong>，网络性能就要变坏。</p>
+</li>
+<li><p>在计算机网络种的资源包括链路容量（带宽）、交换节点种的缓存和处理机等。</p>
+</li>
+<li><p>若出现<strong>拥塞而不进行控制</strong>，整个网络的<strong>吞吐量将随输入负荷的增大而下降</strong>。</p>
+</li>
+<li><p>可以将拥塞形象的理解为<strong>堵车</strong></p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20210205170452296.png" alt="img" loading="lazy"></p>
+<p>绿色指的是<strong>理想情况</strong>下不发生拥塞的情况，此时吞吐量与输入负载相等。当网络资源数被全部利用时，吞吐量不再增长。</p>
+<p>红色线指的是出现<strong>拥塞不进行处理</strong>，会导致吞吐量下降，知道吞吐量为零，产生死锁现象。</p>
+<p>蓝色线是<strong>实际的拥塞控制</strong>，在出现拥塞后采用拥塞控制措施，使吞吐量保持在一定水平。</p>
+<p><strong>拥塞控制的4种算法</strong>：</p>
+<p>为了介绍四种拥塞控制算法的基本原理，假定以下条件：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210205171237333.png" alt="img" loading="lazy">先了解<strong>拥塞算法中的基本思路</strong>：</p>
+<ol>
+<li>发送方<strong>维护</strong>一个叫做<strong>拥塞窗口cwnd</strong>的状态变量，其<strong>值取决于网络的拥塞程度</strong>，并且<strong>动态表换</strong></li>
+</ol>
+<blockquote>
+<p><strong>拥塞窗口的维护原则</strong>：只要<strong>没有网络出现拥塞，拥塞窗口就再增大一些</strong>，只要<strong>网络出现拥塞，拥塞窗口就减少一些。</strong><br><strong>判断网络拥塞的依据</strong>：没有按时收到应到达的确认报文（<strong>发生超时重传</strong>）</p>
+</blockquote>
+<ol start="2">
+<li><p>发送方将拥塞窗口作为发送窗口swnd，即：<strong>swnd &#x3D; cwnd</strong></p>
+</li>
+<li><p>维护一个<strong>慢开始门限ssthresh</strong>状态便变量，其维护原则为:</p>
+</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20210205172001338.png" alt="img" loading="lazy"></p>
+<h3 id="慢开始算法"><a href="#慢开始算法" class="headerlink" title="慢开始算法"></a>慢开始算法</h3><ul>
+<li><p>慢开始算法是用来<strong>确定网络的负载能力或拥塞程度</strong>。</p>
+</li>
+<li><p>算法是实现是<strong>由小到大逐渐增大（以倍数增长）拥塞窗口数值</strong>。</p>
+<p>以一次数据报文传输过程学习慢开始算法：</p>
+<p>​    慢开始指的是一开始网络注入的报文段少，并不是指拥塞窗口cwnd的增长速度慢。</p>
+</li>
+</ul>
+<p>为了更清楚显示出拥塞控制过程，建立以下坐标系：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210205172339397.png" alt="坐标系" loading="lazy"></p>
+<blockquote>
+<p>横坐标为<strong>传输轮次</strong>，也就是<strong>完整发送一个拥塞窗口数据并且收到确认报文的时间</strong>（可以理解为往返时间）。<br>纵坐标为<strong>拥塞窗口</strong>，并且根据不同情况会设置一个慢开始门限。</p>
+</blockquote>
+<p>&#x3D;&#x3D;进行第一轮数据通信&#x3D;&#x3D;：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210205172551372.png" alt="img" loading="lazy"></p>
+<p>​        <strong>进行第一轮数据通信时前</strong>，发送方会将<strong>初始拥塞窗口设为1</strong>，并且设置一个ssthresh（慢开始传送位），然后开始传送数据，在<strong>收到确认报文后</strong>：将<strong>拥塞窗口设置为原来的两倍</strong>。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210205172719478.png" alt="img" loading="lazy"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210205172918575.png" alt="座标系情况1" loading="lazy"></p>
+<p>进行第二次数据通信：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210205172951388.png" alt="img" loading="lazy"></p>
+<p>第二次发送顺利进行，成功接收到确认报文后，将<strong>拥塞窗口增大到4.</strong></p>
+<p>进行第三轮数据通信：</p>
+<p>第三次发送顺利进行，成功接收到确认报文后，将<strong>拥塞窗口增大到8.</strong></p>
+<p>进行第四轮数据通信：</p>
+<p>第四次发送顺利进行，成功接收到确认报文后，将<strong>拥塞窗口增大到16.</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20210205173731557.png" alt="img" loading="lazy"></p>
+<p>此时可以看出，<strong>拥塞窗口已达到慢开始门限SSTHRESH,<strong>此时，</strong>慢开始算法使用阶段结束</strong>，<strong>开始拥塞避免算法阶段</strong>。</p>
+<h3 id="拥塞避免算法"><a href="#拥塞避免算法" class="headerlink" title="拥塞避免算法"></a>拥塞避免算法</h3><ul>
+<li><p>拥塞避免算法让<strong>拥塞窗口 cwnd 缓慢地增大（每伦窗口大小+1）</strong>，避免出现拥塞。</p>
+</li>
+<li><p>在拥塞避免阶段，具有 <strong>“加法增大” (Additive Increase)</strong> 的特点</p>
+</li>
+<li><p>拥塞避免算法并不能完全避免拥塞，只是在拥塞避免阶段将容易拥护的窗口控制为按线性规律增长，是网络比较不容易出现拥塞</p>
+</li>
+</ul>
+<p><strong>接上面的例子：</strong></p>
+<p>进行第五轮传输：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210205173921444.png" alt="第六轮传输" loading="lazy"></p>
+<p>此时不再使用慢开始算法，<strong>采用拥塞避免算法，每个轮次只给拥塞窗口+1.</strong></p>
+<p>第六轮传输：</p>
+<p>传输成功后，给拥塞窗口+1</p>
+<p>循环重复此传输过程，若出现以下情况：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210205174329240.png" alt="重传计时器超时" loading="lazy"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210205174329240.png" alt="重传计时器超时" loading="lazy"></p>
+<blockquote>
+<p>出现重传计时器超时后，判断网络很可能出现了拥塞，进行以下工作：</p>
+<ol>
+<li><strong>将ssthresh值更新为拥塞时cwnd值的一半</strong></li>
+<li><strong>将cwnd值减少为1，重新开始直行慢开始算法</strong></li>
+</ol>
+</blockquote>
+<p>对于以上两个算法的完整示意图：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210205174838531.png" alt="两个算法的完整示意图" loading="lazy"></p>
+<p><strong>有一种情况：</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20210205174947201.png" alt="img" loading="lazy"></p>
+<p>因此提出了<strong>快重传算法和快恢复算法。</strong></p>
+<h3 id="快重传算法"><a href="#快重传算法" class="headerlink" title="快重传算法"></a>快重传算法</h3><p>快重传算法三个原则：</p>
+<ol>
+<li>要求接收方不要等等自己发送数据时才进行捎带确认，而是要<strong>立即发送确认</strong>。</li>
+<li>即使<strong>收到了失序的报文段</strong>也要<strong>立即发出对已收到的报文段的重复确认</strong></li>
+<li>发送方一旦<strong>收到了3个连续的重复确认</strong>，就立即将相应的报文段<strong>立即重传</strong>，不用等到超时计时器超时后再重传。</li>
+</ol>
+<hr>
+<ul>
+<li>快重传指的是在出现分组错误后，发送方尽快重传数据，而不是等待超时计时器超时再重传。</li>
+<li>对于个别丢失的报文段，<strong>发送方不会出现超时重传，也就不会误认为出现了拥塞（这会使拥塞窗口设置为1）</strong>，该算法可以使整个网络吞吐量提高约20％。</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20210205175746820.png" alt="快重传算法" loading="lazy"></p>
+<p>​        在快重传算法中，发送方会在接收到确认分组前就发送下一个分组（前提是在拥塞窗口大小内），对于丢失的分组，会在收到3个分组后发送3个重复确认丢失分组序号。接收方收到3个重复分组序号后便开始重传，而不是等待超时计时器到时。这样子也不会误以为出现了拥塞。</p>
+<h3 id="快恢复算法"><a href="#快恢复算法" class="headerlink" title="快恢复算法"></a>快恢复算法</h3><ul>
+<li><p>发送方在收到3个重复确认后，就知道现在只是丢失了个别的报文段。于是不开始启动慢开始算法，转而执行<strong>快恢复算法</strong>。</p>
+</li>
+<li><p>快恢复算法是发送方<strong>将慢开始门限ssthresh值和拥塞窗口cwnd值调整为当前窗口的一半，并开始直星拥塞避免算法。</strong></p>
+</li>
+<li><p>有部分快恢复实现是把快回复开始时的拥塞窗口swnd值再增大一些，即等于SSTHRESH + 3，理由如下：</p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20210205180512399.png" alt="img" loading="lazy"></p>
+<p>&#x3D;&#x3D;四个算法再传输过程中的使用顺序图&#x3D;&#x3D;：</p>
+<p><img src="https://img-blog.csdnimg.cn/2021020518062065.png" alt="img" loading="lazy"></p>
+<p>​        一开始使用<strong>慢开始算法</strong>，<strong>拥塞窗口开始指数规律增大</strong>到设定的ssthres值后执行拥塞避免算法。</p>
+<p>​        <strong>拥塞避免算法将拥塞窗口以1为单位线性增大</strong>，直到出现分组丢失，重传计时器时间到后，cwnd设置为1，ssthresh值设置为发生拥塞的窗口值大小一半，并<strong>重新开始执行慢开始算法</strong>。</p>
+<p>​        <strong>拥塞避免算法将拥塞窗口以1为单位线性增大</strong>，直到出现分组丢失，重传计时器时间到后，cwnd设置为1，ssthresh值设置为发生拥塞的窗口值大小一半，并<strong>重新开始执行慢开始算法</strong>。</p>
+<h2 id="TCP超时重传时间的选择"><a href="#TCP超时重传时间的选择" class="headerlink" title="TCP超时重传时间的选择"></a>TCP超时重传时间的选择</h2><ul>
+<li>TCP超时重传时间的选择是TCP最复杂的问题之一</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20210205215212339.png" alt="RTTO过短" loading="lazy"></p>
+<p>若RTTO超时重传时间过短会导致不必要的重传，使网络负荷增大。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210205215437559.png" alt="RTO过长" loading="lazy"></p>
+<p>RTO过长会导致网络的空闲时间增大，降低了传输效率。</p>
+<p><img src="https://img-blog.csdnimg.cn/2021020521561044.png" alt="RTT的适合时间" loading="lazy"></p>
+<p>​        因此，**RTTO的设置应该略大于RTT,**但是此时又会出现一个问题，由于网络传输环境的不同，导致接下来的RTT是不确定的，如此应该如何去去认定RTO？</p>
+<ul>
+<li>因此不能直接用某次测量得到的RTT样本值来计算超时重传时间RTO</li>
+<li>要利用每次的量得到的RTT样本，计算加权平均往返时间RTTs（又称为平滑的往返时间）</li>
+</ul>
+<p>关于RTTs的计算：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210205215919856.png" alt="RTTs的计算" loading="lazy"></p>
+<p>在RFC6298建议使用下式计算超时重传时间RTO:</p>
+<p><img src="https://img-blog.csdnimg.cn/20210205220003983.png" alt="img" loading="lazy"></p>
+<p>​        由于超时重传机制的存在，有时接收到确认报文不能确定其是首次发送的确认报文还是重传后的确认报文，因此往返时间RTT的测量也是比较复杂：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210205220126650.png" alt="img" loading="lazy"></p>
+<p>针对以上问题，有以下解决方式：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210205220207182.png" alt="img" loading="lazy"></p>
+<p>下面我们看一个计算RTO的例子：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210205220305521.png" alt="计算RTO例子" loading="lazy"></p>
+<p>关于RTO的小结如下：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210205220338455.png" alt="RTO小结" loading="lazy"></p>
+<h2 id="TCP可靠传输的实现"><a href="#TCP可靠传输的实现" class="headerlink" title="TCP可靠传输的实现"></a>TCP可靠传输的实现</h2><ul>
+<li>TCP基于<strong>以子节为单位的滑动窗口</strong>来实现可靠传输</li>
+</ul>
+<p>例如：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210205222040265.png" alt="img" loading="lazy"></p>
+<p>在要传递的字节流中，可以大致分为几个区域：</p>
+<p>​        发送窗口后数据（图中的左边）：这些数据已经成功发送出去并且已经收到确认信号，因此这部分数据可以从缓存中删除</p>
+<p>​        发送窗口中数据（图中的蓝色部分）：这部分数据正处于发送窗口中，此时数据有两种情况，已发送正在等待确认或者未发送出去，对于<strong>已发送的数据要存在发送缓存</strong>中。</p>
+<p>​        发送窗口前数据（图中的右半部分）：这部分数据不允许发送。</p>
+<p>根据发送的具体情况，<strong>发送窗口的后延移动情况有两种</strong>:</p>
+<ul>
+<li><strong>不动</strong>：没有收到新的确认信息。</li>
+<li><strong>前移</strong>：收到了新的确认信息。</li>
+</ul>
+<p>根据发送的具体情况,前，<strong>发送窗口的前延移动情况有三种</strong>：</p>
+<ul>
+<li><strong>不间断向前移动</strong>：收到了新的确认分组</li>
+<li><strong>不动</strong>：没有收到新的确认分组并且对方的通知窗口信号大小不变；收到新的确认但对方通知的端口缩小个数等于后延移动的位数，使得发送窗口前沿正好不动。</li>
+<li><strong>向后收缩</strong>：对方通知的窗口缩小了，但是这种情况容易造成错误，是TCP协议不愿看到的情况</li>
+</ul>
+<p>由于发送窗口中的字节可能是<strong>已经发送的或者未发送的</strong>，就出现了一个问题，我们应该<strong>如何描述发送窗口中数据的状态</strong>？</p>
+<p><img src="https://img-blog.csdnimg.cn/20210205223228998.png" alt="img" loading="lazy"></p>
+<p>可以<strong>采用三个指针来定位不同状态区域</strong></p>
+<p>在接收方中也有跟发送方相同的字节序列情况：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210205223433830.png" alt="img" loading="lazy"></p>
+<p>其字节序列也可以分为三个部分，跟发送方一致</p>
+<p><img src="https://img-blog.csdnimg.cn/2021020522354113.png" alt="接受方收到未按序到达的数据" loading="lazy"></p>
+<p>​        若接收方收到未按序到达的数据，如本例收到32-33编号字节数据，由于TCP的确认方式是<strong>只能发送按序收到的最高序号确认</strong>，因此<strong>发送一个ack &#x3D; 31的确认信号</strong>，也就是表示现在需要发送31号数据。</p>
+<p>​        发送方收到ack &#x3D; 31报文后，知道31号数据未按序到达，但是根据上面所学的知识，只有<strong>第3次接收到同一个ack信号才会进行重传</strong>，此时<strong>不做处理，继续发送往下的数据</strong>。<br><img src="https://img-blog.csdnimg.cn/20210205224016267.png" alt="img" loading="lazy"></p>
+<p>​        此时若成功接收到31号数据，此时31-33号数据按序到达，此时接收方会<strong>择机将数据交给应用层，并且将窗口向后滑动3字节，同时发送确认报文</strong>。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210205224238102.png" alt="img" loading="lazy"></p>
+<p>​        在接收方发送的确认报文被发送方收到后，<strong>会将发送窗口向后滑动若干字节（此处为3字节）</strong>。<strong>发送方此时会将31.32.33字节数据从缓存中删除</strong>。<br>​        此时若发送方<strong>又发送了3个未按序到达的数据</strong>。此时接收方接受数据后不做处理。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210205224631661.png" alt="img" loading="lazy"></p>
+<p>​        若发送方发送完全部的发送窗口数据，此时不能再发送数据。<br>​        此时若迟迟等不到接收方确认信号，<strong>重传计时器超时，此时会重新发送发送窗口内已发送的数据，并重启重传计时器。</strong></p>
+<p><strong>关于可靠传输实现的注意事项：</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/2021020522514810.png" alt="img" loading="lazy"></p>
+<h1 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h1><h1 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h1><h1 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h1></div></section><div id="reward-container"><span class="hty-icon-button button-glow" id="reward-button" title="打赏" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === &quot;none&quot;) ? &quot;block&quot; : &quot;none&quot;;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-hand-coin-line"></use></svg></span><div id="reward-comment">I'm so cute. Please give me money.</div></div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>车同学和他的毛毛</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="https://nbwyctf.github.io/2022/03/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%85%A5%E9%97%A8/" title="计算机网络入门">https://nbwyctf.github.io/2022/03/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%85%A5%E9%97%A8/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> 许可协议。</li></ul></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2022/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="prev" title="计算机操作系统"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">计算机操作系统</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2022/03/14/Vue/" rel="next" title="Vue"><span class="post-nav-text">Vue</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div class="hty-card" id="comment"></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2019 – 2022 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> 车同学和他的毛毛</span></div><div class="powered"><span>由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v6.0.0</span><span class="footer-separator">|</span><span>主题 - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.8.10</span></div></footer><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a></div></body></html>
